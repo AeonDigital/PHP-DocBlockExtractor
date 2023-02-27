@@ -1,0 +1,43 @@
+#
+# Configuração de EOL para arquivos de texto
+# use os comandos abaixo para forçar a normalização dos documentos
+# em seu repositório local. Primeiro, faça o commit/push de todas
+# alterações não feitas
+#
+# Configura seu git globalmente; se preferir pode executar apenas localmente
+# > git config core.autocrlf false
+# > git rm --cached -r .
+# > git reset --hard
+#
+# > git add .
+# > git commit -m "EOL -> 'LF'"
+#
+# Em 'settings.json' do seu VSCode configure a seguinte propriedade:
+# "files.eol": "\n"
+* text=auto eol=lf
+
+
+
+
+
+#
+# Diretórios e arquivos que não são essenciais para rodar o projeto
+# e podem ser ignorados em uma instalação em produção.
+/.vscode export-ignore
+/container-config export-ignore
+/docs export-ignore
+/make export-ignore
+/Shell-Make export-ignore
+/tests export-ignore
+
+/.gitattributes export-ignore
+/.gitignore export-ignore
+/.gitmodules export-ignore
+
+/CONTRIBUTORS export-ignore
+/DEV.md export-ignore
+/TODO.md export-ignore
+
+/docker-compose.yaml export-ignore
+/Makefile export-ignore
+/README.md export-ignore

@@ -1,0 +1,26 @@
+{
+  "name": "aeondigital/phpdocblockextractor",
+  "description": "Extrai a documentação DocBlock do seu projeto.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Rianna Cantarelli",
+      "email": "rianna.aeon@gmail.com",
+      "homepage": "http://aeondigital.com.br",
+      "role": "developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=8.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  }
+}

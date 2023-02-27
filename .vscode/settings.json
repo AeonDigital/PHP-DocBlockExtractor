@@ -1,0 +1,43 @@
+{
+    "diffEditor.ignoreTrimWhitespace": false,
+    "files.eol": "\n",
+    "files.trimTrailingWhitespace": true,
+    "editor.bracketPairColorization.enabled": false,
+    "editor.codeActionsOnSave": {},
+    "editor.formatOnSave": true,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 120,
+    "editor.wrappingIndent": "same",
+    "html.autoClosingTags": true,
+    "html.completion.attributeDefaultValue": "doublequotes",
+    "html.format.indentInnerHtml": true,
+    "html.format.contentUnformatted": "pre,code,textarea",
+    "html.format.extraLiners": "head, body, /html",
+    "html.format.indentHandlebars": false,
+    "html.format.maxPreserveNewLines": null,
+    "html.format.preserveNewLines": true,
+    "html.format.wrapLineLength": 120,
+    "html.format.wrapAttributes": "auto",
+    "zenMode.fullScreen": false,
+    "[html]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.detectIndentation": true,
+    },
+    "[php]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.detectIndentation": true
+    },
+    "[markdown]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.detectIndentation": true,
+        "files.trimTrailingWhitespace": false
+    },
+    "[sql]": {
+        "editor.formatOnSave": false,
+        "editor.tabSize": 2,
+        "editor.detectIndentation": true,
+    }
+}
