@@ -17,8 +17,8 @@
         <testsuite name="default">
             <file>src/Parser/DocBlockTests.php</file>
 
-            <!--file>src/RealTypeTests.php</file>
-            <file>src/ScalarTests.php</file>
+            <file>src/ObjectDocumentationTests.php</file>
+            <!--file>src/ScalarTests.php</file>
             <file>src/ConvertTests.php</file-->
         </testsuite>
     </testsuites>

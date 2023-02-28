@@ -6,59 +6,64 @@ namespace AeonDigital\DocBlockExtractor;
 
 use AeonDigital\DocBlockExtractor\Exceptions\FileNotFoundException as FileNotFoundException;
 use AeonDigital\DocBlockExtractor\Enums\ElementType as ElementType;
-
+use AeonDigital\DocBlockExtractor\Parser\DocBlock as DocBlock;
 
 
 
 
 
 /**
- * Informações básicas extraidas da análise dos objetos mapeados
+ * Classe que agrupa informações de documentação de um objeto.
+ *
+ * @package     AeonDigital\DocBlockExtractor
+ * @author      Rianna Cantarelli <rianna@aeondigital.com.br>
+ * @copyright   2023, Rianna Cantarelli
+ * @license     MIT
  */
-class DataObject
+class ObjectDocumentation
 {
 
 
 
-    /** @var string $pathToFile */
-    private string $pathToFile = "";
+    /** @var string $fileName */
+    private string $fileName = "";
     /**
      * Retorna o caminho completo até o arquivo onde este objeto.
      * está declarado.
      */
-    public function getPathToFile(): string
+    public function getFileName(): string
     {
-        return $this->pathToFile;
+        return $this->fileName;
     }
 
-    /** @var string $namespace */
-    private string $namespace;
+    /** @var string $namespaceName */
+    private string $namespaceName;
     /**
-     * Retorna o namespace do objeto.
+     * Retorna o nome da namespace do objeto.
      */
-    public function getNamespace(): string
+    public function getNamespaceName(): string
     {
-        return $this->namespace;
+        return $this->namespaceName;
     }
 
-    /** @var string $fqn */
-    private string $fqn;
+    /** @var string $fqsen */
+    private string $fqsen;
     /**
-     * Retorna o ``Fully Qualified Name`` do objeto.
+     * Retorna o ``Fully Qualified Structural Element Name`` do objeto.
      */
-    public function getFQN(): string
+    public function getFQSEN(): string
     {
-        return $this->fqn;
+        return $this->fqsen;
     }
 
-    /** @var string $name */
-    private string $name;
+    /** @var string $shortName */
+    private string $shortName;
     /**
-     * Retorna o name do objeto.
+     * Retorna o nome curto do objeto.
      */
-    public function getName(): string
+    public function getShortName(): string
     {
-        return $this->name;
+        return $this->shortName;
     }
 
     /** @var ElementType $type */
@@ -76,43 +81,53 @@ class DataObject
 
 
     /**
-     * Inicia um novo objeto ``ClassMapData``
+     * Inicia um novo objeto ``ObjectDocumentation``
      *
-     * @param string $pathToFile
-     * @param string $fqn
+     * @param string $fileName
+     * Caminho completo até o arquivo que descreve este objeto.
+     *
+     * @param string $fqsen
+     * Nome completo do objeto.
+     * ``Fully Qualified Structural Element Name``
+     *
      * @param ElementType $type
+     * Tipo do objeto.
      *
      * @throws FileNotFoundException
      */
     function __construct(
-        string $pathToFile,
-        string $fqn,
+        string $fileName,
+        string $fqsen,
         ElementType $type
     ) {
-        if (is_file($pathToFile) === false) {
-            throw new FileNotFoundException();
+        if (is_file($fileName) === false) {
+            throw new FileNotFoundException("File not found. [ $fileName ]");
         }
 
-        $splitFQN = \explode("\\", $fqn);
+        $splitFQSEN = \explode("\\", $fqsen);
 
-        $this->pathToFile = $pathToFile;
-        $this->namespace = \implode("\\", \array_slice($splitFQN, 0, -1));
-        $this->fqn = $fqn;
-        $this->name = \end($splitFQN);
+        $this->fileName = $fileName;
+        $this->namespaceName = \implode("\\", \array_slice($splitFQSEN, 0, -1));
+        $this->fqsen = $fqsen;
+        $this->shortName = \end($splitFQSEN);
         $this->type = $type;
 
         if ($this->type === ElementType::UNKNOW) {
-            if (interface_exists($fqn) === true) {
+            if (interface_exists($fqsen) === true) {
                 $this->type = ElementType::INTERFACE;
-            } elseif (enum_exists($fqn) === true) {
+            } elseif (enum_exists($fqsen) === true) {
                 $this->type = ElementType::ENUM;
-            } elseif (trait_exists($fqn) === true) {
+            } elseif (trait_exists($fqsen) === true) {
                 $this->type = ElementType::TRAIT;
-            } elseif (class_exists($fqn) === true) {
+            } elseif (class_exists($fqsen) === true) {
                 $this->type = ElementType::CLASSE;
             }
         }
     }
+
+
+
+
 
 
 
@@ -127,23 +142,25 @@ class DataObject
     public function toArray(): array
     {
 
+        $objReflect = new \ReflectionClass($this->fqsen);
+        //var_dump(DocBlock::fullParseDocBlock($objReflect->getDocComment()));
         $r = [
-            "pathToFile"    => $this->pathToFile,
-            "namespace"     => $this->namespace,
-            "fqn"           => $this->fqn,
-            "name"          => $this->name,
-            "type"          => $this->type->value,
-
-            "docBlock"      => null,
+            "fileName"          => $this->fileName,
+            "namespaceName"     => $this->namespaceName,
+            "fqsen"             => $this->fqsen,
+            "shortName"         => $this->shortName,
+            "type"              => $this->type->value,
 
 
-            "interfaces"    => null,
-            "extends"       => null,
+            "docBlock"          => DocBlock::fullParseDocBlock($objReflect->getDocComment()),
 
-            "isAbstract"    => null,
-            "isFinal"       => null,
+            "interfaces"        => $objReflect->getInterfaceNames(),
+            "extends"           => $objReflect->getExtensionName(),
 
-            "constructor"       => null,
+            "isAbstract"        => $objReflect->isAbstract(),
+            "isFinal"           => $objReflect->isFinal(),
+
+            /*"constructor"       => null,
 
             "constants"         => [],
 
@@ -152,67 +169,49 @@ class DataObject
 
             "staticMethods"     => [],
             "abstractMethods"   => [],
-            "publicMethods"     => []
+            "publicMethods"     => []*/
         ];
 
 
-
-        if (
-            $this->type === ElementType::INTERFACE ||
-            $this->type === ElementType::ENUM ||
-            $this->type === ElementType::TRAIT ||
-            $this->type === ElementType::CLASSE
-        ) {
-            $objReflect = new \ReflectionClass($this->fqn);
+        if ($r["interfaces"] === []) {
+            $r["interfaces"] = null;
+        }
+        if ($r["extends"] === false) {
+            $r["extends"] = null;
+        }
 
 
-            $r["docBlock"] = (new DocBlock($objReflect->getDocComment()))->getRawDocBlockTags();
+        /*$publicConstants = $objReflect->getConstants(\ReflectionClassConstant::IS_PUBLIC);
+        $r["constants"] = $publicConstants;
 
-
-            $r["interfaces"] = $objReflect->getInterfaceNames();
-            if ($r["interfaces"] === []) {
-                $r["interfaces"] = null;
-            }
-            $r["extends"] = $objReflect->getExtensionName();
-            if ($r["extends"] === false) {
-                $r["extends"] = null;
-            }
-
-            $r["isAbstract"] = $objReflect->isAbstract();
-            $r["isFinal"] = $objReflect->isFinal();
-
-
-            $publicConstants = $objReflect->getConstants(\ReflectionClassConstant::IS_PUBLIC);
-            $r["constants"] = $publicConstants;
-
-            foreach ($objReflect->getProperties() as $prop) {
-                if ($prop->isPublic() === true) {
-                    if ($prop->isStatic() === true) {
-                        $r["staticProperties"][$prop->getName()] = $this->propertieToArray($prop);
-                    } else {
-                        $r["publicProperties"][$prop->getName()] = $this->propertieToArray($prop);
-                    }
-                }
-            }
-
-
-            foreach ($objReflect->getMethods() as $method) {
-                if ($method->isPublic() === true) {
-
-                    if ($method->isConstructor() === true) {
-                        $r["constructor"] = $this->methodToArray($method);
-                    } else {
-                        if ($method->isStatic() === true) {
-                            $r["staticMethods"][$method->getName()] = $this->methodToArray($method);
-                        } elseif ($method->isStatic() === true) {
-                            $r["abstractMethods"][$method->getName()] = $this->methodToArray($method);
-                        } else {
-                            $r["publicMethods"][$method->getName()] = $this->methodToArray($method);
-                        }
-                    }
+        foreach ($objReflect->getProperties() as $prop) {
+            if ($prop->isPublic() === true) {
+                if ($prop->isStatic() === true) {
+                    $r["staticProperties"][$prop->getName()] = $this->propertieToArray($prop);
+                } else {
+                    $r["publicProperties"][$prop->getName()] = $this->propertieToArray($prop);
                 }
             }
         }
+
+
+        foreach ($objReflect->getMethods() as $method) {
+            if ($method->isPublic() === true) {
+
+                if ($method->isConstructor() === true) {
+                    $r["constructor"] = $this->methodToArray($method);
+                } else {
+                    if ($method->isStatic() === true) {
+                        $r["staticMethods"][$method->getName()] = $this->methodToArray($method);
+                    } elseif ($method->isStatic() === true) {
+                        $r["abstractMethods"][$method->getName()] = $this->methodToArray($method);
+                    } else {
+                        $r["publicMethods"][$method->getName()] = $this->methodToArray($method);
+                    }
+                }
+            }
+        }*/
+
 
         return $r;
     }
@@ -227,7 +226,7 @@ class DataObject
      * Objeto de tipo original.
      *
      * @return string
-     */
+     *
     protected function typeToString(
         \ReflectionNamedType|\ReflectionUnionType|\ReflectionIntersectionType|null $objType
     ): string {
@@ -248,7 +247,7 @@ class DataObject
                 }
             } elseif ($objType instanceof \ReflectionIntersectionType) {
                 $i = [];
-                /** @var \ReflectionNamedType &type */
+                /** @var \ReflectionNamedType &type * /
                 foreach ($objType->getTypes() as $type) {
                     $i[] = $type->getName();
                 }
@@ -266,7 +265,7 @@ class DataObject
      * Resgata as informações para documentação da propriedade alvo.
      *
      * @return array
-     */
+     *
     protected function propertieToArray(\ReflectionProperty $prop): array
     {
         $dValue = null;
@@ -288,7 +287,7 @@ class DataObject
      * Resgata as informações para documentação do método alvo.
      *
      * @return array
-     */
+     *
     protected function methodToArray(\ReflectionMethod $method): array
     {
         $parameters = [];
@@ -319,11 +318,11 @@ class DataObject
      * Resgata as informações para documentação do parametro alvo.
      *
      * @return array
-     */
+     *
     protected function parameterToArray(\ReflectionParameter $par): array
     {
         $t = $this->typeToString($par->getType());
-        $isNullable = str_ends_with($t, "|null");
+        $isNullable = \str_ends_with((string)$t, "|null");
         if ($t === "mixed|null") {
             $t = "mixed";
         }
@@ -347,4 +346,5 @@ class DataObject
             "defaultValue" => $dValue
         ];
     }
+     */
 }

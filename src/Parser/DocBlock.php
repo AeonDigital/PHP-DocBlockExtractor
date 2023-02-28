@@ -72,6 +72,17 @@ class DocBlock
      * servem unicamente para sua marcação e retorna um array onde cada entrada
      * representa uma das linhas de dados encontrado.
      *
+     * Todas as linhas passarão por um processo ``trim`` eliminando espaços em branco
+     * no início e no fim. Se quiser alterar este comportamento para algum conteúdo use
+     * uma linha para demarcar o início de uma área em que tal conteúdo deva ser tratado
+     * tal qual foi digitado.
+     * Há 2 formas pelas quais você pode iniciar uma área assim:
+     * Na primeira, basta iniciar uma linha de documentação com 3 caracteres de traço (---)
+     * que, a partir da próxima, e até encontrar outra linha com outros 3 caracteres de traço
+     * todo o conteúdo será incirporado tal qual.
+     * Na segunda, inicie um bloco de códigos usando a mesma marcação Markdown. De seu início
+     * até seu fim toda informação será incorporada respeitando a identação feita.
+     *
      * @param string $rawDocBlock
      * String original do DocBlock que será analisado.
      *
@@ -84,21 +95,36 @@ class DocBlock
 
         if ($rawDocBlock !== "") {
             $rawDocBlockLines = \explode("\n", $rawDocBlock);
+            $trimLine = true;
 
             foreach ($rawDocBlockLines as $rawLine) {
-                $tRawLine = \trim(\str_replace("*/", "", $rawLine));
+                $tRawLine = \ltrim(\str_replace("*/", "", $rawLine));
 
-                if (\str_starts_with($tRawLine, "/**") === true) {
-                    $tRawLine = \trim(\substr($tRawLine, 3));
+                if (\str_starts_with($tRawLine, "/** ") === true) {
+                    $tRawLine = \substr($tRawLine, 4);
                     if ($tRawLine === "") {
                         $tRawLine = null;
                     }
+                } elseif (\str_starts_with($tRawLine, "/**") === true) {
+                    $tRawLine = \substr($tRawLine, 3);
+                    if ($tRawLine === "") {
+                        $tRawLine = null;
+                    }
+                } elseif (\str_starts_with($tRawLine, "* ") === true) {
+                    $tRawLine = \substr($tRawLine, 2);
                 } elseif (\str_starts_with($tRawLine, "*") === true) {
-                    $tRawLine = \trim(\substr($tRawLine, 1));
+                    $tRawLine = \substr($tRawLine, 1);
                 }
 
                 if ($tRawLine !== null) {
+                    if ($trimLine === true) {
+                        $tRawLine = \trim($tRawLine);
+                    }
                     $r[] = $tRawLine;
+
+                    if ($tRawLine === "---" || \str_starts_with($tRawLine, "```") === true) {
+                        $trimLine = !$trimLine;
+                    }
                 }
             }
 
@@ -120,18 +146,18 @@ class DocBlock
      * @return array
      * O array associativo terá a seguinte estrutura:
      * ```php
-     *  $arr = [
-     *      "summary" => [],
-     *      "description" => [],
-     *      "tags" => [
-     *          "tagName01" => [
-     *              [], [], []
-     *          ]
-     *          "tagName02" => [
-     *              [], []
-     *          ]
-     *      ],
-     *  ];
+     * $arr = [
+     *     "summary" => [],
+     *     "description" => [],
+     *     "tags" => [
+     *         "tagName01" => [
+     *             [], [], []
+     *         ]
+     *         "tagName02" => [
+     *             [], []
+     *         ]
+     *     ],
+     * ];
      * ```
      */
     public static function parseRawLineArrayToAssocArray(array $rawLineArray): array
@@ -244,5 +270,23 @@ class DocBlock
         }
 
         return [$paramName, self::parseRawLineArrayToAssocArray($parameterDocBlock)];
+    }
+
+
+
+    /**
+     * Processa completamente o bloco de documentação e retorna um array associativo
+     * contendo todos os dados obtidos.
+     *
+     * @param string $rawDocBlock
+     * String original do DocBlock que será analisado.
+     *
+     * @return string[]
+     */
+    public static function fullParseDocBlock(string $rawDocBlock): array
+    {
+        return self::parseRawLineArrayToAssocArray(
+            self::parseRawDocBlockToRawLineArray($rawDocBlock)
+        );
     }
 }
