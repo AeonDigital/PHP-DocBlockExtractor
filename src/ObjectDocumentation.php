@@ -112,6 +112,8 @@ class ObjectDocumentation
         $this->shortName = \end($splitFQSEN);
         $this->type = $type;
 
+
+
         if ($this->type === ElementType::UNKNOW) {
             if (interface_exists($fqsen) === true) {
                 $this->type = ElementType::INTERFACE;
@@ -129,10 +131,6 @@ class ObjectDocumentation
 
 
 
-
-
-
-
     /**
      * Retorna um array associativo representando o objeto e todos
      * seus membros que serão usados para criação da view de documentação.
@@ -141,50 +139,117 @@ class ObjectDocumentation
      */
     public function toArray(): array
     {
+        $r = [];
 
-        $objReflect = new \ReflectionClass($this->fqsen);
-        //var_dump(DocBlock::fullParseDocBlock($objReflect->getDocComment()));
-        $r = [
-            "fileName"          => $this->fileName,
-            "namespaceName"     => $this->namespaceName,
-            "fqsen"             => $this->fqsen,
-            "shortName"         => $this->shortName,
-            "type"              => $this->type->value,
+        $objReflection = null;
+        $arrUseProperties = [];
+        $refDocBlock = "";
 
 
-            "docBlock"          => DocBlock::fullParseDocBlock($objReflect->getDocComment()),
+        if ($this->type !== ElementType::UNKNOW) {
+            switch ($this->type) {
+                case ElementType::CONSTANT:
+                    $objReflection = new \ReflectionClassConstant($this->namespaceName, $this->shortName);
+                    break;
 
-            "interfaces"        => $objReflect->getInterfaceNames(),
-            "extends"           => $objReflect->getExtensionName(),
+                case ElementType::VARIABLE:
+                    break;
+                case ElementType::PROPERTIE:
+                    break;
 
-            "isAbstract"        => $objReflect->isAbstract(),
-            "isFinal"           => $objReflect->isFinal(),
+                case ElementType::FUNCTION:
+                    break;
+                case ElementType::METHOD:
+                    break;
 
-            /*"constructor"       => null,
+                case ElementType::INTERFACE:
+                    break;
+                case ElementType::ENUM:
+                    break;
+                case ElementType::TRAIT:
+                    break;
+                case ElementType::CLASSE:
+                    $objReflection = new \ReflectionClass($this->fqsen);
+                    $arrUseProperties = [
+                        "interfaces", "extends", "isAbstract", "isFinal",
+                        "constants"
+                    ];
+                    break;
+            }
 
-            "constants"         => [],
 
-            "staticProperties"  => [],
-            "publicProperties"  => [],
+            $refDocBlock = $objReflection->getDocComment();
+            if ($refDocBlock === false) {
+                $refDocBlock = "";
+            }
 
-            "staticMethods"     => [],
-            "abstractMethods"   => [],
-            "publicMethods"     => []*/
-        ];
+            $r = [
+                "fileName"          => $this->fileName,
+                "namespaceName"     => $this->namespaceName,
+                "fqsen"             => $this->fqsen,
+                "shortName"         => $this->shortName,
+                "type"              => $this->type->value,
+
+                "docBlock"          => DocBlock::fullParseDocBlock($refDocBlock)
+            ];
 
 
-        if ($r["interfaces"] === []) {
-            $r["interfaces"] = null;
+
+            foreach ($arrUseProperties as $propName) {
+                switch ($propName) {
+                    case "interfaces":
+                        $propValue = $objReflection->getInterfaceNames();
+                        if ($propValue === []) {
+                            $propValue = null;
+                        }
+                        $r["interfaces"] = $propValue;
+                        break;
+
+                    case "extends":
+                        $propValue = $objReflection->getExtensionName();
+                        if ($propValue === false) {
+                            $propValue = null;
+                        }
+                        $r["extends"] = $propValue;
+                        break;
+
+                    case "isAbstract":
+                        $r["isAbstract"] = $objReflection->isAbstract();
+                        break;
+
+                    case "isFinal":
+                        $r["isFinal"] = $objReflection->isFinal();
+                        break;
+
+                    case "constants":
+                        $r["constants"] = [];
+
+                        $refConstants = $objReflection->getConstants(\ReflectionClassConstant::IS_PUBLIC);
+                        if ($refConstants !== null && \count($refConstants) > 0) {
+                            foreach ($refConstants as $constantName => $constantValue) {
+                                $r["constants"][] = (new ObjectDocumentation(
+                                    $this->fileName,
+                                    $this->fqsen . "\\" . $constantName,
+                                    ElementType::CONSTANT
+                                ))->toArray();
+                            }
+                        }
+
+                        break;
+                }
+            }
         }
-        if ($r["extends"] === false) {
-            $r["extends"] = null;
-        }
+
+        //"constructor"       => null,
+        //"staticProperties"  => [],
+        //"publicProperties"  => [],
+        //"staticMethods"     => [],
+        //"abstractMethods"   => [],
+        //"publicMethods"     => []
 
 
-        /*$publicConstants = $objReflect->getConstants(\ReflectionClassConstant::IS_PUBLIC);
-        $r["constants"] = $publicConstants;
-
-        foreach ($objReflect->getProperties() as $prop) {
+        /*
+        foreach ($this->objReflection->getProperties() as $prop) {
             if ($prop->isPublic() === true) {
                 if ($prop->isStatic() === true) {
                     $r["staticProperties"][$prop->getName()] = $this->propertieToArray($prop);
@@ -195,7 +260,7 @@ class ObjectDocumentation
         }
 
 
-        foreach ($objReflect->getMethods() as $method) {
+        foreach ($this->objReflection->getMethods() as $method) {
             if ($method->isPublic() === true) {
 
                 if ($method->isConstructor() === true) {

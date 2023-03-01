@@ -22,4 +22,16 @@ namespace AeonDigital\DocBlockExtractor\Tests;
  */
 class DocumentationClassTest
 {
+    /** @var int PUB_CONST_01 Uma constante de teste. */
+    public const PUB_CONST_01 = 1;
+    /**
+     * Outra constante de teste.
+     *
+     * Descrição mais abaixo.
+     *
+     * @var
+     */
+    public const PUB_CONST_02 = "1";
+    protected const PROT_CONST_01 = "not shows";
+    private const PRIV_CONST_01 = "not shows";
 }
