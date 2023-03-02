@@ -70,87 +70,8 @@ class ObjectDocumentationTests extends TestCase
 
 
 
-    static array $mainExpectedToArray = [
-        "fileName"      => "/var/www/html/tests/resources/DocumentationClassTest.php",
-        "namespaceName" => "AeonDigital\\DocBlockExtractor\\Tests",
-        "fqsen"         => "AeonDigital\\DocBlockExtractor\\Tests\\DocumentationClassTest",
-        "shortName"     => "DocumentationClassTest",
-        "type"          => ElementType::CLASSE->value,
-
-        "docBlock"      => [
-            "summary" => [
-                "Classe fake para teste de extração de documentação.",
-            ],
-            "description" => [],
-            "tags" => [
-                "package" => [
-                    ["AeonDigital\DocBlockExtractor"]
-                ],
-                "author" => [
-                    ["Rianna Cantarelli <rianna@aeondigital.com.br>"]
-                ],
-                "copyright" => [
-                    ["2023, Rianna Cantarelli"]
-                ],
-                "license" => [
-                    ["MIT"]
-                ],
-            ],
-        ],
-
-        "interfaces"    => null,
-        "extends"       => null,
-
-        "isAbstract"    => false,
-        "isFinal"       => false,
-
-        "constants"     => [
-            [
-                "fileName" => "/var/www/html/tests/resources/DocumentationClassTest.php",
-                "namespaceName" => "AeonDigital\DocBlockExtractor\Tests\DocumentationClassTest",
-                "fqsen" => "AeonDigital\DocBlockExtractor\Tests\DocumentationClassTest\PUB_CONST_01",
-                "shortName" => "PUB_CONST_01",
-                "type" => "CONSTANT",
-                "docBlock" => [
-                    "summary" => [""],
-                    "description" => [""],
-                    "tags" => [
-                        "var" => [
-                            ["int PUB_CONST_01 Uma constante de teste."]
-                        ]
-                    ]
-                ]
-            ],
-            [
-                "fileName" => "/var/www/html/tests/resources/DocumentationClassTest.php",
-                "namespaceName" => "AeonDigital\DocBlockExtractor\Tests\DocumentationClassTest",
-                "fqsen" => "AeonDigital\DocBlockExtractor\Tests\DocumentationClassTest\PUB_CONST_02",
-                "shortName" => "PUB_CONST_02",
-                "type" => "CONSTANT",
-                "docBlock" => [
-                    "summary" => ["Outra constante de teste."],
-                    "description" => ["Descrição mais abaixo"],
-                    "tags" => [
-                        "var" => [
-                            [""]
-                        ]
-                    ]
-                ]
-            ]
-        ]
-        /*"constructor"       => null,
-
-
-        "staticProperties"  => [],
-        "publicProperties"  => [],
-
-        "staticMethods"     => [],
-        "abstractMethods"   => [],
-        "publicMethods"     => []*/
-    ];
+    static ?array $mainExpectedToArray = null;
     static ?array $mainResultToArray = null;
-
-
 
 
     public function checkDocBlockArrayMainProperties($expectedObj, $resultObj)
@@ -207,25 +128,51 @@ class ObjectDocumentationTests extends TestCase
             }
         }
     }
+    public function checkDockBlockParameterProperties($expectedObj, $resultObj)
+    {
+        if (\key_exists("parameters", $expectedObj) === true) {
+            $this->assertTrue(\key_exists("parameters", $resultObj));
+
+            foreach ($expectedObj["parameters"] as $paramName => $paramData) {
+                $this->assertTrue(\key_exists($paramName, $resultObj["parameters"]));
+
+                $this->assertEquals($paramData["type"], $resultObj["parameters"][$paramName]["type"]);
+                $this->assertEquals($paramData["isOptional"], $resultObj["parameters"][$paramName]["isOptional"]);
+                $this->assertEquals($paramData["isReference"], $resultObj["parameters"][$paramName]["isReference"]);
+                $this->assertEquals($paramData["isVariadic"], $resultObj["parameters"][$paramName]["isVariadic"]);
+                $this->assertEquals($paramData["isNullable"], $resultObj["parameters"][$paramName]["isNullable"]);
+                $this->assertEquals($paramData["isDefaultValue"], $resultObj["parameters"][$paramName]["isDefaultValue"]);
+                $this->assertEquals($paramData["defaultValue"], $resultObj["parameters"][$paramName]["defaultValue"]);
+                $this->assertEquals($paramData["docBlock"], $resultObj["parameters"][$paramName]["docBlock"]);
+            }
+        }
+    }
+
 
 
 
 
     public function test_method_toArray()
     {
-        $pathToClassTest = realpath(__DIR__ . "/../resources/DocumentationClassTest.php");
-        $fqsen = "AeonDigital\\DocBlockExtractor\\Tests\\DocumentationClassTest";
+        $pathToExpectedAndResult = realpath(__DIR__ . "/../resources");
+        self::$mainExpectedToArray = \json_decode(
+            file_get_contents($pathToExpectedAndResult . "/ExpectedObj01_ObjDocumentationTest.json"),
+            true
+        );
 
-        self::$mainExpectedToArray["fileName"] = $pathToClassTest;
 
         $obj = new ObjectDocumentation(
-            $pathToClassTest,
-            $fqsen,
+            self::$mainExpectedToArray["fileName"],
+            self::$mainExpectedToArray["fqsen"],
             ElementType::UNKNOW
         );
 
 
         self::$mainResultToArray = $obj->toArray();
+        $jsonData = \json_encode(self::$mainResultToArray, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        \file_put_contents($pathToExpectedAndResult . "/ResultObj01_ObjDocumentationTest.json", $jsonData);
+
+
         $this->checkDocBlockArrayMainProperties(
             self::$mainExpectedToArray,
             self::$mainResultToArray
@@ -271,14 +218,14 @@ class ObjectDocumentationTests extends TestCase
             $this->assertTrue(\key_exists("constants", self::$mainResultToArray));
             $this->assertTrue(\is_array(self::$mainResultToArray["constants"]));
             $this->assertEquals(
-                \count(self::$mainExpectedToArray["constants"]),
-                \count(self::$mainResultToArray["constants"])
+                \count(self::$mainExpectedToArray["constants"]["public"]),
+                \count(self::$mainResultToArray["constants"]["public"])
             );
 
-            foreach (self::$mainExpectedToArray["constants"] as $i => $obj) {
+            foreach (self::$mainExpectedToArray["constants"]["public"] as $i => $obj) {
                 $this->checkDocBlockArrayMainProperties(
                     $obj,
-                    self::$mainExpectedToArray["constants"][$i]
+                    self::$mainResultToArray["constants"]["public"][$i]
                 );
             }
         }
@@ -288,44 +235,130 @@ class ObjectDocumentationTests extends TestCase
 
 
 
-
-
-
-
-
-
-
-    /*
-    public function checkRecursiveValues($expectedObj, $resultObj)
+    public function test_method_toArray_prop_properties()
     {
-        if ($this->arrayIsAssoc($expectedObj) === true) {
-            $this->assertTrue($this->arrayIsAssoc($resultObj));
+        if (self::$mainResultToArray === null) {
+            $this->test_method_toArray();
+        }
 
-            foreach (\array_keys($expectedObj) as $key) {
-                $this->assertTrue(\key_exists($key, $resultObj));
-                $this->checkRecursiveValues($expectedObj[$key], $resultObj[$key]);
-            }
-        } elseif (\is_array($expectedObj) === true) {
-            $this->assertTrue(\is_array($resultObj));
-            $this->assertFalse($this->arrayIsAssoc($resultObj));
-            $this->assertEquals(\count($expectedObj), \count($resultObj));
+        if (\key_exists("properties", self::$mainExpectedToArray) === true) {
+            $this->assertTrue(\key_exists("properties", self::$mainResultToArray));
+            $this->assertTrue(\is_array(self::$mainResultToArray["properties"]));
 
-            foreach ($expectedObj as $i => $childExpected) {
-                $this->checkRecursiveValues($childExpected, $resultObj[$i]);
+
+            $this->assertEquals(
+                \count(self::$mainExpectedToArray["properties"]["public"]["static"]),
+                \count(self::$mainResultToArray["properties"]["public"]["static"])
+            );
+            $this->assertEquals(
+                \count(self::$mainExpectedToArray["properties"]["public"]["nonstatic"]),
+                \count(self::$mainResultToArray["properties"]["public"]["nonstatic"])
+            );
+
+
+            foreach (self::$mainExpectedToArray["properties"]["public"]["static"] as $i => $obj) {
+                $this->checkDocBlockArrayMainProperties(
+                    $obj,
+                    self::$mainResultToArray["properties"]["public"]["static"][$i]
+                );
             }
-        } else {
-            $this->assertEquals($expectedObj, $resultObj);
+            foreach (self::$mainExpectedToArray["properties"]["public"]["nonstatic"] as $i => $obj) {
+                $this->checkDocBlockArrayMainProperties(
+                    $obj,
+                    self::$mainResultToArray["properties"]["public"]["nonstatic"][$i]
+                );
+            }
         }
     }
 
 
 
-    public function arrayIsAssoc($o): bool
+
+
+    public function test_method_toArray_prop_constructor()
     {
-        if (\is_array($o) === true && $o !== []) {
-            return \array_keys($o) !== \range(0, \count($o) - 1);
+        if (self::$mainResultToArray === null) {
+            $this->test_method_toArray();
         }
-        return false;
+
+        if (\key_exists("constructor", self::$mainExpectedToArray) === true) {
+            $this->assertTrue(\key_exists("constructor", self::$mainResultToArray));
+            $this->assertTrue(\is_array(self::$mainResultToArray["constructor"]));
+
+            $this->checkDocBlockArrayMainProperties(
+                self::$mainExpectedToArray["constructor"],
+                self::$mainResultToArray["constructor"]
+            );
+        }
     }
-    */
+
+
+
+
+
+    public function test_method_toArray_prop_methods()
+    {
+        if (self::$mainResultToArray === null) {
+            $this->test_method_toArray();
+        }
+
+        if (\key_exists("methods", self::$mainExpectedToArray) === true) {
+            $this->assertTrue(\key_exists("methods", self::$mainResultToArray));
+            $this->assertTrue(\is_array(self::$mainResultToArray["methods"]));
+
+
+
+            $this->assertEquals(
+                \count(self::$mainExpectedToArray["methods"]["public"]["abstract"]["static"]),
+                \count(self::$mainResultToArray["methods"]["public"]["abstract"]["static"])
+            );
+            $this->assertEquals(
+                \count(self::$mainExpectedToArray["methods"]["public"]["abstract"]["nonstatic"]),
+                \count(self::$mainResultToArray["methods"]["public"]["abstract"]["nonstatic"])
+            );
+            $this->assertEquals(
+                \count(self::$mainExpectedToArray["methods"]["public"]["nonabstract"]["static"]),
+                \count(self::$mainResultToArray["methods"]["public"]["nonabstract"]["static"])
+            );
+            $this->assertEquals(
+                \count(self::$mainExpectedToArray["methods"]["public"]["nonabstract"]["nonstatic"]),
+                \count(self::$mainResultToArray["methods"]["public"]["nonabstract"]["nonstatic"])
+            );
+
+
+
+            foreach (self::$mainExpectedToArray["methods"]["public"]["abstract"]["static"] as $i => $obj) {
+                $resObj = self::$mainResultToArray["methods"]["public"]["abstract"]["static"][$i];
+
+                $this->checkDocBlockArrayMainProperties($obj, $resObj);
+                $this->checkDockBlockParameterProperties($obj, $resObj);
+
+                $this->assertEquals($obj["return"], $resObj["return"]);
+            }
+            foreach (self::$mainExpectedToArray["methods"]["public"]["abstract"]["nonstatic"] as $i => $obj) {
+                $resObj = self::$mainResultToArray["methods"]["public"]["abstract"]["nonstatic"][$i];
+
+                $this->checkDocBlockArrayMainProperties($obj, $resObj);
+                $this->checkDockBlockParameterProperties($obj, $resObj);
+
+                $this->assertEquals($obj["return"], $resObj["return"]);
+            }
+            foreach (self::$mainExpectedToArray["methods"]["public"]["nonabstract"]["static"] as $i => $obj) {
+                $resObj = self::$mainResultToArray["methods"]["public"]["nonabstract"]["static"][$i];
+
+                $this->checkDocBlockArrayMainProperties($obj, $resObj);
+                $this->checkDockBlockParameterProperties($obj, $resObj);
+
+                $this->assertEquals($obj["return"], $resObj["return"]);
+            }
+            foreach (self::$mainExpectedToArray["methods"]["public"]["nonabstract"]["nonstatic"] as $i => $obj) {
+                $resObj = self::$mainResultToArray["methods"]["public"]["nonabstract"]["nonstatic"][$i];
+
+                $this->checkDocBlockArrayMainProperties($obj, $resObj);
+                $this->checkDockBlockParameterProperties($obj, $resObj);
+
+                $this->assertEquals($obj["return"], $resObj["return"]);
+            }
+        }
+    }
 }

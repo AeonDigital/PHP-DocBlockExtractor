@@ -155,11 +155,16 @@ class ObjectDocumentation
                 case ElementType::VARIABLE:
                     break;
                 case ElementType::PROPERTIE:
+                    $objReflection = new \ReflectionProperty($this->namespaceName, $this->shortName);
                     break;
 
                 case ElementType::FUNCTION:
                     break;
                 case ElementType::METHOD:
+                    $objReflection = new \ReflectionMethod($this->namespaceName, $this->shortName);
+                    $arrUseProperties = [
+                        "isAbstract", "isFinal"
+                    ];
                     break;
 
                 case ElementType::INTERFACE:
@@ -172,7 +177,7 @@ class ObjectDocumentation
                     $objReflection = new \ReflectionClass($this->fqsen);
                     $arrUseProperties = [
                         "interfaces", "extends", "isAbstract", "isFinal",
-                        "constants"
+                        "constants", "properties", "constructor", "methods"
                     ];
                     break;
             }
@@ -222,16 +227,124 @@ class ObjectDocumentation
                         break;
 
                     case "constants":
-                        $r["constants"] = [];
+                        $r["constants"] = [
+                            "public" => []
+                        ];
 
                         $refConstants = $objReflection->getConstants(\ReflectionClassConstant::IS_PUBLIC);
                         if ($refConstants !== null && \count($refConstants) > 0) {
                             foreach ($refConstants as $constantName => $constantValue) {
-                                $r["constants"][] = (new ObjectDocumentation(
+                                $doc = (new ObjectDocumentation(
                                     $this->fileName,
                                     $this->fqsen . "\\" . $constantName,
                                     ElementType::CONSTANT
                                 ))->toArray();
+                                $doc["value"] = $this->valueToArray($constantValue);
+
+                                $r["constants"]["public"][] = $doc;
+                            }
+                        }
+
+                        break;
+
+                    case "properties":
+                        $r["properties"] = [
+                            "public" => [
+                                "static" => [],
+                                "nonstatic" => [],
+                            ]
+                        ];
+
+                        $refProperties = $objReflection->getProperties();
+                        foreach ($refProperties as $objProp) {
+                            if ($objProp->isPublic() === true) {
+                                $doc = (new ObjectDocumentation(
+                                    $this->fileName,
+                                    $this->fqsen . "\\" . $objProp->getName(),
+                                    ElementType::PROPERTIE
+                                ))->toArray();
+                                $doc["defaultValue"] = $this->valueToArray($objProp->getDefaultValue());
+
+                                if ($objProp->isStatic() === true) {
+                                    $r["properties"]["public"]["static"][] = $doc;
+                                } else {
+                                    $r["properties"]["public"]["nonstatic"][] = $doc;
+                                }
+                            }
+                        }
+
+                        break;
+
+                    case "constructor":
+                        $r["constructor"] = null;
+
+                        if ($objReflection->getConstructor() !== null) {
+                            $doc = (new ObjectDocumentation(
+                                $this->fileName,
+                                $this->fqsen . "\\__construct",
+                                ElementType::METHOD
+                            ))->toArray();
+
+                            $r["constructor"] = $doc;
+                        }
+                        break;
+
+                    case "methods":
+                        $r["methods"] = [
+                            "public" => [
+                                "abstract" => [
+                                    "static" => [],
+                                    "nonstatic" => []
+                                ],
+                                "nonabstract" => [
+                                    "static" => [],
+                                    "nonstatic" => [],
+                                ]
+                            ]
+                        ];
+
+                        $refMethods = $objReflection->getMethods();
+                        foreach ($refMethods as $objMethod) {
+                            if ($objMethod->isPublic() === true && $objMethod->isConstructor() === false) {
+                                $doc = (new ObjectDocumentation(
+                                    $this->fileName,
+                                    $this->fqsen . "\\" . $objMethod->getName(),
+                                    ElementType::METHOD
+                                ))->toArray();
+
+
+                                $doc["parameters"] = [];
+                                $doc["return"] = $this->convert_parameter_type_to_string($objMethod->getReturnType());
+
+
+                                foreach ($objMethod->getParameters() as $param) {
+                                    $doc["parameters"][$param->getName()] = $this->parameterToArray($param);
+                                }
+
+
+                                if (\key_exists("param", $doc["docBlock"]["tags"]) === true) {
+                                    foreach ($doc["docBlock"]["tags"]["param"] as $docBlockParamLines) {
+                                        $paramData = DocBlock::parseRawDocBlockParamLines($docBlockParamLines);
+                                        if ($paramData[0] !== null && \key_exists($paramData[0], $doc["parameters"]) === true) {
+                                            $doc["parameters"][$paramData[0]]["docBlock"] = $paramData[1];
+                                        }
+                                    }
+                                }
+
+
+                                if ($objMethod->isAbstract() === true) {
+                                    if ($objMethod->isStatic() === true) {
+                                        $r["methods"]["public"]["abstract"]["static"][] = $doc;
+                                    } else {
+                                        $r["methods"]["public"]["abstract"]["nonstatic"][] = $doc;
+                                    }
+                                } else {
+                                    if ($objMethod->isStatic() === true) {
+                                        $r["methods"]["public"]["nonabstract"]["static"][] = $doc;
+                                    } else {
+                                        $r["methods"]["public"]["nonabstract"]["nonstatic"][] = $doc;
+                                    }
+                                }
                             }
                         }
 
@@ -240,43 +353,6 @@ class ObjectDocumentation
             }
         }
 
-        //"constructor"       => null,
-        //"staticProperties"  => [],
-        //"publicProperties"  => [],
-        //"staticMethods"     => [],
-        //"abstractMethods"   => [],
-        //"publicMethods"     => []
-
-
-        /*
-        foreach ($this->objReflection->getProperties() as $prop) {
-            if ($prop->isPublic() === true) {
-                if ($prop->isStatic() === true) {
-                    $r["staticProperties"][$prop->getName()] = $this->propertieToArray($prop);
-                } else {
-                    $r["publicProperties"][$prop->getName()] = $this->propertieToArray($prop);
-                }
-            }
-        }
-
-
-        foreach ($this->objReflection->getMethods() as $method) {
-            if ($method->isPublic() === true) {
-
-                if ($method->isConstructor() === true) {
-                    $r["constructor"] = $this->methodToArray($method);
-                } else {
-                    if ($method->isStatic() === true) {
-                        $r["staticMethods"][$method->getName()] = $this->methodToArray($method);
-                    } elseif ($method->isStatic() === true) {
-                        $r["abstractMethods"][$method->getName()] = $this->methodToArray($method);
-                    } else {
-                        $r["publicMethods"][$method->getName()] = $this->methodToArray($method);
-                    }
-                }
-            }
-        }*/
-
 
         return $r;
     }
@@ -284,6 +360,193 @@ class ObjectDocumentation
 
 
 
+
+    /**
+     * Analisa o valor passado e retorna um array associativo contendo seu tipo
+     * e seu valor atual se este for do tipo 'scalar'. Outros valores virão como
+     * uma string vazia.
+     *
+     * @param mixed $v
+     * Valor que será analisado.
+     *
+     * @return array
+     */
+    protected function valueToArray(mixed $v): array
+    {
+        return [
+            "type" => $this->get_type($v),
+            "originalValue" => (is_object($v) === true) ? get_class($v) : $v,
+            "stringValue" => $this->convert_value_to_string($v)
+        ];
+    }
+    /**
+     * Retorna o tipo scalar do valor passado.
+     * Caso seja um objeto retornará o nome da classe que ele representa.
+     *
+     * @param mixed $o
+     * Objeto que será verificado.
+     *
+     * @return ?string
+     */
+    private function get_type(mixed $o): ?string
+    {
+        $r = null;
+
+        if ($o === null) {
+            $r = "null";
+        } elseif (\is_bool($o) === true) {
+            $r = "bool";
+        } elseif (\is_int($o) === true) {
+            $r = "int";
+        } elseif (\is_float($o) === true) {
+            $r = "float";
+        } elseif (\is_string($o) === true) {
+            $r = "string";
+        } elseif (\is_array($o) === true) {
+            $r = "array";
+        } elseif (\is_object($o) === true) {
+            $r = \get_class($o);
+        }
+
+        return $r;
+    }
+    /**
+     * Tenta converter o tipo do valor passado para ``string``.
+     * Apenas valores realmente compatíveis serão convertidos.
+     *
+     * Números de ponto flutuante serão convertidos e mantidos com no máximo 15 digitos
+     * ao todo (parte inteira + parte decimal).
+     * A parte decimal ficará com : (15 - (número de digitos da parte inteira)) casas.
+     *
+     * @param mixed $o
+     * Objeto que será convertido.
+     *
+     * @return ?string
+     * Retornará ``null`` caso não seja possível efetuar a conversão.
+     */
+    protected function convert_value_to_string(mixed $o): ?string
+    {
+        if ($o === null) {
+            return "";
+        } elseif (\is_bool($o) === true) {
+            return (($o === true) ? "1" : "0");
+        } elseif (\is_int($o) === true) {
+            return (string)$o;
+        } elseif (\is_float($o) === true) {
+            $int = $this->numeric_integer_part($o);
+            $dec = 0.0;
+
+            $tDec = (15 - \strlen((string)$int));
+            if ($tDec > 0) {
+                $dec = $this->numeric_decimal_part($o, $tDec);
+            }
+
+            if ($dec === 0.0) {
+                return ((string)$int);
+            } else {
+                $dec = \str_replace("0.", "", (string)$dec);
+                return ((string)($int . "." . $dec));
+            }
+        } elseif (\is_a($o, "\DateTime") === true) {
+            return $o->format("Y-m-d H:i:s");
+        } elseif (\is_string($o) === true) {
+            return (string)$o;
+        } elseif (\is_array($o) === true) {
+            return \implode(" ", $o);
+        } else {
+            return null;
+        }
+    }
+    /**
+     * Retorna unicamente a parte inteira de um numeral.
+     *
+     * @param int|float $n
+     * Valor numérico de entrada.
+     *
+     * @return int
+     * Retorna a parte inteira do numeral passado.
+     */
+    private function numeric_integer_part(int|float $n): int
+    {
+        $r = $n;
+
+        if (\is_float($n) === true) {
+            $str = \number_format($n, 10, ".", "");
+            $str = \explode(".", $str);
+            $r = (int)$str[0];
+        }
+
+        return $r;
+    }
+    /**
+     * Retorna unicamente a parte decimal de um numeral.
+     *
+     * Por questões internas referentes a forma como os numerais de ponto flutuantes funcionam, a
+     * maior precisão possível de ser encontrada é a de números de até 15 dígitos, independente do
+     * local onde está o ponto decimal.
+     *
+     * @param int|float $n
+     * Valor numérico de entrada.
+     *
+     * @param int $l
+     * Tamanho da parte decimal a ser retornada.
+     * Se não for informado, será usado o valor **2**.
+     *
+     * @return float
+     * Retornará um ``float`` como ``0.004321``.
+     */
+    private function numeric_decimal_part(int|float $n, int $l = 2): float
+    {
+        $r = 0.0;
+
+        if (\is_float($n) === true) {
+            $str = \explode(".", \number_format($n, $l, ".", ""));
+            $str = "0." . $str[1];
+            $r = (float)$str;
+        }
+
+        return $r;
+    }
+
+
+
+
+
+    /**
+     * Resgata as informações para documentação do parametro alvo.
+     *
+     * @param \ReflectionParameter $param
+     * Parametro base para coleta de informações.
+     *
+     * @return array
+     */
+    protected function parameterToArray(\ReflectionParameter $param): array
+    {
+        $t = $this->convert_parameter_type_to_string($param->getType());
+        $isNullable = \str_ends_with((string)$t, "|null");
+        if ($t === "mixed|null") {
+            $t = "mixed";
+        }
+
+        $dValue = null;
+        if ($param->isDefaultValueAvailable() === true) {
+            $dValue =  $param->getDefaultValue();
+            if (\is_object($dValue) === true) {
+                $dValue = "instance of " . \get_class($dValue);
+            }
+        }
+
+        return [
+            "type" => $t,
+            "isOptional" => $param->isOptional(),
+            "isReference" => $param->isPassedByReference(),
+            "isVariadic" => $param->isVariadic(),
+            "isNullable" => $isNullable,
+            "isDefaultValue" => $param->isDefaultValueAvailable(),
+            "defaultValue" => $dValue,
+            "docBlock" => []
+        ];
+    }
     /**
      * A partir de um objeto de tipo passado retorna uma string que o represente.
      *
@@ -291,8 +554,8 @@ class ObjectDocumentation
      * Objeto de tipo original.
      *
      * @return string
-     *
-    protected function typeToString(
+     */
+    private function convert_parameter_type_to_string(
         \ReflectionNamedType|\ReflectionUnionType|\ReflectionIntersectionType|null $objType
     ): string {
         $r = [];
@@ -303,7 +566,7 @@ class ObjectDocumentation
             } elseif ($objType instanceof \ReflectionUnionType) {
                 foreach ($objType->getTypes() as $type) {
                     if ($type instanceof \ReflectionIntersectionType) {
-                        $r[] = $this->typeToString($type);
+                        $r[] = $this->convert_parameter_type_to_string($type);
                     } else {
                         if ($type->getName() !== "null") {
                             $r[] = $type->getName();
@@ -312,7 +575,7 @@ class ObjectDocumentation
                 }
             } elseif ($objType instanceof \ReflectionIntersectionType) {
                 $i = [];
-                /** @var \ReflectionNamedType &type * /
+                /** @var \ReflectionNamedType &type */
                 foreach ($objType->getTypes() as $type) {
                     $i[] = $type->getName();
                 }
@@ -326,90 +589,4 @@ class ObjectDocumentation
 
         return \implode("|", $r);
     }
-    /**
-     * Resgata as informações para documentação da propriedade alvo.
-     *
-     * @return array
-     *
-    protected function propertieToArray(\ReflectionProperty $prop): array
-    {
-        $dValue = null;
-        if ($prop->isDefault() === true) {
-            $dValue =  $prop->getDefaultValue();
-            if (\is_object($dValue) === true) {
-                $dValue = \get_class($dValue);
-            }
-        }
-
-        return [
-            "docBlock" => (new DocBlock($prop->getDocComment()))->getRawDocBlockTags(),
-            "type" => $this->typeToString($prop->getType()),
-            "isDefaultValue" => $prop->isDefault(),
-            "defaultValue" => $dValue
-        ];
-    }
-    /**
-     * Resgata as informações para documentação do método alvo.
-     *
-     * @return array
-     *
-    protected function methodToArray(\ReflectionMethod $method): array
-    {
-        $parameters = [];
-        foreach ($method->getParameters() as $par) {
-            $parameters[$par->getName()] = $this->parameterToArray($par);
-        }
-
-        $docBlock = (new DocBlock($method->getDocComment()))->getRawDocBlockTags();
-        if (\key_exists("param", $docBlock["tags"]) === true) {
-            foreach ($docBlock["tags"]["param"] as $docBlockParamLines) {
-                $paramData = DocBlock::prepareParameterData($docBlockParamLines);
-                if ($paramData[0] !== null && \key_exists($paramData[0], $parameters) === true) {
-                    $parameters[$paramData[0]]["docBlock"] = $paramData[1];
-                }
-            }
-        }
-
-
-        return [
-            "docBlock" => $docBlock,
-            "isAbstract" => $method->isAbstract(),
-            "isFinal" => $method->isFinal(),
-            "parameters" => $parameters,
-            "return" => $this->typeToString($method->getReturnType())
-        ];
-    }
-    /**
-     * Resgata as informações para documentação do parametro alvo.
-     *
-     * @return array
-     *
-    protected function parameterToArray(\ReflectionParameter $par): array
-    {
-        $t = $this->typeToString($par->getType());
-        $isNullable = \str_ends_with((string)$t, "|null");
-        if ($t === "mixed|null") {
-            $t = "mixed";
-        }
-
-        $dValue = null;
-        if ($par->isDefaultValueAvailable() === true) {
-            $dValue =  $par->getDefaultValue();
-            if (\is_object($dValue) === true) {
-                $dValue = "instance of " . \get_class($dValue);
-            }
-        }
-
-        return [
-            "type" => $t,
-            "docBlock" => [],
-            "isOptional" => $par->isOptional(),
-            "isReference" => $par->isPassedByReference(),
-            "isVariadic" => $par->isVariadic(),
-            "isNullable" => $isNullable,
-            "isDefaultValue" => $par->isDefaultValueAvailable(),
-            "defaultValue" => $dValue
-        ];
-    }
-     */
 }

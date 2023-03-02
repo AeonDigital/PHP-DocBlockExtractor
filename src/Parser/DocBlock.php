@@ -235,7 +235,7 @@ class DocBlock
      * pela função ``self::parseRawLineArrayToAssocArray()``.
      *
      * @param array $rawDocBlockParamLines
-     * Arrau das linhas descritivas de um parametro de um método ou função.
+     * Array das linhas descritivas de um parametro de um método ou função.
      *
      * @return array
      */
