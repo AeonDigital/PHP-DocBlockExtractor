@@ -17,7 +17,6 @@ class ObjectDocumentationTests extends TestCase
 
 
 
-
     public function test_constructor_fails_fileNotFound()
     {
         $fail = false;
@@ -360,5 +359,100 @@ class ObjectDocumentationTests extends TestCase
                 $this->assertEquals($obj["return"], $resObj["return"]);
             }
         }
+    }
+
+
+
+
+
+    public function test_method_toArray_interfaces()
+    {
+        $pathToExpectedAndResult = realpath(__DIR__ . "/../resources");
+        $interfaceExpected = file_get_contents($pathToExpectedAndResult . "/ExpectedObj02_iRealTypeTest.json");
+
+
+        $obj = new ObjectDocumentation(
+            "/var/www/html/tests/resources/iRealType.php",
+            "AeonDigital\\Interfaces\\iRealType",
+            ElementType::UNKNOW
+        );
+
+
+        $jsonData = \json_encode($obj->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        \file_put_contents($pathToExpectedAndResult . "/ResultObj02_iRealTypeTest.json", $jsonData);
+        $this->assertEquals($interfaceExpected, $jsonData);
+    }
+
+
+
+
+
+    public function test_method_toArray_traits()
+    {
+        $pathToExpectedAndResult = realpath(__DIR__ . "/../resources");
+        $interfaceExpected = file_get_contents($pathToExpectedAndResult . "/ExpectedObj03_FloatMethods.json");
+
+
+        $obj = new ObjectDocumentation(
+            "/var/www/html/tests/resources/FloatMethods.php",
+            "AeonDigital\\SimpleTypes\\Traits\\FloatMethods",
+            ElementType::UNKNOW
+        );
+
+
+        $jsonData = \json_encode($obj->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        \file_put_contents($pathToExpectedAndResult . "/ResultObj03_FloatMethods.json", $jsonData);
+        $this->assertEquals($interfaceExpected, $jsonData);
+    }
+
+
+
+
+
+    public function test_method_toArray_enum()
+    {
+        $pathToExpectedAndResult = realpath(__DIR__ . "/../resources");
+        $interfaceExpected = file_get_contents($pathToExpectedAndResult . "/ExpectedObj04_PrimitiveType.json");
+
+
+        $obj = new ObjectDocumentation(
+            "/var/www/html/tests/resources/PrimitiveType.php",
+            "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+            ElementType::UNKNOW
+        );
+
+
+        $jsonData = \json_encode($obj->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        \file_put_contents($pathToExpectedAndResult . "/ResultObj04_PrimitiveType.json", $jsonData);
+        $this->assertEquals($interfaceExpected, $jsonData);
+    }
+
+
+
+
+
+    public function test_method_toArray_standalone_objects()
+    {
+        $pathToExpectedAndResult = realpath(__DIR__ . "/../resources");
+        $interfaceExpected = file_get_contents($pathToExpectedAndResult . "/ExpectedObj05_Standalone.json");
+
+
+        $obj01 = new ObjectDocumentation(
+            "/var/www/html/tests/resources/StandaloneObjects.php",
+            "AeonDigital\\Standalone\\CStandalone",
+            ElementType::UNKNOW
+        );
+        $obj02 = new ObjectDocumentation(
+            "/var/www/html/tests/resources/StandaloneObjects.php",
+            "AeonDigital\\Standalone\\array_check_required_keys",
+            ElementType::UNKNOW
+        );
+
+
+        $jsonData01 = \json_encode($obj01->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $jsonData02 = \json_encode($obj02->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+        \file_put_contents($pathToExpectedAndResult . "/ResultObj05_Standalone.json", $jsonData01 . "\n" . $jsonData02);
+        $this->assertEquals($interfaceExpected, $jsonData01 . "\n" . $jsonData02);
     }
 }

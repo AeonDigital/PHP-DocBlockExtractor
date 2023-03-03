@@ -1,0 +1,362 @@
+{
+    "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+    "namespaceName": "AeonDigital\\SimpleTypes\\Enums",
+    "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+    "shortName": "PrimitiveType",
+    "type": "ENUM",
+    "docBlock": {
+        "summary": [
+            "Enumerador dos tipos primitivos que podem ser representados por",
+            "classes ``SimpleTypes`` concretas."
+        ],
+        "description": [],
+        "tags": {
+            "package": [
+                [
+                    "AeonDigital\\SimpleTypes"
+                ]
+            ],
+            "author": [
+                [
+                    "Rianna Cantarelli <rianna@aeondigital.com.br>"
+                ]
+            ],
+            "copyright": [
+                [
+                    "2023, Rianna Cantarelli"
+                ]
+            ],
+            "license": [
+                [
+                    "MIT"
+                ]
+            ]
+        }
+    },
+    "interfaces": [
+        "UnitEnum",
+        "BackedEnum"
+    ],
+    "extends": null,
+    "isAbstract": false,
+    "isFinal": true,
+    "constants": {
+        "public": [
+            {
+                "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\BOOL",
+                "shortName": "BOOL",
+                "type": "CONSTANT",
+                "docBlock": {
+                    "summary": [
+                        "Valor booleano."
+                    ],
+                    "description": [],
+                    "tags": []
+                },
+                "value": {
+                    "type": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "originalValue": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "stringValue": null
+                }
+            },
+            {
+                "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\BYTE",
+                "shortName": "BYTE",
+                "type": "CONSTANT",
+                "docBlock": {
+                    "summary": [
+                        "Numeral inteiro de 8 bits."
+                    ],
+                    "description": [],
+                    "tags": []
+                },
+                "value": {
+                    "type": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "originalValue": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "stringValue": null
+                }
+            },
+            {
+                "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\SHORT",
+                "shortName": "SHORT",
+                "type": "CONSTANT",
+                "docBlock": {
+                    "summary": [
+                        "Numeral inteiro de 16 bits."
+                    ],
+                    "description": [],
+                    "tags": []
+                },
+                "value": {
+                    "type": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "originalValue": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "stringValue": null
+                }
+            },
+            {
+                "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\INT",
+                "shortName": "INT",
+                "type": "CONSTANT",
+                "docBlock": {
+                    "summary": [
+                        "Numeral inteiro de 32 bits."
+                    ],
+                    "description": [],
+                    "tags": []
+                },
+                "value": {
+                    "type": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "originalValue": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "stringValue": null
+                }
+            },
+            {
+                "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\LONG",
+                "shortName": "LONG",
+                "type": "CONSTANT",
+                "docBlock": {
+                    "summary": [
+                        "Numeral inteiro de 64 bits."
+                    ],
+                    "description": [],
+                    "tags": []
+                },
+                "value": {
+                    "type": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "originalValue": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "stringValue": null
+                }
+            },
+            {
+                "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\FLOAT",
+                "shortName": "FLOAT",
+                "type": "CONSTANT",
+                "docBlock": {
+                    "summary": [
+                        "Numeral de ponto flutuante de 32 bits."
+                    ],
+                    "description": [],
+                    "tags": []
+                },
+                "value": {
+                    "type": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "originalValue": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "stringValue": null
+                }
+            },
+            {
+                "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\DOUBLE",
+                "shortName": "DOUBLE",
+                "type": "CONSTANT",
+                "docBlock": {
+                    "summary": [
+                        "Numeral de ponto flutuante de 64 bits."
+                    ],
+                    "description": [],
+                    "tags": []
+                },
+                "value": {
+                    "type": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "originalValue": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "stringValue": null
+                }
+            },
+            {
+                "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\REAL",
+                "shortName": "REAL",
+                "type": "CONSTANT",
+                "docBlock": {
+                    "summary": [
+                        "Numeral Real."
+                    ],
+                    "description": [],
+                    "tags": []
+                },
+                "value": {
+                    "type": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "originalValue": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "stringValue": null
+                }
+            },
+            {
+                "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\DATETIME",
+                "shortName": "DATETIME",
+                "type": "CONSTANT",
+                "docBlock": {
+                    "summary": [
+                        "Objeto DateTime."
+                    ],
+                    "description": [],
+                    "tags": []
+                },
+                "value": {
+                    "type": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "originalValue": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "stringValue": null
+                }
+            },
+            {
+                "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\STRING",
+                "shortName": "STRING",
+                "type": "CONSTANT",
+                "docBlock": {
+                    "summary": [
+                        "Valor string."
+                    ],
+                    "description": [],
+                    "tags": []
+                },
+                "value": {
+                    "type": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "originalValue": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "stringValue": null
+                }
+            }
+        ]
+    },
+    "properties": {
+        "public": {
+            "static": [],
+            "nonstatic": [
+                {
+                    "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                    "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\name",
+                    "shortName": "name",
+                    "type": "PROPERTIE",
+                    "docBlock": {
+                        "summary": [],
+                        "description": [],
+                        "tags": []
+                    },
+                    "defaultValue": {
+                        "type": "null",
+                        "originalValue": null,
+                        "stringValue": ""
+                    }
+                },
+                {
+                    "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                    "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                    "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\value",
+                    "shortName": "value",
+                    "type": "PROPERTIE",
+                    "docBlock": {
+                        "summary": [],
+                        "description": [],
+                        "tags": []
+                    },
+                    "defaultValue": {
+                        "type": "null",
+                        "originalValue": null,
+                        "stringValue": ""
+                    }
+                }
+            ]
+        }
+    },
+    "constructor": null,
+    "methods": {
+        "public": {
+            "abstract": {
+                "static": [],
+                "nonstatic": []
+            },
+            "nonabstract": {
+                "static": [
+                    {
+                        "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                        "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                        "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\cases",
+                        "shortName": "cases",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "parameters": [],
+                        "return": "array",
+                        "isAbstract": false,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                        "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                        "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\from",
+                        "shortName": "from",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "parameters": {
+                            "value": {
+                                "type": "string|int",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": []
+                            }
+                        },
+                        "return": "static",
+                        "isAbstract": false,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/PrimitiveType.php",
+                        "namespaceName": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
+                        "fqsen": "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType\\tryFrom",
+                        "shortName": "tryFrom",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "parameters": {
+                            "value": {
+                                "type": "string|int",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": []
+                            }
+                        },
+                        "return": "static|null",
+                        "isAbstract": false,
+                        "isFinal": false
+                    }
+                ],
+                "nonstatic": []
+            }
+        }
+    }
+}

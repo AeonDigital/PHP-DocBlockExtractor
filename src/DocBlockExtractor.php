@@ -169,10 +169,6 @@ class DocBlockExtractor
                 $this->constants[$namespace][] = $obj;
                 break;
 
-            case ElementType::VARIABLE:
-                $this->variables[$namespace][] = $obj;
-                break;
-
             case ElementType::FUNCTION:
                 $this->functions[$namespace][] = $obj;
                 break;

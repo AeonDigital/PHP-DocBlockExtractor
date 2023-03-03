@@ -148,6 +148,8 @@
                 ]
             }
         },
+        "parameters": [],
+        "return": "",
         "isAbstract": false,
         "isFinal": false
     },
@@ -193,8 +195,6 @@
                                 ]
                             }
                         },
-                        "isAbstract": false,
-                        "isFinal": false,
                         "parameters": {
                             "rawDocBlock": {
                                 "type": "string",
@@ -232,7 +232,9 @@
                                 }
                             }
                         },
-                        "return": "array"
+                        "return": "array",
+                        "isAbstract": false,
+                        "isFinal": false
                     }
                 ],
                 "nonstatic": [
@@ -267,8 +269,6 @@
                                 ]
                             }
                         },
-                        "isAbstract": false,
-                        "isFinal": false,
                         "parameters": {
                             "o": {
                                 "type": "mixed",
@@ -287,7 +287,9 @@
                                 }
                             }
                         },
-                        "return": "string|null"
+                        "return": "string|null",
+                        "isAbstract": false,
+                        "isFinal": false
                     }
                 ]
             }

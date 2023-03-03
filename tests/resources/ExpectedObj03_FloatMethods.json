@@ -1,0 +1,294 @@
+{
+    "fileName": "/var/www/html/tests/resources/FloatMethods.php",
+    "namespaceName": "AeonDigital\\SimpleTypes\\Traits",
+    "fqsen": "AeonDigital\\SimpleTypes\\Traits\\FloatMethods",
+    "shortName": "FloatMethods",
+    "type": "TRAIT",
+    "docBlock": {
+        "summary": [
+            "Trait que traz métodos de uso comum para tipos que representam numerais de ponto flutuante."
+        ],
+        "description": [],
+        "tags": {
+            "package": [
+                [
+                    "AeonDigital\\SimpleTypes"
+                ]
+            ],
+            "author": [
+                [
+                    "Rianna Cantarelli <rianna@aeondigital.com.br>"
+                ]
+            ],
+            "copyright": [
+                [
+                    "2023, Rianna Cantarelli"
+                ]
+            ],
+            "license": [
+                [
+                    "MIT"
+                ]
+            ]
+        }
+    },
+    "interfaces": null,
+    "extends": null,
+    "isAbstract": false,
+    "isFinal": false,
+    "constants": {
+        "public": []
+    },
+    "properties": {
+        "public": {
+            "static": [],
+            "nonstatic": []
+        }
+    },
+    "constructor": null,
+    "methods": {
+        "public": {
+            "abstract": {
+                "static": [],
+                "nonstatic": []
+            },
+            "nonabstract": {
+                "static": [
+                    {
+                        "fileName": "/var/www/html/tests/resources/FloatMethods.php",
+                        "namespaceName": "AeonDigital\\SimpleTypes\\Traits\\FloatMethods",
+                        "fqsen": "AeonDigital\\SimpleTypes\\Traits\\FloatMethods\\getMin",
+                        "shortName": "getMin",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna o valor indicado em ``MIN`` convertido para",
+                                "o tipo nativo."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "float",
+                                        "Usado apenas para tipos Int, Float, Real e DateTime.",
+                                        "Retornará ``null`` para todos os demais."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "float",
+                        "isAbstract": false,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/FloatMethods.php",
+                        "namespaceName": "AeonDigital\\SimpleTypes\\Traits\\FloatMethods",
+                        "fqsen": "AeonDigital\\SimpleTypes\\Traits\\FloatMethods\\getMax",
+                        "shortName": "getMax",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna o valor indicado em ``MAX`` convertido para",
+                                "o tipo nativo."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "float",
+                                        "Usado apenas para tipos Int, Float, Real e DateTime.",
+                                        "Retornará ``null`` para todos os demais."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "float",
+                        "isAbstract": false,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/FloatMethods.php",
+                        "namespaceName": "AeonDigital\\SimpleTypes\\Traits\\FloatMethods",
+                        "fqsen": "AeonDigital\\SimpleTypes\\Traits\\FloatMethods\\getNullEquivalent",
+                        "shortName": "getNullEquivalent",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna o valor indicado em ``NULL_EQUIVALENT`` convertido para",
+                                "o tipo nativo."
+                            ],
+                            "description": [
+                                "Por padrão considere que:",
+                                "- bool -> false",
+                                "- int|float|RealType -> 0",
+                                "- DateTime -> 0001-01-01 00:00:00",
+                                "- string -> \"\"",
+                                "- array -> []"
+                            ],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "float"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "float",
+                        "isAbstract": false,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/FloatMethods.php",
+                        "namespaceName": "AeonDigital\\SimpleTypes\\Traits\\FloatMethods",
+                        "fqsen": "AeonDigital\\SimpleTypes\\Traits\\FloatMethods\\validate",
+                        "shortName": "validate",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Verifica se o valor indicado pode ser convertido e usado como um valor válido",
+                                "dentro das definições deste tipo."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "mixed $v",
+                                        "Valor que será verificado."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "bool"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "mixed",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor que será verificado."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "bool",
+                        "isAbstract": false,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/FloatMethods.php",
+                        "namespaceName": "AeonDigital\\SimpleTypes\\Traits\\FloatMethods",
+                        "fqsen": "AeonDigital\\SimpleTypes\\Traits\\FloatMethods\\parseIfValidate",
+                        "shortName": "parseIfValidate",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Efetuará a conversão do valor indicado para o tipo que esta classe representa",
+                                "apenas se passar na validação."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "mixed $v",
+                                        "Valor que será convertido."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "?float",
+                                        "Retorna o valor equivalente ao originalmente passado ou, caso a conversão não",
+                                        "seja possível, retornará ``null``."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "mixed",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor que será convertido."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "float|null",
+                        "isAbstract": false,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/FloatMethods.php",
+                        "namespaceName": "AeonDigital\\SimpleTypes\\Traits\\FloatMethods",
+                        "fqsen": "AeonDigital\\SimpleTypes\\Traits\\FloatMethods\\toString",
+                        "shortName": "toString",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Tenta efetuar a conversão do valor indicado para o tipo ``string``."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "mixed $v",
+                                        "Valor que será convertido."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "?string",
+                                        "Caso não seja possível converter o valor, retornará ``null``."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "mixed",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor que será convertido."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "string|null",
+                        "isAbstract": false,
+                        "isFinal": false
+                    }
+                ],
+                "nonstatic": []
+            }
+        }
+    }
+}
