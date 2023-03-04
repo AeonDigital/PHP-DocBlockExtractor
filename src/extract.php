@@ -24,14 +24,14 @@ error_reporting(E_ALL);
  * Já os objetos que são iniciados por arquivos avulsos e não estão no mapeamento
  * feito pelo composer serão identificados por processamento que se dará seguindo
  * as seguintes orientações:
- * - Cada arquivo avulso será percorrido linha a linha em busca de DockBlocks.
+ * - Cada arquivo avulso será percorrido linha a linha em busca de DocBlocks.
  * - Na linha imediatamente abaixo do final de cada bloco deverá estar a definição
  *   de variável, constante ou função.
  * - Esta linha será processada em busca do nome do objeto.
  * - Será a partir do nome deste objeto que a análise de Reflection será feita para
  *   pegar os dados destes itens.
  *
- * Objetos que não tenham descrição por um DockBlock válido não será registrado.
+ * Objetos que não tenham descrição por um DocBlock válido não será registrado.
  */
 
 

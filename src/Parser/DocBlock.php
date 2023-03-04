@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace AeonDigital\DocBlockExtractor\Parser;
 
-
-
+use AeonDigital\DocBlockExtractor\Exceptions\FileNotFoundException as FileNotFoundException;
+use AeonDigital\DocBlockExtractor\Enums\ElementType as ElementType;
 
 
 
@@ -288,5 +288,149 @@ class DocBlock
         return self::parseRawLineArrayToAssocArray(
             self::parseRawDocBlockToRawLineArray($rawDocBlock)
         );
+    }
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Efetua o processamento de uma linha que deve conter a declaração de uma
+     * variável, constante ou função.
+     *
+     * @param string $declarationLine
+     * Linha que será verificada.
+     *
+     * @return ?array
+     * Retornará ``null`` se não for possível identificar o objeto ou um array
+     * associativo conforme o modelo abaixo:
+     *
+     * ```php
+     * $arr = [
+     *  "type" => "",       // (string)ElementType::{CONSTANT|VARIABLE|FUNCTION}
+     *  "shortName" => "",  // string
+     * ];
+     * ```
+     */
+    public static function parseObjectDeclaration(string $declarationLine): ?array
+    {
+        $r = null;
+        $tline = \trim($declarationLine);
+
+        if (\str_starts_with($tline, "\$") === true) {
+            $oName = \str_replace(["\$", ";", " "], "", $tline);
+            $oName = \explode("=", $oName)[0];
+
+            $r = [
+                "type" => ElementType::VARIABLE->value,
+                "shortName" => $oName
+            ];
+        } elseif (\str_starts_with($tline, "const ") === true) {
+            $oName = \substr($tline, 6);
+            $oName = \explode(" ", \trim(\explode("=", $oName)[0]));
+            $oName = $oName[count($oName) - 1];
+
+            $r = [
+                "type" => ElementType::CONSTANT->value,
+                "shortName" => $oName
+            ];
+        } elseif (\str_starts_with($tline, "function ") === true) {
+            $oName = \substr($tline, 9);
+            $oName = \trim(\explode("(", $oName)[0]);
+
+            $r = [
+                "type" => ElementType::FUNCTION->value,
+                "shortName" => $oName
+            ];
+        }
+
+        return $r;
+    }
+
+
+
+    /**
+     * Processa um arquivo avulso em busca de meta informações dos objetos que estão
+     * documentados usando DocBlocks.
+     *
+     * @param string $fileName
+     * Caminho completo até o arquivo que será verificado.
+     *
+     * @return array
+     * Retorna um array associativo conforme o modelo abaixo:
+     *
+     * ```php
+     * $arr = [
+     *  "fileName" => "",       // string
+     *  "namespaceName" => "",  // string
+     *  "objects" => [],        //
+     * ];
+     * ```
+     *
+     * A chave ``objects`` traz em cada entrada um array correspondente ao retorno
+     * do método ``self::parseObjectDeclaration()`` com adição de uma nova chave
+     * ``docBlock`` que traz um array que representa o bloco encontrado em conjunto
+     * com cada um dos objetos.
+     *
+     * @throws FileNotFoundException
+     */
+    public static function parseStandaloneFileToMetaObjects(string $fileName): array
+    {
+        $r = [
+            "fileName" => "",
+            "namespaceName" => "",
+            "objects" => []
+        ];
+
+        if (is_file($fileName) === false) {
+            throw new FileNotFoundException("File not found. [ $fileName ]");
+        } else {
+            $r["fileName"] = $fileName;
+            $fileContent = \explode("\n", \file_get_contents($fileName));
+
+            $insideDocBlock = false;
+            $isToGetNextLine = false;
+            $rawDocBlock = [];
+
+            foreach ($fileContent as $line) {
+                $tline = \trim($line);
+                if ($tline !== "") {
+                    if ($r["namespaceName"] === "" && \str_starts_with($tline, "namespace ") === true) {
+                        $r["namespaceName"] = \str_replace(";", "", \substr($tline, 10));
+                    }
+
+                    if ($insideDocBlock === true) {
+                        $rawDocBlock[] = $tline;
+                    }
+
+                    if ($insideDocBlock === false && \str_starts_with($tline, "/**") === true) {
+                        $insideDocBlock = true;
+                        $rawDocBlock = [$tline];
+
+                        if (\str_ends_with($tline, "*/") === true) {
+                            $isToGetNextLine = true;
+                            $insideDocBlock = false;
+                        }
+                    } elseif ($insideDocBlock === true && \str_ends_with($tline, "*/") === true) {
+                        $isToGetNextLine = true;
+                        $insideDocBlock = false;
+                    } elseif ($isToGetNextLine === true) {
+                        $isToGetNextLine = false;
+                        $oDec = self::parseObjectDeclaration($tline);
+                        if ($oDec !== null) {
+                            $oDec["docBlock"] = $rawDocBlock;
+                            $r["objects"][] = $oDec;
+                        }
+                    }
+                }
+            }
+        }
+
+        return $r;
     }
 }

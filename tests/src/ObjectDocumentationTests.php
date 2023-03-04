@@ -127,7 +127,7 @@ class ObjectDocumentationTests extends TestCase
             }
         }
     }
-    public function checkDockBlockParameterProperties($expectedObj, $resultObj)
+    public function checkDocBlockParameterProperties($expectedObj, $resultObj)
     {
         if (\key_exists("parameters", $expectedObj) === true) {
             $this->assertTrue(\key_exists("parameters", $resultObj));
@@ -330,7 +330,7 @@ class ObjectDocumentationTests extends TestCase
                 $resObj = self::$mainResultToArray["methods"]["public"]["abstract"]["static"][$i];
 
                 $this->checkDocBlockArrayMainProperties($obj, $resObj);
-                $this->checkDockBlockParameterProperties($obj, $resObj);
+                $this->checkDocBlockParameterProperties($obj, $resObj);
 
                 $this->assertEquals($obj["return"], $resObj["return"]);
             }
@@ -338,7 +338,7 @@ class ObjectDocumentationTests extends TestCase
                 $resObj = self::$mainResultToArray["methods"]["public"]["abstract"]["nonstatic"][$i];
 
                 $this->checkDocBlockArrayMainProperties($obj, $resObj);
-                $this->checkDockBlockParameterProperties($obj, $resObj);
+                $this->checkDocBlockParameterProperties($obj, $resObj);
 
                 $this->assertEquals($obj["return"], $resObj["return"]);
             }
@@ -346,7 +346,7 @@ class ObjectDocumentationTests extends TestCase
                 $resObj = self::$mainResultToArray["methods"]["public"]["nonabstract"]["static"][$i];
 
                 $this->checkDocBlockArrayMainProperties($obj, $resObj);
-                $this->checkDockBlockParameterProperties($obj, $resObj);
+                $this->checkDocBlockParameterProperties($obj, $resObj);
 
                 $this->assertEquals($obj["return"], $resObj["return"]);
             }
@@ -354,7 +354,7 @@ class ObjectDocumentationTests extends TestCase
                 $resObj = self::$mainResultToArray["methods"]["public"]["nonabstract"]["nonstatic"][$i];
 
                 $this->checkDocBlockArrayMainProperties($obj, $resObj);
-                $this->checkDockBlockParameterProperties($obj, $resObj);
+                $this->checkDocBlockParameterProperties($obj, $resObj);
 
                 $this->assertEquals($obj["return"], $resObj["return"]);
             }
@@ -434,25 +434,18 @@ class ObjectDocumentationTests extends TestCase
     public function test_method_toArray_standalone_objects()
     {
         $pathToExpectedAndResult = realpath(__DIR__ . "/../resources");
-        $interfaceExpected = file_get_contents($pathToExpectedAndResult . "/ExpectedObj05_Standalone.json");
+        $interfaceExpected = file_get_contents($pathToExpectedAndResult . "/ExpectedObj05_StandaloneObjects.json");
 
 
-        $obj01 = new ObjectDocumentation(
+        $obj = new ObjectDocumentation(
             "/var/www/html/tests/resources/StandaloneObjects.php",
-            "AeonDigital\\Standalone\\CStandalone",
-            ElementType::UNKNOW
-        );
-        $obj02 = new ObjectDocumentation(
-            "/var/www/html/tests/resources/StandaloneObjects.php",
-            "AeonDigital\\Standalone\\array_check_required_keys",
+            "",
             ElementType::UNKNOW
         );
 
 
-        $jsonData01 = \json_encode($obj01->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        $jsonData02 = \json_encode($obj02->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-
-        \file_put_contents($pathToExpectedAndResult . "/ResultObj05_Standalone.json", $jsonData01 . "\n" . $jsonData02);
-        $this->assertEquals($interfaceExpected, $jsonData01 . "\n" . $jsonData02);
+        $jsonData = \json_encode($obj->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        \file_put_contents($pathToExpectedAndResult . "/ResultObj05_StandaloneObjects.json", $jsonData);
+        $this->assertEquals($interfaceExpected, $jsonData);
     }
 }

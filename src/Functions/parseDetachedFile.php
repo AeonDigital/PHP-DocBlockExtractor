@@ -9,7 +9,7 @@ namespace AeonDigital\DocBlockExtractor\Functions;
 
 /**
  * Efetua o processamento de um arquivo avulso linha a linha em busca dos
- * objetos que estão documentados usando DockBlocks.
+ * objetos que estão documentados usando DocBlocks.
  *
  * @param string $detachedFile
  * Caminho completo até o arquivo que será verificado
@@ -33,7 +33,7 @@ function parseDetachedFile(string $detachedFile): array
     ];
 
     $fileContent = \explode("\n", \file_get_contents($detachedFile));
-    $insideDockBlock = false;
+    $insideDocBlock = false;
     $isToGetNextLine = false;
     foreach ($fileContent as $line) {
         $tline = \trim($line);
@@ -42,15 +42,15 @@ function parseDetachedFile(string $detachedFile): array
                 $r["namespace"] = \str_replace(";", "", \substr($tline, 10));
             }
 
-            if ($insideDockBlock === false && \str_starts_with($tline, "/**") === true) {
-                $insideDockBlock = true;
+            if ($insideDocBlock === false && \str_starts_with($tline, "/**") === true) {
+                $insideDocBlock = true;
                 if (\str_ends_with($tline, "*/") === true) {
                     $isToGetNextLine = true;
-                    $insideDockBlock = false;
+                    $insideDocBlock = false;
                 }
-            } elseif ($insideDockBlock === true && \str_ends_with($tline, "*/") === true) {
+            } elseif ($insideDocBlock === true && \str_ends_with($tline, "*/") === true) {
                 $isToGetNextLine = true;
-                $insideDockBlock = false;
+                $insideDocBlock = false;
             } elseif ($isToGetNextLine === true) {
                 $isToGetNextLine = false;
 

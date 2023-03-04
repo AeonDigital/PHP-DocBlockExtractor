@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 use AeonDigital\DocBlockExtractor\Parser\DocBlock as DocBlock;
-
+use AeonDigital\DocBlockExtractor\Enums\ElementType as ElementType;
 
 require_once __DIR__ . "/../../phpunit.php";
 
@@ -352,5 +352,105 @@ class DocBlockTests extends TestCase
         $this->assertEquals(2, \count($resultObj));
         $this->assertEquals($expectedObj[0], $resultObj[0]);
         $this->assertEquals($expectedObj[1]["summary"], $resultObj[1]["summary"]);
+    }
+
+
+
+
+
+    public function test_static_method_parseObjectDeclaration()
+    {
+        $originalObj = [
+            "const CStandalone = [\"array\"];",
+            "\$VStandalone = \"test\";",
+            "function array_check_required_keys(array \$keys, array \$array): array",
+        ];
+        $expectedObj = [
+            [
+                "type" => ElementType::CONSTANT->value,
+                "shortName" => "CStandalone"
+            ],
+            [
+                "type" => ElementType::VARIABLE->value,
+                "shortName" => "VStandalone"
+            ],
+            [
+                "type" => ElementType::FUNCTION->value,
+                "shortName" => "array_check_required_keys"
+            ],
+        ];
+
+
+        foreach ($originalObj as $i => $rawLine) {
+            $oResult = DocBlock::parseObjectDeclaration($rawLine);
+
+            $this->assertNotNull($oResult);
+            $this->assertEquals($expectedObj[$i]["type"], $oResult["type"]);
+            $this->assertEquals($expectedObj[$i]["shortName"], $oResult["shortName"]);
+        }
+    }
+
+
+
+    public function test_static_method_parseStandaloneFileToMetaObjects()
+    {
+        $pathToStandaloneObjects = realpath(__DIR__ . "/../../resources/StandaloneObjects.php");
+
+        $expectedObj = [
+            "fileName" => "/var/www/html/tests/resources/StandaloneObjects.php",
+            "namespaceName" => "AeonDigital\Standalone",
+            "objects" => [
+                [
+                    "type" => "CONSTANT",
+                    "shortName" => "CStandalone",
+                    "docBlock" => [
+                        "/**",
+                        "* Constante de teste",
+                        "*",
+                        "* @var array CStandalone",
+                        "*/"
+                    ]
+                ],
+                [
+                    "type" => "VARIABLE",
+                    "shortName" => "VStandalone",
+                    "docBlock" => [
+                        "/** @var string \$VStandalone Variável de teste */"
+                    ]
+                ],
+                [
+                    "type" => "FUNCTION",
+                    "shortName" => "array_check_required_keys",
+                    "docBlock" => [
+                        "/**",
+                        "* Verifica se as chaves definidas como obrigatórias de um ``Array Associativo`` estão realmente",
+                        "* presentes.",
+                        "*",
+                        "* @param array \$keys",
+                        "* Coleção com o nome das chaves obrigatórias.",
+                        "*",
+                        "* @param array \$array",
+                        "* ``Array associativo`` que será verificado.",
+                        "*",
+                        "* @return array",
+                        "* Retorna um ``array`` contendo o nome de cada um dos itens que **NÃO** foram definidos.",
+                        "* Ou seja, se retornar um ``array`` vazio, significa que todas as chaves foram definidas.",
+                        "*/"
+                    ]
+                ]
+            ]
+        ];
+
+        $resultObj = DocBlock::parseStandaloneFileToMetaObjects($pathToStandaloneObjects);
+
+        $this->assertEquals($expectedObj["fileName"], $resultObj["fileName"]);
+        $this->assertEquals($expectedObj["namespaceName"], $resultObj["namespaceName"]);
+
+        $this->assertEquals(\count($expectedObj["objects"]), \count($resultObj["objects"]));
+        foreach ($expectedObj["objects"] as $i => $metaObject) {
+            $this->assertEquals($metaObject["type"], $resultObj["objects"][$i]["type"]);
+            $this->assertEquals($metaObject["shortName"], $resultObj["objects"][$i]["shortName"]);
+            $this->assertEquals($metaObject["docBlock"], $resultObj["objects"][$i]["docBlock"]);
+        }
     }
 }

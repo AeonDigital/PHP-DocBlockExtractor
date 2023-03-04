@@ -14,6 +14,10 @@ namespace AeonDigital\Standalone;
 const CStandalone = ["array"];
 
 
+/** @var string $VStandalone Variável de teste */
+$VStandalone = "test";
+
+
 /**
  * Verifica se as chaves definidas como obrigatórias de um ``Array Associativo`` estão realmente
  * presentes.
