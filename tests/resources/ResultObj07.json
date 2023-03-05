@@ -1,0 +1,6 @@
+[
+    "AeonDigital\\DocBlockExtractor\\Enums",
+    "AeonDigital\\DocBlockExtractor\\Exceptions",
+    "AeonDigital\\DocBlockExtractor",
+    "AeonDigital\\DocBlockExtractor\\Parser"
+]

@@ -15,8 +15,8 @@ enum ElementType: string
     case UNKNOW = "UNKNOW";
 
     case CONSTANT = "CONSTANT";
-    case PROPERTIE = "PROPERTIE";
     case VARIABLE = "VARIABLE";
+    case PROPERTIE = "PROPERTIE";
 
     case FUNCTION = "FUNCTION";
     case METHOD = "METHOD";

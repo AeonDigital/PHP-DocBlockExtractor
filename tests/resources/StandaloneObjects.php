@@ -32,8 +32,10 @@ $VStandalone = "test";
  * Retorna um ``array`` contendo o nome de cada um dos itens que **NÃO** foram definidos.
  * Ou seja, se retornar um ``array`` vazio, significa que todas as chaves foram definidas.
  */
-function array_check_required_keys(array $keys, array $array): array
-{
+function array_check_required_keys(
+    array $keys,
+    array $array
+): array {
     $arrReturn = [];
 
     foreach ($keys as $k) {

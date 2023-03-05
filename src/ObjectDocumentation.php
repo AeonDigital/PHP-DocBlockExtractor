@@ -450,6 +450,8 @@ class ObjectDocumentation
      */
     protected function standaloneFileToArray(): array
     {
+        require_once $this->fileName;
+
         $r = [
             "fileName"          => $this->fileName,
             "namespaceName"     => $this->namespaceName,
@@ -466,6 +468,7 @@ class ObjectDocumentation
         if ($this->namespaceName !== "") {
             $namespaceNameFQSEN = $this->namespaceName . "\\";
         }
+
 
         foreach ($this->standaloneFileMetaObjects["objects"] as $i => $objMetaData) {
             switch ($objMetaData["type"]) {

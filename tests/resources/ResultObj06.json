@@ -1,0 +1,8 @@
+[
+    "/var/www/html/src/Enums/ElementType.php",
+    "/var/www/html/src/Exceptions/DirectoryNotFoundException.php",
+    "/var/www/html/src/Exceptions/FileNotFoundException.php",
+    "/var/www/html/src/ObjectDocumentation.php",
+    "/var/www/html/src/Parser/DocBlock.php",
+    "/var/www/html/src/ProjectDocumentation.php"
+]

@@ -17,6 +17,7 @@
         <testsuite name="default">
             <file>src/Parser/DocBlockTests.php</file>
             <file>src/ObjectDocumentationTests.php</file>
+            <file>src/ProjectDocumentationTests.php</file>
         </testsuite>
     </testsuites>
 
