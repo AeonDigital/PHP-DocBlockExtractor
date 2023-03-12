@@ -576,7 +576,12 @@
                         ],
                         "throws": [
                             [
-                                "FileNotFoundException"
+                                "FileNotFoundException",
+                                "Caso o arquivo indicado não exista."
+                            ],
+                            [
+                                "InvalidArgumentException",
+                                "Caso seja informado um arquivo que não tenha extensão .php"
                             ]
                         ]
                     }

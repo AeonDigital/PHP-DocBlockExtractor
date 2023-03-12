@@ -40,8 +40,10 @@ class ObjectDocumentationTests extends TestCase
 
 
 
-    public function test_constructor_fails_fileNotFound()
+    public function test_constructor_fails()
     {
+        $this->setTestDirs();
+
         $fail = false;
         try {
             $obj = new ObjectDocumentation(
@@ -52,6 +54,24 @@ class ObjectDocumentationTests extends TestCase
         } catch (\Exception $ex) {
             $fail = true;
             $this->assertSame("File not found. [ invalid ]", $ex->getMessage());
+        }
+        $this->assertTrue($fail, "Test must fail");
+
+
+
+        $fail = false;
+        try {
+            $obj = new ObjectDocumentation(
+                $this->pathToTestXMLs . "/retrieveDirectoriesAndFilesFromXMLElement.xml",
+                "",
+                ElementType::UNKNOW
+            );
+        } catch (\Exception $ex) {
+            $fail = true;
+            $this->assertSame(
+                "Invalid file extension. Only \".php\" files are allowed [ " . $this->pathToTestXMLs . "/retrieveDirectoriesAndFilesFromXMLElement.xml ]",
+                $ex->getMessage()
+            );
         }
         $this->assertTrue($fail, "Test must fail");
     }

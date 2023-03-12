@@ -324,10 +324,10 @@ class DocBlockExtractor
 
 
         // Inicia um objeto ``ProjectDocumentation`` e efetua o parse lógico das informações do projeto
-        /*$proDoc = new ProjectDocumentation(
+        $proDoc = new ProjectDocumentation(
             $vendorDir,
             $detachedFilesAndDirectories,
             $ignoreDetachedFilesAndDirectories,
-        );*/
+        );
     }
 }

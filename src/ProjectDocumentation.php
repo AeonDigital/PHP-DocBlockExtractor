@@ -401,6 +401,15 @@ class ProjectDocumentation
                 $detachedFiles = \array_values($detachedFiles);
 
 
+                // Remove todos arquivos que não são de extensão .php
+                for ($i = (\count($detachedFiles) - 1); $i >= 0; $i--) {
+                    if (\str_ends_with($detachedFiles[$i], ".php") === false) {
+                        unset($detachedFiles[$i]);
+                    }
+                }
+                $detachedFiles = \array_values($detachedFiles);
+
+
                 // Remove da lista os itens indicados para serem ignorados.
                 $ignoreDirs = [];
                 $ignoreFiles = [];
@@ -437,7 +446,7 @@ class ProjectDocumentation
         return [
             "projectObjects" => $projectObjects,
             "detachedObjects" => $detachedFiles
-        ];;
+        ];
     }
     /**
      * Classifica os objetos do projeto conforme seus tipos identificados.

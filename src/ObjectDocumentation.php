@@ -104,14 +104,23 @@ class ObjectDocumentation
      * Tipo do objeto.
      *
      * @throws FileNotFoundException
+     * Caso o arquivo indicado não exista.
+     *
+     * @throws InvalidArgumentException
+     * Caso seja informado um arquivo que não tenha extensão .php
      */
     function __construct(
         string $fileName,
         string $fqsen,
         ElementType $type
     ) {
-        if (is_file($fileName) === false) {
+        if (\is_file($fileName) === false) {
             throw new FileNotFoundException("File not found. [ $fileName ]");
+        }
+        if (\str_ends_with($fileName, ".php") === false) {
+            throw new \InvalidArgumentException(
+                "Invalid file extension. Only \".php\" files are allowed [ $fileName ]"
+            );
         }
 
         $splitFQSEN = \explode("\\", $fqsen);
