@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpdocblockextractor
+    rootPath="/var/www/html"
+    vendorDir="vendor"
+    outputDir="docs"
+    outputFormatType="JSON"
+    singleFile="true"
+    outputExtractorClassName="AeonDigital\DocBlockExtractor\Tests\DocumentationClassTest">
+
+    <!--
+        Use to declare all directories that contains files that's not mapped by PHP Composer
+        or single files in same situation
+    <detachedFilesAndDirectories>
+        <directory></directory>
+        <file></file>
+    </detachedFilesAndDirectories>
+    -->
+
+    <!--
+        Use to declare all directories that contains files that's you wish to be ignored
+        by the documentation extraction
+    <ignoreDetachedFilesAndDirectories>
+        <directory></directory>
+        <file></file>
+    </ignoreDetachedFilesAndDirectories>
+    -->
+
+</phpdocblockextractor>

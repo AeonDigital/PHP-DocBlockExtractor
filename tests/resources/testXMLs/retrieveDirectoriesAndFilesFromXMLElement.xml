@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpdocblockextractor
+    rootPath="/var/www/html"
+    vendorDir="vendor"
+    outputDir="docs"
+    outputFormatType="JSON"
+    singleFile="true"
+    outputExtractorClassName="">
+
+
+    <detachedFilesAndDirectories>
+        <directory>tests/resources/testClasses</directory>
+        <directory>tests/resources/testJSONs</directory>
+        <directory>tests/resources/ignored_nonExists</directory>
+        <file>tests/resources/testXMLs/validateConfigXML_01.xml</file>
+        <file>tests/resources/testXMLs/validateConfigXML_02.xml</file>
+        <file>tests/resources/testXMLs/validateConfigXML_03.xml</file>
+        <file>tests/resources/testXMLs/ignored_nonExists.xml</file>
+    </detachedFilesAndDirectories>
+
+    <ignoreDetachedFilesAndDirectories>
+        <directory>tests/resources/testXMLs</directory>
+        <file>tests/resources/testXMLs/validateConfigXML_04.xml</file>
+        <file>tests/resources/testXMLs/validateConfigXML_05.xml</file>
+        <file>tests/resources/testXMLs/validateConfigXML_06.xml</file>
+    </ignoreDetachedFilesAndDirectories>
+
+</phpdocblockextractor>

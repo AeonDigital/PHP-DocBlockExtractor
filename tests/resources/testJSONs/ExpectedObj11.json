@@ -1,0 +1,95 @@
+{
+    "AeonDigital\\DocBlockExtractor": [],
+    "AeonDigital\\DocBlockExtractor\\Enums": [],
+    "AeonDigital\\DocBlockExtractor\\Exceptions": [],
+    "AeonDigital\\DocBlockExtractor\\Interfaces": [
+        {
+            "fileName": "/var/www/html/src/Interfaces/iOutputExtractor.php",
+            "namespaceName": "AeonDigital\\DocBlockExtractor\\Interfaces",
+            "fqsen": "AeonDigital\\DocBlockExtractor\\Interfaces\\iOutputExtractor",
+            "shortName": "iOutputExtractor",
+            "type": "INTERFACE",
+            "docBlock": {
+                "summary": [
+                    "Interface para as classes de extratores de documentação para determinado formato."
+                ],
+                "description": [],
+                "tags": {
+                    "package": [
+                        [
+                            "AeonDigital\\DocBlockExtractor"
+                        ]
+                    ],
+                    "author": [
+                        [
+                            "Rianna Cantarelli <rianna@aeondigital.com.br>"
+                        ]
+                    ],
+                    "copyright": [
+                        [
+                            "2023, Rianna Cantarelli"
+                        ]
+                    ],
+                    "license": [
+                        [
+                            "MIT"
+                        ]
+                    ]
+                }
+            },
+            "interfaces": null,
+            "extends": null,
+            "isAbstract": true,
+            "isFinal": false,
+            "constants": {
+                "public": []
+            },
+            "properties": {
+                "public": {
+                    "static": [],
+                    "nonstatic": []
+                }
+            },
+            "constructor": null,
+            "methods": {
+                "public": {
+                    "abstract": {
+                        "static": [],
+                        "nonstatic": [
+                            {
+                                "fileName": "/var/www/html/src/Interfaces/iOutputExtractor.php",
+                                "namespaceName": "AeonDigital\\DocBlockExtractor\\Interfaces\\iOutputExtractor",
+                                "fqsen": "AeonDigital\\DocBlockExtractor\\Interfaces\\iOutputExtractor\\extractDocumentation",
+                                "shortName": "extractDocumentation",
+                                "type": "METHOD",
+                                "docBlock": {
+                                    "summary": [
+                                        "Tipo primitivo representado por este campo."
+                                    ],
+                                    "description": [],
+                                    "tags": {
+                                        "var": [
+                                            [
+                                                "iSimpleType"
+                                            ]
+                                        ]
+                                    }
+                                },
+                                "parameters": [],
+                                "return": "bool",
+                                "isAbstract": true,
+                                "isFinal": false
+                            }
+                        ]
+                    },
+                    "nonabstract": {
+                        "static": [],
+                        "nonstatic": []
+                    }
+                }
+            }
+        }
+    ],
+    "AeonDigital\\DocBlockExtractor\\OutputExtractor": [],
+    "AeonDigital\\DocBlockExtractor\\Parser": []
+}

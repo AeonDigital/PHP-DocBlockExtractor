@@ -15,6 +15,29 @@ require_once __DIR__ . "/../phpunit.php";
 class ObjectDocumentationTests extends TestCase
 {
 
+    static ?array $mainExpectedToArray = null;
+    static ?array $mainResultToArray = null;
+
+
+
+    private string $rootPath = "";
+    private string $vendorPath = "";
+    private string $pathToTestClasses = "";
+    private string $pathToTestJSONs = "";
+    private string $pathToTestXMLs = "";
+
+    private function setTestDirs(): void
+    {
+        if ($this->rootPath === "") {
+            $this->rootPath = realpath(__DIR__ . "/../../");
+            $this->vendorPath = $this->rootPath . "/vendor";
+            $this->pathToTestClasses = $this->rootPath . "/tests/resources/testClasses";
+            $this->pathToTestJSONs = $this->rootPath . "/tests/resources/testJSONs";
+            $this->pathToTestXMLs = $this->rootPath . "/tests/resources/testXMLs";
+        }
+    }
+
+
 
 
     public function test_constructor_fails_fileNotFound()
@@ -37,12 +60,14 @@ class ObjectDocumentationTests extends TestCase
 
     public function test_constructor_ok()
     {
-        $pathToClassTest = realpath(__DIR__ . "/../resources/DocumentationClassTest.php");
+        $this->setTestDirs();
+
         $obj = new ObjectDocumentation(
-            $pathToClassTest,
+            $this->pathToTestClasses . "/DocumentationClassTest.php",
             "AeonDigital\\DocBlockExtractor\\Tests\\DocumentationClassTest",
             ElementType::UNKNOW
         );
+
         $this->assertTrue(is_a($obj, ObjectDocumentation::class));
     }
 
@@ -50,17 +75,17 @@ class ObjectDocumentationTests extends TestCase
 
     public function test_get_properties()
     {
-        $pathToClassTest = realpath(__DIR__ . "/../resources/DocumentationClassTest.php");
+        $this->setTestDirs();
         $fqsen = "AeonDigital\\DocBlockExtractor\\Tests\\DocumentationClassTest";
 
         $obj = new ObjectDocumentation(
-            $pathToClassTest,
+            $this->pathToTestClasses . "/DocumentationClassTest.php",
             $fqsen,
             ElementType::UNKNOW
         );
 
 
-        $this->assertEquals($pathToClassTest, $obj->getFileName());
+        $this->assertEquals($this->pathToTestClasses . "/DocumentationClassTest.php", $obj->getFileName());
         $this->assertEquals("AeonDigital\\DocBlockExtractor\\Tests", $obj->getNamespaceName());
         $this->assertEquals($fqsen, $obj->getFQSEN());
         $this->assertEquals("DocumentationClassTest", $obj->getShortName());
@@ -69,8 +94,6 @@ class ObjectDocumentationTests extends TestCase
 
 
 
-    static ?array $mainExpectedToArray = null;
-    static ?array $mainResultToArray = null;
 
 
     public function checkDocBlockArrayMainProperties($expectedObj, $resultObj)
@@ -153,9 +176,10 @@ class ObjectDocumentationTests extends TestCase
 
     public function test_method_toArray()
     {
-        $pathToExpectedAndResult = realpath(__DIR__ . "/../resources");
+        $this->setTestDirs();
+
         self::$mainExpectedToArray = \json_decode(
-            file_get_contents($pathToExpectedAndResult . "/ExpectedObj01_ObjDocumentationTest.json"),
+            file_get_contents($this->pathToTestJSONs . "/ExpectedObj01_ObjDocumentationTest.json"),
             true
         );
 
@@ -169,7 +193,7 @@ class ObjectDocumentationTests extends TestCase
 
         self::$mainResultToArray = $obj->toArray();
         $jsonData = \json_encode(self::$mainResultToArray, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        \file_put_contents($pathToExpectedAndResult . "/ResultObj01_ObjDocumentationTest.json", $jsonData);
+        \file_put_contents($this->pathToTestJSONs . "/ResultObj01_ObjDocumentationTest.json", $jsonData);
 
 
         $this->checkDocBlockArrayMainProperties(
@@ -367,19 +391,19 @@ class ObjectDocumentationTests extends TestCase
 
     public function test_method_toArray_interfaces()
     {
-        $pathToExpectedAndResult = realpath(__DIR__ . "/../resources");
-        $interfaceExpected = file_get_contents($pathToExpectedAndResult . "/ExpectedObj02_iRealTypeTest.json");
+        $this->setTestDirs();
+        $interfaceExpected = file_get_contents($this->pathToTestJSONs . "/ExpectedObj02_iRealTypeTest.json");
 
 
         $obj = new ObjectDocumentation(
-            "/var/www/html/tests/resources/iRealType.php",
+            $this->pathToTestClasses . "/iRealType.php",
             "AeonDigital\\Interfaces\\iRealType",
             ElementType::UNKNOW
         );
 
 
         $jsonData = \json_encode($obj->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        \file_put_contents($pathToExpectedAndResult . "/ResultObj02_iRealTypeTest.json", $jsonData);
+        \file_put_contents($this->pathToTestJSONs . "/ResultObj02_iRealTypeTest.json", $jsonData);
         $this->assertEquals($interfaceExpected, $jsonData);
     }
 
@@ -389,19 +413,19 @@ class ObjectDocumentationTests extends TestCase
 
     public function test_method_toArray_traits()
     {
-        $pathToExpectedAndResult = realpath(__DIR__ . "/../resources");
-        $interfaceExpected = file_get_contents($pathToExpectedAndResult . "/ExpectedObj03_FloatMethods.json");
+        $this->setTestDirs();
+        $interfaceExpected = file_get_contents($this->pathToTestJSONs . "/ExpectedObj03_FloatMethods.json");
 
 
         $obj = new ObjectDocumentation(
-            "/var/www/html/tests/resources/FloatMethods.php",
+            $this->pathToTestClasses . "/FloatMethods.php",
             "AeonDigital\\SimpleTypes\\Traits\\FloatMethods",
             ElementType::UNKNOW
         );
 
 
         $jsonData = \json_encode($obj->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        \file_put_contents($pathToExpectedAndResult . "/ResultObj03_FloatMethods.json", $jsonData);
+        \file_put_contents($this->pathToTestJSONs . "/ResultObj03_FloatMethods.json", $jsonData);
         $this->assertEquals($interfaceExpected, $jsonData);
     }
 
@@ -411,19 +435,19 @@ class ObjectDocumentationTests extends TestCase
 
     public function test_method_toArray_enum()
     {
-        $pathToExpectedAndResult = realpath(__DIR__ . "/../resources");
-        $interfaceExpected = file_get_contents($pathToExpectedAndResult . "/ExpectedObj04_PrimitiveType.json");
+        $this->setTestDirs();
+        $interfaceExpected = file_get_contents($this->pathToTestJSONs . "/ExpectedObj04_PrimitiveType.json");
 
 
         $obj = new ObjectDocumentation(
-            "/var/www/html/tests/resources/PrimitiveType.php",
+            $this->pathToTestClasses . "/PrimitiveType.php",
             "AeonDigital\\SimpleTypes\\Enums\\PrimitiveType",
             ElementType::UNKNOW
         );
 
 
         $jsonData = \json_encode($obj->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        \file_put_contents($pathToExpectedAndResult . "/ResultObj04_PrimitiveType.json", $jsonData);
+        \file_put_contents($this->pathToTestJSONs . "/ResultObj04_PrimitiveType.json", $jsonData);
         $this->assertEquals($interfaceExpected, $jsonData);
     }
 
@@ -433,19 +457,19 @@ class ObjectDocumentationTests extends TestCase
 
     public function test_method_toArray_standalone_objects()
     {
-        $pathToExpectedAndResult = realpath(__DIR__ . "/../resources");
-        $interfaceExpected = file_get_contents($pathToExpectedAndResult . "/ExpectedObj05_StandaloneObjects.json");
+        $this->setTestDirs();
+        $interfaceExpected = file_get_contents($this->pathToTestJSONs . "/ExpectedObj05_StandaloneObjects.json");
 
 
         $obj = new ObjectDocumentation(
-            "/var/www/html/tests/resources/StandaloneObjects.php",
+            $this->pathToTestClasses . "/StandaloneObjects.php",
             "",
             ElementType::UNKNOW
         );
 
 
         $jsonData = \json_encode($obj->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        \file_put_contents($pathToExpectedAndResult . "/ResultObj05_StandaloneObjects.json", $jsonData);
+        \file_put_contents($this->pathToTestJSONs . "/ResultObj05_StandaloneObjects.json", $jsonData);
         $this->assertEquals($interfaceExpected, $jsonData);
     }
 }

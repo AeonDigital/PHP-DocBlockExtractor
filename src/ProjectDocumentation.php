@@ -12,7 +12,6 @@ use AeonDigital\DocBlockExtractor\Enums\ElementType as ElementType;
 
 
 
-
 /**
  * Responsável por processar obter os objetos que compõe o projeto que está sendo analisado.
  *
@@ -162,6 +161,7 @@ class ProjectDocumentation
 
     /**
      * Efetua a extração da documentação do projeto.
+     *
      * Para que a extração seja feita corretamente, primeiro você precisa rodar o
      * php composer para que as classes do projeto estejam devidamente mapeadas.
      *
@@ -241,6 +241,10 @@ class ProjectDocumentation
      * @param string $absoluteSystemPathToDir
      * Diretório que será listado.
      *
+     * @codeCoverageIgnore
+     * Teste coberto no projeto ``PHP-Core`` na função ``dir_scan_w``.
+     * Função foi portada para cá para tornar este projeto o mais independente possível.
+     *
      * @return array
      * Lista de diretórios e arquivos encontrados no local indicado.
      */
@@ -290,10 +294,14 @@ class ProjectDocumentation
      * @param string $absoluteSystemPathToDir
      * Diretório que será listado.
      *
+     * @codeCoverageIgnore
+     * Teste coberto no projeto ``PHP-Core`` na função ``dir_scan_w_r``.
+     * Função foi portada para cá para tornar este projeto o mais independente possível.
+     *
      * @return string[]
      * Lista de arquivos encontrados no local indicado.
      */
-    private function dir_r_scan_w(string $absoluteSystemPathToDir): array
+    private function dir_scan_w_r(string $absoluteSystemPathToDir): array
     {
         $r = [];
         $dirContent = $this->dir_scan_w($absoluteSystemPathToDir);
@@ -301,7 +309,7 @@ class ProjectDocumentation
             if ($tgtName !== "." && $tgtName !== "..") {
                 $fullPath = $absoluteSystemPathToDir . DIRECTORY_SEPARATOR . $tgtName;
                 if (\is_dir($fullPath) === true) {
-                    $r = \array_merge($r, $this->dir_r_scan_w($fullPath));
+                    $r = \array_merge($r, $this->dir_scan_w_r($fullPath));
                 } else {
                     $r[] = $fullPath;
                 }
@@ -387,7 +395,7 @@ class ProjectDocumentation
                     if (\is_file($targetPath) === true) {
                         $detachedFiles[] = $targetPath;
                     } elseif (\is_dir($targetPath) === true) {
-                        array_push($detachedFiles, ...($this->dir_r_scan_w($targetPath)));
+                        array_push($detachedFiles, ...($this->dir_scan_w_r($targetPath)));
                     }
                 }
                 $detachedFiles = \array_values($detachedFiles);

@@ -1,0 +1,1622 @@
+{
+    "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+    "namespaceName": "AeonDigital\\Interfaces",
+    "fqsen": "AeonDigital\\Interfaces\\iRealType",
+    "shortName": "iRealType",
+    "type": "INTERFACE",
+    "docBlock": {
+        "summary": [
+            "Interface para tipo numérico \"Real\".",
+            "Nas classes concretas deve usar alguma extenção matemática como **BC Math**."
+        ],
+        "description": [],
+        "tags": {
+            "package": [
+                [
+                    "AeonDigital\\Interfaces"
+                ]
+            ],
+            "author": [
+                [
+                    "Rianna Cantarelli <rianna@aeondigital.com.br>"
+                ]
+            ],
+            "copyright": [
+                [
+                    "2022, Rianna Cantarelli"
+                ]
+            ],
+            "license": [
+                [
+                    "MIT"
+                ]
+            ]
+        }
+    },
+    "interfaces": [
+        "Stringable"
+    ],
+    "extends": null,
+    "isAbstract": true,
+    "isFinal": false,
+    "constants": {
+        "public": []
+    },
+    "properties": {
+        "public": {
+            "static": [],
+            "nonstatic": []
+        }
+    },
+    "constructor": null,
+    "methods": {
+        "public": {
+            "abstract": {
+                "static": [
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\defineGlobalDecimalPlaces",
+                        "shortName": "defineGlobalDecimalPlaces",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Permite definir um valor padrão para o argumento ``$dPlaces`` usado em vários métodos",
+                                "desta classe."
+                            ],
+                            "description": [
+                                "Quando algum método que usa o argumento ``$dPlaces`` for igual a ``null``, o valor aqui",
+                                "definido é que será usado."
+                            ],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "int $v",
+                                        "Valor padrão a ser usado."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "void"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "int",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor padrão a ser usado."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "void",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\getGlobalDecimalPlaces",
+                        "shortName": "getGlobalDecimalPlaces",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna o número de casas decimais sendo usadas no momento para fins de cálculos com esta",
+                                "classe."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "int"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "int",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\defineGlobalRoundType",
+                        "shortName": "defineGlobalRoundType",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Define a forma padrão pela qual os valores, quando calculados, serão arredondados."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "?string $roundType",
+                                        "Indica o tipo de arredondamento que será feito.",
+                                        "Valores inválidos não incorrerão em erros e nem em nenhuma conversão.",
+                                        "",
+                                        "Os valores aceitos são:",
+                                        "- ``floor``   :  Arredondará para baixo qualquer valor a partir do **digito sensível**.",
+                                        "- ``ceil``    :  Arredondará para cima todo valor diferente de zero a partir do **digito sensível**.",
+                                        "- ``floor-n`` :  Arredondará para baixo todo **digito sensível** que seja igual ou menor que ``n`` e",
+                                        "para cima todo **digito sensível** maior que ``n``.",
+                                        "- ``ceil-n``  :  Arredondará para cima todo **digito sensível** que seja igual ou maior que ``n`` e",
+                                        "para baixo todo **digito sensível** menor que ``n``."
+                                    ],
+                                    [
+                                        "iRealType $sensibility",
+                                        "A sensibilidade é sempre um valor que indica qual será exatamente o digito que será sensível ao",
+                                        "arredondamento.",
+                                        "",
+                                        "Por exemplo: ``0.001`` fará o arredondamento do número a partir do 3º digito após",
+                                        "o ponto decimal enquanto ``10`` fará o arredondamento das casas das dezenas."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "void"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "roundType": {
+                                "type": "string|null",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Indica o tipo de arredondamento que será feito.",
+                                        "Valores inválidos não incorrerão em erros e nem em nenhuma conversão."
+                                    ],
+                                    "description": [
+                                        "Os valores aceitos são:",
+                                        "- ``floor``   :  Arredondará para baixo qualquer valor a partir do **digito sensível**.",
+                                        "- ``ceil``    :  Arredondará para cima todo valor diferente de zero a partir do **digito sensível**.",
+                                        "- ``floor-n`` :  Arredondará para baixo todo **digito sensível** que seja igual ou menor que ``n`` e",
+                                        "para cima todo **digito sensível** maior que ``n``.",
+                                        "- ``ceil-n``  :  Arredondará para cima todo **digito sensível** que seja igual ou maior que ``n`` e",
+                                        "para baixo todo **digito sensível** menor que ``n``."
+                                    ],
+                                    "tags": []
+                                }
+                            },
+                            "sensibility": {
+                                "type": "AeonDigital\\Interfaces\\iRealType|null",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "A sensibilidade é sempre um valor que indica qual será exatamente o digito que será sensível ao",
+                                        "arredondamento."
+                                    ],
+                                    "description": [
+                                        "Por exemplo: ``0.001`` fará o arredondamento do número a partir do 3º digito após",
+                                        "o ponto decimal enquanto ``10`` fará o arredondamento das casas das dezenas."
+                                    ],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "void",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\getRoundType",
+                        "shortName": "getRoundType",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna o tipo de arredondamento definido para os cálculos realizados com esta classe."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "?string"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "string|null",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\getRoundSensibility",
+                        "shortName": "getRoundSensibility",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna o nível de sensibilidade usada para os arredondamentos."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "?iRealType"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "AeonDigital\\Interfaces\\iRealType|null",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\isValidRealtype",
+                        "shortName": "isValidRealtype",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Identifica se o valor passado é um ``iRealType`` válido."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "mixed $v",
+                                        "Valor a ser testado."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "bool",
+                                        "Retorna ``true`` se o valor passado for válido."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "mixed",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor a ser testado."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "bool",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\roundTo",
+                        "shortName": "roundTo",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Efetua o arredondamento de valores conforme as regras indicadas."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "iRealType $v",
+                                        "Valor que será arredondado."
+                                    ],
+                                    [
+                                        "string $roundType",
+                                        "Indica o tipo de arredondamento que será feito.",
+                                        "Valores inválidos não incorrerão em erros e nem em nenhuma conversão.",
+                                        "",
+                                        "Os valores aceitos são:",
+                                        "- ``floor``   :  Arredondará para baixo qualquer valor a partir do **digito sensível**.",
+                                        "- ``ceil``    :  Arredondará para cima todo valor diferente de zero a partir do **digito sensível**.",
+                                        "- ``floor-n`` :  Arredondará para baixo todo **digito sensível** que seja igual ou menor que ``n`` e",
+                                        "para cima todo **digito sensível** maior que ``n``.",
+                                        "- ``ceil-n``  :  Arredondará para cima todo **digito sensível** que seja igual ou maior que ``n`` e",
+                                        "para baixo todo **digito sensível** menor que ``n``."
+                                    ],
+                                    [
+                                        "iRealType $sensibility",
+                                        "A sensibilidade é sempre um valor que indica qual será exatamente o digito que será sensível ao arredondamento.",
+                                        "",
+                                        "Por exemplo:",
+                                        "",
+                                        "``0.001`` fará o arredondamento do número a partir do 3º digito após o ponto decimal enquanto ``10`` fará o",
+                                        "arredondamento das casas das dezenas."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "iRealType",
+                                        "Nova instância ``iRealType`` com o resultado do arredondamento indicado."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "AeonDigital\\Interfaces\\iRealType",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor que será arredondado."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "roundType": {
+                                "type": "string",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Indica o tipo de arredondamento que será feito.",
+                                        "Valores inválidos não incorrerão em erros e nem em nenhuma conversão."
+                                    ],
+                                    "description": [
+                                        "Os valores aceitos são:",
+                                        "- ``floor``   :  Arredondará para baixo qualquer valor a partir do **digito sensível**.",
+                                        "- ``ceil``    :  Arredondará para cima todo valor diferente de zero a partir do **digito sensível**.",
+                                        "- ``floor-n`` :  Arredondará para baixo todo **digito sensível** que seja igual ou menor que ``n`` e",
+                                        "para cima todo **digito sensível** maior que ``n``.",
+                                        "- ``ceil-n``  :  Arredondará para cima todo **digito sensível** que seja igual ou maior que ``n`` e",
+                                        "para baixo todo **digito sensível** menor que ``n``."
+                                    ],
+                                    "tags": []
+                                }
+                            },
+                            "sensibility": {
+                                "type": "AeonDigital\\Interfaces\\iRealType",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "A sensibilidade é sempre um valor que indica qual será exatamente o digito que será sensível ao arredondamento."
+                                    ],
+                                    "description": [
+                                        "Por exemplo:",
+                                        "",
+                                        "``0.001`` fará o arredondamento do número a partir do 3º digito após o ponto decimal enquanto ``10`` fará o",
+                                        "arredondamento das casas das dezenas."
+                                    ],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "AeonDigital\\Interfaces\\iRealType",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\__set_state",
+                        "shortName": "__set_state",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Permite definir um novo objeto baseado no estado completo passado pelo parametro ``$state``."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "array $state",
+                                        "Dados que serão adicionados ao novo objeto."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "iRealType",
+                                        "Nova instância preenchida com os valores do estado indicado em ``$state``."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "state": {
+                                "type": "array",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Dados que serão adicionados ao novo objeto."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "AeonDigital\\Interfaces\\iRealType",
+                        "isAbstract": true,
+                        "isFinal": false
+                    }
+                ],
+                "nonstatic": [
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\value",
+                        "shortName": "value",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna o valor que esta instância está representando."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "string"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "string",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\getIntegerPart",
+                        "shortName": "getIntegerPart",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna apenas a parte inteira do numeral representado por esta instância."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "string"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "string",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\getDecimalPart",
+                        "shortName": "getDecimalPart",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna apenas a parte decimal do numeral representado por esta instância."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "string"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "string",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\precision",
+                        "shortName": "precision",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna o total de dígitos que compõe este numeral somando o total de casas antes e após",
+                                "o separador decimal."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "int"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "int",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\integerPlaces",
+                        "shortName": "integerPlaces",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna o total de digitos que são usados para representar a parte inteira do numeral",
+                                "atual."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "int"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "int",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\decimalPlaces",
+                        "shortName": "decimalPlaces",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna o total de digitos que são usados para representar a parte decimal do numeral",
+                                "atual."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "int"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "int",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\isEqualAs",
+                        "shortName": "isEqualAs",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Verifica se o valor atual desta instância é igual ao valor passado para comparação."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "int|float|string|iRealType $v",
+                                        "Valor usado para comparação."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "bool",
+                                        "Retorna ``true`` se o valor atual desta instância e o valor passado em ``$v``",
+                                        "forem **IDÊNTICOS**."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "AeonDigital\\Interfaces\\iRealType|string|int|float",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado para comparação."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "bool",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\isGreaterThan",
+                        "shortName": "isGreaterThan",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Verifica se o valor atual desta instância é maior que o valor passado para comparação."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "int|float|string|iRealType $v",
+                                        "Valor usado para comparação."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "bool",
+                                        "Retornará ``true`` se o valor atual desta instância é **MAIOR** que o valor",
+                                        "indicado em ``$v``."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "AeonDigital\\Interfaces\\iRealType|string|int|float",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado para comparação."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "bool",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\isGreaterOrEqualAs",
+                        "shortName": "isGreaterOrEqualAs",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Verifica se o valor atual desta instância é maior ou igual ao valor passado para comparação."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "int|float|string|iRealType $v",
+                                        "Valor usado para comparação."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "bool",
+                                        "Retornará ``true`` se o valor atual desta instância é **MAIOR** ou **IGUAL**",
+                                        "ao o valor indicado em ``$v``."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "AeonDigital\\Interfaces\\iRealType|string|int|float",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado para comparação."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "bool",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\isLessThan",
+                        "shortName": "isLessThan",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Verifica se o valor atual desta instância é menor que o valor passado para comparação."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "int|float|string|iRealType $v",
+                                        "Valor usado para comparação."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "bool",
+                                        "Retornará ``true`` se o valor atual desta instância é **MENOR** que o valor",
+                                        "indicado em ``$v``."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "AeonDigital\\Interfaces\\iRealType|string|int|float",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado para comparação."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "bool",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\isLessOrEqualAs",
+                        "shortName": "isLessOrEqualAs",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Verifica se o valor atual desta instância é menor ou igual ao valor passado para comparação."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "int|float|string|iRealType $v",
+                                        "Valor usado para comparação."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "bool",
+                                        "Retornará ``true`` se o valor atual desta instância é **MENOR** ou **IGUAL**",
+                                        "ao o valor indicado em ``$v``."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "AeonDigital\\Interfaces\\iRealType|string|int|float",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado para comparação."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "bool",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\isZero",
+                        "shortName": "isZero",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Verifica se o valor atual desta instância é ``zero``."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "bool",
+                                        "Retornará ``true`` se o valor atual desta instância for ``zero``."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "bool",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\isPositive",
+                        "shortName": "isPositive",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Verifica se o valor atual desta instância é um número positivo."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "bool",
+                                        "Retornará ``true`` se o valor atual desta instância for um número positivo."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "bool",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\isNegative",
+                        "shortName": "isNegative",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Verifica se o valor atual desta instância é um número negativo."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "bool",
+                                        "Retornará ``true`` se o valor atual desta instância for um número negativo."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "bool",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\toPositive",
+                        "shortName": "toPositive",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna uma nova instância ``iRealType`` com o mesmo valor atual desta instância mas com",
+                                "o sinal positivo."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "iRealType"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "AeonDigital\\Interfaces\\iRealType",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\toNegative",
+                        "shortName": "toNegative",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna uma nova instância ``iRealType`` com o mesmo valor atual desta instância mas com",
+                                "o sinal negativo."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "iRealType"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "AeonDigital\\Interfaces\\iRealType",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\invertSignal",
+                        "shortName": "invertSignal",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna uma nova instância ``iRealType`` com o mesmo valor atual desta instância mas com",
+                                "o sinal invertido."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "iRealType"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "AeonDigital\\Interfaces\\iRealType",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\sum",
+                        "shortName": "sum",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Efetua uma adição do valor atual desta instância com o valor indicado."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "int|float|string|iRealType $v",
+                                        "Valor usado para o cálculo."
+                                    ],
+                                    [
+                                        "?int $dPlaces",
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "iRealType",
+                                        "Nova instância com o resultado desta operação."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "AeonDigital\\Interfaces\\iRealType|string|int|float",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado para o cálculo."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "dPlaces": {
+                                "type": "int|null",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": true,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "AeonDigital\\Interfaces\\iRealType",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\sub",
+                        "shortName": "sub",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Efetua uma subtração do valor atual desta instância com o valor indicado."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "int|float|string|iRealType $v",
+                                        "Valor usado para o cálculo."
+                                    ],
+                                    [
+                                        "?int $dPlaces",
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "iRealType",
+                                        "Nova instância com o resultado desta operação."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "AeonDigital\\Interfaces\\iRealType|string|int|float",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado para o cálculo."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "dPlaces": {
+                                "type": "int|null",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": true,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "AeonDigital\\Interfaces\\iRealType",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\mul",
+                        "shortName": "mul",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Efetua uma multiplicação do valor atual desta instância com o valor indicado."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "int|float|string|iRealType $v",
+                                        "Valor usado para o cálculo."
+                                    ],
+                                    [
+                                        "?int $dPlaces",
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "iRealType",
+                                        "Nova instância com o resultado desta operação."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "AeonDigital\\Interfaces\\iRealType|string|int|float",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado para o cálculo."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "dPlaces": {
+                                "type": "int|null",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": true,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "AeonDigital\\Interfaces\\iRealType",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\div",
+                        "shortName": "div",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Efetua uma divisão do valor atual desta instância com o valor indicado."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "int|float|string|iRealType $v",
+                                        "Valor usado para o cálculo."
+                                    ],
+                                    [
+                                        "?int $dPlaces",
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "iRealType",
+                                        "Nova instância com o resultado desta operação."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "AeonDigital\\Interfaces\\iRealType|string|int|float",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado para o cálculo."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "dPlaces": {
+                                "type": "int|null",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": true,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "AeonDigital\\Interfaces\\iRealType",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\mod",
+                        "shortName": "mod",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Calcula o módulo da divisão do valor atual desta instância pelo valor indicado."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "int|float|string|iRealType $v",
+                                        "Valor usado para o cálculo."
+                                    ],
+                                    [
+                                        "?int $dPlaces",
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "iRealType",
+                                        "Nova instância com o resultado desta operação."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "AeonDigital\\Interfaces\\iRealType|string|int|float",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado para o cálculo."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "dPlaces": {
+                                "type": "int|null",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": true,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "AeonDigital\\Interfaces\\iRealType",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\pow",
+                        "shortName": "pow",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Eleva o valor atual desta instância pelo expoente indicado."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "int|float|string|iRealType $v",
+                                        "Valor usado para o cálculo."
+                                    ],
+                                    [
+                                        "?int $dPlaces",
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "iRealType",
+                                        "Nova instância com o resultado desta operação."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "v": {
+                                "type": "AeonDigital\\Interfaces\\iRealType|string|int|float",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado para o cálculo."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "dPlaces": {
+                                "type": "int|null",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": true,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "AeonDigital\\Interfaces\\iRealType",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\sqrt",
+                        "shortName": "sqrt",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Calcula a raiz quadrada do valor atual desta instância."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "?int $dPlaces",
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "iRealType",
+                                        "Raiz quadrada do valor atual desta instância."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "dPlaces": {
+                                "type": "int|null",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": true,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "AeonDigital\\Interfaces\\iRealType",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\__toString",
+                        "shortName": "__toString",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Configura a forma como uma instância deve se comportar quando forçada a ser convertida",
+                                "para uma ``string``."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "return": [
+                                    [
+                                        "string"
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": [],
+                        "return": "string",
+                        "isAbstract": true,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/tests/resources/testClasses/iRealType.php",
+                        "namespaceName": "AeonDigital\\Interfaces\\iRealType",
+                        "fqsen": "AeonDigital\\Interfaces\\iRealType\\format",
+                        "shortName": "format",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Formata o valor atual desta instância usando o pontuador decimal e de milhar indicados."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "?int $dPlaces",
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ],
+                                    [
+                                        "string $dec",
+                                        "Pontuador decimal a ser usado."
+                                    ],
+                                    [
+                                        "string $tho",
+                                        "Pontuador de milhar a ser usado."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "string",
+                                        "Valor atual desta instância formatado conforme definido."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "dPlaces": {
+                                "type": "int|null",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": true,
+                                "isDefaultValue": true,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Total de casas decimais a serem levadas em conta.",
+                                        "Se ``null`` for passado, usará o padrão definido em ``static::$globalDecimalPlaces``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "dec": {
+                                "type": "string",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": "",
+                                "docBlock": {
+                                    "summary": [
+                                        "Pontuador decimal a ser usado."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "tho": {
+                                "type": "string",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": "",
+                                "docBlock": {
+                                    "summary": [
+                                        "Pontuador de milhar a ser usado."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "string",
+                        "isAbstract": true,
+                        "isFinal": false
+                    }
+                ]
+            },
+            "nonabstract": {
+                "static": [],
+                "nonstatic": []
+            }
+        }
+    }
+}

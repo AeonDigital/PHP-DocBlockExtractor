@@ -73,6 +73,24 @@ class DocBlockTests extends TestCase
 
 
 
+    private string $rootPath = "";
+    private string $vendorPath = "";
+    private string $pathToTestClasses = "";
+    private string $pathToTestJSONs = "";
+    private string $pathToTestXMLs = "";
+
+    private function setTestDirs(): void
+    {
+        if ($this->rootPath === "") {
+            $this->rootPath = realpath(__DIR__ . "/../../../");
+            $this->vendorPath = $this->rootPath . "/vendor";
+            $this->pathToTestClasses = $this->rootPath . "/tests/resources/testClasses";
+            $this->pathToTestJSONs = $this->rootPath . "/tests/resources/testJSONs";
+            $this->pathToTestXMLs = $this->rootPath . "/tests/resources/testXMLs";
+        }
+    }
+
+
 
 
     public function test_static_method_trimArray()
@@ -394,10 +412,10 @@ class DocBlockTests extends TestCase
 
     public function test_static_method_parseStandaloneFileToMetaObjects()
     {
-        $pathToStandaloneObjects = realpath(__DIR__ . "/../../resources/StandaloneObjects.php");
+        $this->setTestDirs();
 
         $expectedObj = [
-            "fileName" => "/var/www/html/tests/resources/StandaloneObjects.php",
+            "fileName" => $this->pathToTestClasses . "/StandaloneObjects.php",
             "namespaceName" => "AeonDigital\Standalone",
             "objects" => [
                 [
@@ -441,7 +459,7 @@ class DocBlockTests extends TestCase
             ]
         ];
 
-        $resultObj = DocBlock::parseStandaloneFileToMetaObjects($pathToStandaloneObjects);
+        $resultObj = DocBlock::parseStandaloneFileToMetaObjects($this->pathToTestClasses . "/StandaloneObjects.php");
 
         $this->assertEquals($expectedObj["fileName"], $resultObj["fileName"]);
         $this->assertEquals($expectedObj["namespaceName"], $resultObj["namespaceName"]);

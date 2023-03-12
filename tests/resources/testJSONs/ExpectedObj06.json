@@ -1,0 +1,13 @@
+[
+    "/var/www/html/src/DocBlockExtractor.php",
+    "/var/www/html/src/Enums/ElementType.php",
+    "/var/www/html/src/Enums/OutputFormatType.php",
+    "/var/www/html/src/Exceptions/DirectoryNotFoundException.php",
+    "/var/www/html/src/Exceptions/FileNotFoundException.php",
+    "/var/www/html/src/Exceptions/InvalidConfigurationFile.php",
+    "/var/www/html/src/Interfaces/iOutputExtractor.php",
+    "/var/www/html/src/ObjectDocumentation.php",
+    "/var/www/html/src/OutputExtractor/JSON.php",
+    "/var/www/html/src/Parser/DocBlock.php",
+    "/var/www/html/src/ProjectDocumentation.php"
+]

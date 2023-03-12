@@ -537,6 +537,10 @@ class ObjectDocumentation
      * @param mixed $o
      * Objeto que será verificado.
      *
+     * @codeCoverageIgnore
+     * Teste coberto no projeto ``PHP-Core`` na função ``Scalar::getType``.
+     * Função foi portada para cá para tornar este projeto o mais independente possível.
+     *
      * @return ?string
      */
     private function get_type(mixed $o): ?string
@@ -571,6 +575,10 @@ class ObjectDocumentation
      *
      * @param mixed $o
      * Objeto que será convertido.
+     *
+     * @codeCoverageIgnore
+     * Teste coberto no projeto ``PHP-Core`` na função ``Convert::toString``.
+     * Função foi portada para cá para tornar este projeto o mais independente possível.
      *
      * @return ?string
      * Retornará ``null`` caso não seja possível efetuar a conversão.
@@ -614,6 +622,10 @@ class ObjectDocumentation
      * @param int|float $n
      * Valor numérico de entrada.
      *
+     * @codeCoverageIgnore
+     * Teste coberto no projeto ``PHP-Core`` na função ``numeric_integer_part``.
+     * Função foi portada para cá para tornar este projeto o mais independente possível.
+     *
      * @return int
      * Retorna a parte inteira do numeral passado.
      */
@@ -642,6 +654,10 @@ class ObjectDocumentation
      * @param int $l
      * Tamanho da parte decimal a ser retornada.
      * Se não for informado, será usado o valor **2**.
+     *
+     * @codeCoverageIgnore
+     * Teste coberto no projeto ``PHP-Core`` na função ``numeric_decimal_part``.
+     * Função foi portada para cá para tornar este projeto o mais independente possível.
      *
      * @return float
      * Retornará um ``float`` como ``0.004321``.

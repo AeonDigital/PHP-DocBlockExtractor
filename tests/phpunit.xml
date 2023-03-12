@@ -18,6 +18,7 @@
             <file>src/Parser/DocBlockTests.php</file>
             <file>src/ObjectDocumentationTests.php</file>
             <file>src/ProjectDocumentationTests.php</file>
+            <file>src/DocBlockExtractorTests.php</file>
         </testsuite>
     </testsuites>
 

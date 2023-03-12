@@ -1,0 +1,119 @@
+{
+    "fileName": "/var/www/html/tests/resources/testClasses/StandaloneObjects.php",
+    "namespaceName": "AeonDigital\\Standalone",
+    "fqsen": "",
+    "shortName": "",
+    "type": "FILE",
+    "constants": [
+        {
+            "fileName": "/var/www/html/tests/resources/testClasses/StandaloneObjects.php",
+            "namespaceName": "AeonDigital\\Standalone",
+            "fqsen": "AeonDigital\\Standalone\\CStandalone",
+            "shortName": "CStandalone",
+            "type": "CONSTANT",
+            "docBlock": {
+                "summary": [
+                    "Constante de teste"
+                ],
+                "description": [],
+                "tags": {
+                    "var": [
+                        [
+                            "array CStandalone"
+                        ]
+                    ]
+                }
+            }
+        }
+    ],
+    "variables": [
+        {
+            "fileName": "/var/www/html/tests/resources/testClasses/StandaloneObjects.php",
+            "namespaceName": "AeonDigital\\Standalone",
+            "fqsen": "AeonDigital\\Standalone\\VStandalone",
+            "shortName": "VStandalone",
+            "type": "VARIABLE",
+            "docBlock": {
+                "summary": [],
+                "description": [],
+                "tags": {
+                    "var": [
+                        [
+                            "string $VStandalone Variável de teste"
+                        ]
+                    ]
+                }
+            }
+        }
+    ],
+    "functions": [
+        {
+            "fileName": "/var/www/html/tests/resources/testClasses/StandaloneObjects.php",
+            "namespaceName": "AeonDigital\\Standalone",
+            "fqsen": "AeonDigital\\Standalone\\array_check_required_keys",
+            "shortName": "array_check_required_keys",
+            "type": "FUNCTION",
+            "docBlock": {
+                "summary": [
+                    "Verifica se as chaves definidas como obrigatórias de um ``Array Associativo`` estão realmente",
+                    "presentes."
+                ],
+                "description": [],
+                "tags": {
+                    "param": [
+                        [
+                            "array $keys",
+                            "Coleção com o nome das chaves obrigatórias."
+                        ],
+                        [
+                            "array $array",
+                            "``Array associativo`` que será verificado."
+                        ]
+                    ],
+                    "return": [
+                        [
+                            "array",
+                            "Retorna um ``array`` contendo o nome de cada um dos itens que **NÃO** foram definidos.",
+                            "Ou seja, se retornar um ``array`` vazio, significa que todas as chaves foram definidas."
+                        ]
+                    ]
+                }
+            },
+            "parameters": {
+                "keys": {
+                    "type": "array",
+                    "isOptional": false,
+                    "isReference": false,
+                    "isVariadic": false,
+                    "isNullable": false,
+                    "isDefaultValue": false,
+                    "defaultValue": null,
+                    "docBlock": {
+                        "summary": [
+                            "Coleção com o nome das chaves obrigatórias."
+                        ],
+                        "description": [],
+                        "tags": []
+                    }
+                },
+                "array": {
+                    "type": "array",
+                    "isOptional": false,
+                    "isReference": false,
+                    "isVariadic": false,
+                    "isNullable": false,
+                    "isDefaultValue": false,
+                    "defaultValue": null,
+                    "docBlock": {
+                        "summary": [
+                            "``Array associativo`` que será verificado."
+                        ],
+                        "description": [],
+                        "tags": []
+                    }
+                }
+            },
+            "return": "array"
+        }
+    ]
+}

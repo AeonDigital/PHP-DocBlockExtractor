@@ -1,0 +1,530 @@
+{
+    "AeonDigital\\DocBlockExtractor": [],
+    "AeonDigital\\DocBlockExtractor\\Enums": [
+        {
+            "fileName": "/var/www/html/src/Enums/ElementType.php",
+            "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums",
+            "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+            "shortName": "ElementType",
+            "type": "ENUM",
+            "docBlock": {
+                "summary": [
+                    "Tipo de elemento"
+                ],
+                "description": [],
+                "tags": []
+            },
+            "interfaces": [
+                "UnitEnum",
+                "BackedEnum"
+            ],
+            "extends": null,
+            "isAbstract": false,
+            "isFinal": true,
+            "constants": {
+                "public": [
+                    {
+                        "fileName": "/var/www/html/src/Enums/ElementType.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\UNKNOW",
+                        "shortName": "UNKNOW",
+                        "type": "CONSTANT",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "value": {
+                            "type": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "originalValue": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "stringValue": null
+                        }
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Enums/ElementType.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\CONSTANT",
+                        "shortName": "CONSTANT",
+                        "type": "CONSTANT",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "value": {
+                            "type": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "originalValue": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "stringValue": null
+                        }
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Enums/ElementType.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\VARIABLE",
+                        "shortName": "VARIABLE",
+                        "type": "CONSTANT",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "value": {
+                            "type": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "originalValue": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "stringValue": null
+                        }
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Enums/ElementType.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\PROPERTIE",
+                        "shortName": "PROPERTIE",
+                        "type": "CONSTANT",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "value": {
+                            "type": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "originalValue": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "stringValue": null
+                        }
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Enums/ElementType.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\FUNCTION",
+                        "shortName": "FUNCTION",
+                        "type": "CONSTANT",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "value": {
+                            "type": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "originalValue": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "stringValue": null
+                        }
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Enums/ElementType.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\METHOD",
+                        "shortName": "METHOD",
+                        "type": "CONSTANT",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "value": {
+                            "type": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "originalValue": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "stringValue": null
+                        }
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Enums/ElementType.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\INTERFACE",
+                        "shortName": "INTERFACE",
+                        "type": "CONSTANT",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "value": {
+                            "type": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "originalValue": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "stringValue": null
+                        }
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Enums/ElementType.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\ENUM",
+                        "shortName": "ENUM",
+                        "type": "CONSTANT",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "value": {
+                            "type": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "originalValue": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "stringValue": null
+                        }
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Enums/ElementType.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\TRAIT",
+                        "shortName": "TRAIT",
+                        "type": "CONSTANT",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "value": {
+                            "type": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "originalValue": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "stringValue": null
+                        }
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Enums/ElementType.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\CLASSE",
+                        "shortName": "CLASSE",
+                        "type": "CONSTANT",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "value": {
+                            "type": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "originalValue": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "stringValue": null
+                        }
+                    }
+                ]
+            },
+            "properties": {
+                "public": {
+                    "static": [],
+                    "nonstatic": [
+                        {
+                            "fileName": "/var/www/html/src/Enums/ElementType.php",
+                            "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\name",
+                            "shortName": "name",
+                            "type": "PROPERTIE",
+                            "docBlock": {
+                                "summary": [],
+                                "description": [],
+                                "tags": []
+                            },
+                            "defaultValue": {
+                                "type": "null",
+                                "originalValue": null,
+                                "stringValue": ""
+                            }
+                        },
+                        {
+                            "fileName": "/var/www/html/src/Enums/ElementType.php",
+                            "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                            "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\value",
+                            "shortName": "value",
+                            "type": "PROPERTIE",
+                            "docBlock": {
+                                "summary": [],
+                                "description": [],
+                                "tags": []
+                            },
+                            "defaultValue": {
+                                "type": "null",
+                                "originalValue": null,
+                                "stringValue": ""
+                            }
+                        }
+                    ]
+                }
+            },
+            "constructor": null,
+            "methods": {
+                "public": {
+                    "abstract": {
+                        "static": [],
+                        "nonstatic": []
+                    },
+                    "nonabstract": {
+                        "static": [
+                            {
+                                "fileName": "/var/www/html/src/Enums/ElementType.php",
+                                "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                                "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\cases",
+                                "shortName": "cases",
+                                "type": "METHOD",
+                                "docBlock": {
+                                    "summary": [],
+                                    "description": [],
+                                    "tags": []
+                                },
+                                "parameters": [],
+                                "return": "array",
+                                "isAbstract": false,
+                                "isFinal": false
+                            },
+                            {
+                                "fileName": "/var/www/html/src/Enums/ElementType.php",
+                                "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                                "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\from",
+                                "shortName": "from",
+                                "type": "METHOD",
+                                "docBlock": {
+                                    "summary": [],
+                                    "description": [],
+                                    "tags": []
+                                },
+                                "parameters": {
+                                    "value": {
+                                        "type": "string|int",
+                                        "isOptional": false,
+                                        "isReference": false,
+                                        "isVariadic": false,
+                                        "isNullable": false,
+                                        "isDefaultValue": false,
+                                        "defaultValue": null,
+                                        "docBlock": []
+                                    }
+                                },
+                                "return": "static",
+                                "isAbstract": false,
+                                "isFinal": false
+                            },
+                            {
+                                "fileName": "/var/www/html/src/Enums/ElementType.php",
+                                "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType",
+                                "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\ElementType\\tryFrom",
+                                "shortName": "tryFrom",
+                                "type": "METHOD",
+                                "docBlock": {
+                                    "summary": [],
+                                    "description": [],
+                                    "tags": []
+                                },
+                                "parameters": {
+                                    "value": {
+                                        "type": "string|int",
+                                        "isOptional": false,
+                                        "isReference": false,
+                                        "isVariadic": false,
+                                        "isNullable": false,
+                                        "isDefaultValue": false,
+                                        "defaultValue": null,
+                                        "docBlock": []
+                                    }
+                                },
+                                "return": "static|null",
+                                "isAbstract": false,
+                                "isFinal": false
+                            }
+                        ],
+                        "nonstatic": []
+                    }
+                }
+            }
+        },
+        {
+            "fileName": "/var/www/html/src/Enums/OutputFormatType.php",
+            "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums",
+            "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+            "shortName": "OutputFormatType",
+            "type": "ENUM",
+            "docBlock": {
+                "summary": [
+                    "Tipo de formato de saída de processamento de documentação"
+                ],
+                "description": [],
+                "tags": []
+            },
+            "interfaces": [
+                "UnitEnum",
+                "BackedEnum"
+            ],
+            "extends": null,
+            "isAbstract": false,
+            "isFinal": true,
+            "constants": {
+                "public": [
+                    {
+                        "fileName": "/var/www/html/src/Enums/OutputFormatType.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType\\JSON",
+                        "shortName": "JSON",
+                        "type": "CONSTANT",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "value": {
+                            "type": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                            "originalValue": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                            "stringValue": null
+                        }
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Enums/OutputFormatType.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType\\XML",
+                        "shortName": "XML",
+                        "type": "CONSTANT",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "value": {
+                            "type": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                            "originalValue": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                            "stringValue": null
+                        }
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Enums/OutputFormatType.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType\\RST",
+                        "shortName": "RST",
+                        "type": "CONSTANT",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "value": {
+                            "type": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                            "originalValue": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                            "stringValue": null
+                        }
+                    }
+                ]
+            },
+            "properties": {
+                "public": {
+                    "static": [],
+                    "nonstatic": [
+                        {
+                            "fileName": "/var/www/html/src/Enums/OutputFormatType.php",
+                            "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                            "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType\\name",
+                            "shortName": "name",
+                            "type": "PROPERTIE",
+                            "docBlock": {
+                                "summary": [],
+                                "description": [],
+                                "tags": []
+                            },
+                            "defaultValue": {
+                                "type": "null",
+                                "originalValue": null,
+                                "stringValue": ""
+                            }
+                        },
+                        {
+                            "fileName": "/var/www/html/src/Enums/OutputFormatType.php",
+                            "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                            "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType\\value",
+                            "shortName": "value",
+                            "type": "PROPERTIE",
+                            "docBlock": {
+                                "summary": [],
+                                "description": [],
+                                "tags": []
+                            },
+                            "defaultValue": {
+                                "type": "null",
+                                "originalValue": null,
+                                "stringValue": ""
+                            }
+                        }
+                    ]
+                }
+            },
+            "constructor": null,
+            "methods": {
+                "public": {
+                    "abstract": {
+                        "static": [],
+                        "nonstatic": []
+                    },
+                    "nonabstract": {
+                        "static": [
+                            {
+                                "fileName": "/var/www/html/src/Enums/OutputFormatType.php",
+                                "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                                "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType\\cases",
+                                "shortName": "cases",
+                                "type": "METHOD",
+                                "docBlock": {
+                                    "summary": [],
+                                    "description": [],
+                                    "tags": []
+                                },
+                                "parameters": [],
+                                "return": "array",
+                                "isAbstract": false,
+                                "isFinal": false
+                            },
+                            {
+                                "fileName": "/var/www/html/src/Enums/OutputFormatType.php",
+                                "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                                "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType\\from",
+                                "shortName": "from",
+                                "type": "METHOD",
+                                "docBlock": {
+                                    "summary": [],
+                                    "description": [],
+                                    "tags": []
+                                },
+                                "parameters": {
+                                    "value": {
+                                        "type": "string|int",
+                                        "isOptional": false,
+                                        "isReference": false,
+                                        "isVariadic": false,
+                                        "isNullable": false,
+                                        "isDefaultValue": false,
+                                        "defaultValue": null,
+                                        "docBlock": []
+                                    }
+                                },
+                                "return": "static",
+                                "isAbstract": false,
+                                "isFinal": false
+                            },
+                            {
+                                "fileName": "/var/www/html/src/Enums/OutputFormatType.php",
+                                "namespaceName": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType",
+                                "fqsen": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType\\tryFrom",
+                                "shortName": "tryFrom",
+                                "type": "METHOD",
+                                "docBlock": {
+                                    "summary": [],
+                                    "description": [],
+                                    "tags": []
+                                },
+                                "parameters": {
+                                    "value": {
+                                        "type": "string|int",
+                                        "isOptional": false,
+                                        "isReference": false,
+                                        "isVariadic": false,
+                                        "isNullable": false,
+                                        "isDefaultValue": false,
+                                        "defaultValue": null,
+                                        "docBlock": []
+                                    }
+                                },
+                                "return": "static|null",
+                                "isAbstract": false,
+                                "isFinal": false
+                            }
+                        ],
+                        "nonstatic": []
+                    }
+                }
+            }
+        }
+    ],
+    "AeonDigital\\DocBlockExtractor\\Exceptions": [],
+    "AeonDigital\\DocBlockExtractor\\Interfaces": [],
+    "AeonDigital\\DocBlockExtractor\\OutputExtractor": [],
+    "AeonDigital\\DocBlockExtractor\\Parser": []
+}
