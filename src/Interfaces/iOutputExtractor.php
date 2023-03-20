@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace AeonDigital\DocBlockExtractor\Interfaces;
 
-
+use AeonDigital\DocBlockExtractor\ProjectDocumentation as ProjectDocumentation;
 
 
 
@@ -13,7 +13,8 @@ namespace AeonDigital\DocBlockExtractor\Interfaces;
 
 
 /**
- * Interface para as classes de extratores de documentação para determinado formato.
+ * Interface para classes concretas capazes de performar a extração da documentação para
+ * um determinado formato.
  *
  * @package     AeonDigital\DocBlockExtractor
  * @author      Rianna Cantarelli <rianna@aeondigital.com.br>
@@ -26,9 +27,24 @@ interface iOutputExtractor
 
 
     /**
-     * Tipo primitivo representado por este campo.
+     * Extrai a documentação para o formato implementado.
      *
-     * @var iSimpleType
+     * @param ProjectDocumentation $proDoc
+     * Instância a partir da qual a documentação será obtida.
+     *
+     * @param string $outputDir
+     * Caminho completo até um diretório que será usado como repositório dos arquivos
+     * criados. O conteúdo original deste diretório será eliminado antes de gerar a nova
+     * documentação.
+     *
+     * @param bool $singleFile
+     * Quando ``true`` o conteúdo será extraido para um único arquivo.
+     * Esta opção só deve ser aceita caso faça sentido para o formato implementado, caso contrário
+     * deve ser ignorado.
      */
-    public function extractDocumentation(): bool;
+    public function extract(
+        ProjectDocumentation $proDoc,
+        string $outputDir,
+        bool $singleFile
+    ): bool;
 }

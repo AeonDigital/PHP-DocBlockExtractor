@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpdocblockextractor
+    rootPath="/var/www/html"
+    vendorDir="vendor"
+    outputDir="docs"
+    outputFormatType="JSON"
+    singleFile="false"
+    outputExtractorClassName="">
+</phpdocblockextractor>

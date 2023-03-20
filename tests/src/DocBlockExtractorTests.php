@@ -46,8 +46,31 @@ class DocBlockExtractorTests extends TestCase
         }
 
         $this->assertFalse(\is_file($configFilePath));
-        $this->assertTrue(DocBlockExtractor::createConfigurationFileTemplate($configFilePath));
+        $this->assertTrue(DocBlockExtractor::createConfigurationFileTemplate(
+            $configFilePath,
+            "rootPathTest",
+            "vendorPathTest",
+            "outputPathTest",
+            "JSON",
+            false,
+            "ONLY/TEST",
+            [
+                $this->pathToTestXMLs,
+                $this->pathToTestXMLs . "/validateConfigXML_01.xml",
+                $this->pathToTestXMLs . "/validateConfigXML_02.xml"
+            ],
+            [
+                $this->pathToTestClasses,
+                $this->pathToTestJSONs,
+                $this->pathToTestXMLs . "/validateConfigXML_03.xml"
+            ]
+        ));
         $this->assertTrue(\is_file($configFilePath));
+
+
+        $expectedData = file_get_contents($this->pathToTestXMLs . "/expectedNewConfig.xml");
+        $resultData = file_get_contents($configFilePath);
+        $this->assertEquals($expectedData, $resultData);
     }
 
 
@@ -184,34 +207,38 @@ class DocBlockExtractorTests extends TestCase
 
 
 
-
-    public function test_static_method_main_Exceptions()
+    public function test_static_method_retrieveOutputExtractorInstance()
     {
-        $this->setTestDirs();
+        $useClassName = "AeonDigital\\DocBlockExtractor\\OutputExtractor\\JSON";
+        $resultObj = null;
 
-        $fail = false;
+        $created = false;
         try {
-            DocBlockExtractor::main(
-                $this->pathToTestXMLs . "/validateConfigXML_01.xml"
+            $resultObj = DocBlockExtractor::retrieveOutputExtractorInstance(
+                $useClassName
             );
+            $created = true;
         } catch (\Exception $ex) {
-            $fail = true;
-            $this->assertSame(
-                "Cannot parse configuration file. [ " . $this->pathToTestXMLs . "/validateConfigXML_01.xml ]",
-                $ex->getMessage()
-            );
+            $this->assertSame("Instance not created", $ex->getMessage());
         }
-        $this->assertTrue($fail, "Test must fail");
+        $this->assertTrue($created);
+
+
+        $arrImplements = class_implements($resultObj);
+        $this->assertIsArray($arrImplements);
+        $this->assertTrue(
+            \in_array("AeonDigital\\DocBlockExtractor\\Interfaces\\iOutputExtractor", $arrImplements)
+        );
     }
 
 
-    /*
+
     public function test_static_method_main()
     {
         $this->setTestDirs();
 
         DocBlockExtractor::main(
-            $this->pathToTestXMLs . "/retrieveDirectoriesAndFilesFromXMLElement.xml"
+            $this->pathToTestXMLs . "/mainTestConfig.xml"
         );
-    }*/
+    }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpdocblockextractor rootPath="rootPathTest" vendorDir="vendorPathTest" outputDir="outputPathTest" outputFormatType="JSON" singleFile="false" outputExtractorClassName="ONLY/TEST">
+    <detachedFilesAndDirectories>
+        <directory>/var/www/html/tests/resources/testXMLs</directory>
+        <file>/var/www/html/tests/resources/testXMLs/validateConfigXML_01.xml</file>
+        <file>/var/www/html/tests/resources/testXMLs/validateConfigXML_02.xml</file>
+    </detachedFilesAndDirectories>
+    <ignoreDetachedFilesAndDirectories>
+        <directory>/var/www/html/tests/resources/testClasses</directory>
+        <directory>/var/www/html/tests/resources/testJSONs</directory>
+        <file>/var/www/html/tests/resources/testXMLs/validateConfigXML_03.xml</file>
+    </ignoreDetachedFilesAndDirectories>
+</phpdocblockextractor>
