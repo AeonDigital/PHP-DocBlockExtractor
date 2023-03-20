@@ -1,28 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<phpdocblockextractor
-    rootPath="/var/www/html"
-    vendorDir="vendor"
-    outputDir="docs"
-    outputFormatType="JSON"
-    singleFile="true"
-    outputExtractorClassName="">
-
-    <!--
-        Use to declare all directories that contains files that's not mapped by PHP Composer
-        or single files in same situation
+<?xml version="1.0" encoding="utf-8"?>
+<phpdocblockextractor rootPath="rootPathTest" vendorDir="vendorPathTest" outputDir="outputPathTest" outputFormatType="JSON" singleFile="false" outputExtractorClassName="ONLY/TEST">
     <detachedFilesAndDirectories>
-        <directory></directory>
-        <file></file>
+        <directory>/var/www/html/tests/resources/testXMLs</directory>
+        <file>/var/www/html/tests/resources/testXMLs/validateConfigXML_01.xml</file>
+        <file>/var/www/html/tests/resources/testXMLs/validateConfigXML_02.xml</file>
     </detachedFilesAndDirectories>
-    -->
-
-    <!--
-        Use to declare all directories that contains files that's you wish to be ignored
-        by the documentation extraction
     <ignoreDetachedFilesAndDirectories>
-        <directory></directory>
-        <file></file>
+        <directory>/var/www/html/tests/resources/testClasses</directory>
+        <directory>/var/www/html/tests/resources/testJSONs</directory>
+        <file>/var/www/html/tests/resources/testXMLs/validateConfigXML_03.xml</file>
     </ignoreDetachedFilesAndDirectories>
-    -->
-
 </phpdocblockextractor>

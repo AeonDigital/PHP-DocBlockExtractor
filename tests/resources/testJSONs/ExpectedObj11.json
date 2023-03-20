@@ -11,7 +11,8 @@
             "type": "INTERFACE",
             "docBlock": {
                 "summary": [
-                    "Interface para as classes de extratores de documentação para determinado formato."
+                    "Interface para classes concretas capazes de performar a extração da documentação para",
+                    "um determinado formato."
                 ],
                 "description": [],
                 "tags": {
@@ -59,23 +60,89 @@
                             {
                                 "fileName": "/var/www/html/src/Interfaces/iOutputExtractor.php",
                                 "namespaceName": "AeonDigital\\DocBlockExtractor\\Interfaces\\iOutputExtractor",
-                                "fqsen": "AeonDigital\\DocBlockExtractor\\Interfaces\\iOutputExtractor\\extractDocumentation",
-                                "shortName": "extractDocumentation",
+                                "fqsen": "AeonDigital\\DocBlockExtractor\\Interfaces\\iOutputExtractor\\extract",
+                                "shortName": "extract",
                                 "type": "METHOD",
                                 "docBlock": {
                                     "summary": [
-                                        "Tipo primitivo representado por este campo."
+                                        "Extrai a documentação para o formato implementado."
                                     ],
                                     "description": [],
                                     "tags": {
-                                        "var": [
+                                        "param": [
                                             [
-                                                "iSimpleType"
+                                                "ProjectDocumentation $proDoc",
+                                                "Instância a partir da qual a documentação será obtida."
+                                            ],
+                                            [
+                                                "string $outputDir",
+                                                "Caminho completo até um diretório que será usado como repositório dos arquivos",
+                                                "criados. O conteúdo original deste diretório será eliminado antes de gerar a nova",
+                                                "documentação."
+                                            ],
+                                            [
+                                                "bool $singleFile",
+                                                "Quando ``true`` o conteúdo será extraido para um único arquivo.",
+                                                "Esta opção só deve ser aceita caso faça sentido para o formato implementado, caso contrário",
+                                                "deve ser ignorado."
                                             ]
                                         ]
                                     }
                                 },
-                                "parameters": [],
+                                "parameters": {
+                                    "proDoc": {
+                                        "type": "AeonDigital\\DocBlockExtractor\\ProjectDocumentation",
+                                        "isOptional": false,
+                                        "isReference": false,
+                                        "isVariadic": false,
+                                        "isNullable": false,
+                                        "isDefaultValue": false,
+                                        "defaultValue": null,
+                                        "docBlock": {
+                                            "summary": [
+                                                "Instância a partir da qual a documentação será obtida."
+                                            ],
+                                            "description": [],
+                                            "tags": []
+                                        }
+                                    },
+                                    "outputDir": {
+                                        "type": "string",
+                                        "isOptional": false,
+                                        "isReference": false,
+                                        "isVariadic": false,
+                                        "isNullable": false,
+                                        "isDefaultValue": false,
+                                        "defaultValue": null,
+                                        "docBlock": {
+                                            "summary": [
+                                                "Caminho completo até um diretório que será usado como repositório dos arquivos",
+                                                "criados. O conteúdo original deste diretório será eliminado antes de gerar a nova",
+                                                "documentação."
+                                            ],
+                                            "description": [],
+                                            "tags": []
+                                        }
+                                    },
+                                    "singleFile": {
+                                        "type": "bool",
+                                        "isOptional": false,
+                                        "isReference": false,
+                                        "isVariadic": false,
+                                        "isNullable": false,
+                                        "isDefaultValue": false,
+                                        "defaultValue": null,
+                                        "docBlock": {
+                                            "summary": [
+                                                "Quando ``true`` o conteúdo será extraido para um único arquivo.",
+                                                "Esta opção só deve ser aceita caso faça sentido para o formato implementado, caso contrário",
+                                                "deve ser ignorado."
+                                            ],
+                                            "description": [],
+                                            "tags": []
+                                        }
+                                    }
+                                },
                                 "return": "bool",
                                 "isAbstract": true,
                                 "isFinal": false
