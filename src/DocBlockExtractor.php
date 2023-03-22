@@ -434,7 +434,7 @@ class DocBlockExtractor
         string $outputExtractorClassName = "",
         array $detachedFilesAndDirectories = [],
         array $ignoreDetachedFilesAndDirectories = []
-    ): void {
+    ): bool {
 
         if ($configPath === "") {
             $configPath = \sys_get_temp_dir() . "/docBlockExtractorConfigFile.xml";
@@ -494,7 +494,7 @@ class DocBlockExtractor
             $extractor = self::retrieveOutputExtractorInstance(
                 $outputExtractorClassName
             );
-            $extractor->extract(
+            return $extractor->extract(
                 new ProjectDocumentation(
                     $vendorDir,
                     $detachedFilesAndDirectories,
