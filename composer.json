@@ -19,6 +19,9 @@
     "phpunit/phpunit": "^9"
   },
   "autoload": {
+    "files": [
+      "src/bootstrap.php"
+    ],
     "classmap": [
       "src/"
     ]

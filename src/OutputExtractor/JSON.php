@@ -64,11 +64,119 @@ class JSON extends aOutputExtractor
         string $outputDir,
         bool $singleFile
     ): bool {
-        return $this->genericExtract(
+        $r = false;
+
+        $structuredDocumentation = $this->prepareExtraction(
             $proDoc,
-            $outputDir,
-            "json",
-            $singleFile
+            $outputDir
         );
+
+        if ($singleFile === true) {
+            $r = $this->saveDocumentFile(
+                $outputDir . DIRECTORY_SEPARATOR . "index.json",
+                $structuredDocumentation
+            );
+        } else {
+            $r = true;
+
+            foreach ($structuredDocumentation as $namespaceName => $namespaceComponents) {
+                if ($r === true) {
+                    $namespaceNamePath = $outputDir . DIRECTORY_SEPARATOR . \str_replace("\\", "_", $namespaceName);
+
+                    $r = \mkdir($namespaceNamePath);
+                    if ($r === true) {
+
+                        foreach ($namespaceComponents as $componentType => $componentObjects) {
+                            if ($r === true && $componentObjects !== []) {
+                                switch ($componentType) {
+                                    case "constants":
+                                    case "variables":
+                                        $r = $this->saveDocumentFile(
+                                            $namespaceNamePath . DIRECTORY_SEPARATOR . $componentType . ".json",
+                                            $componentObjects
+                                        );
+                                        break;
+
+                                    case "functions":
+                                    case "interfaces":
+                                    case "enuns":
+                                    case "traits":
+                                    case "classes":
+                                        $r = $this->saveDocumentsOfComponentsFiles(
+                                            $namespaceNamePath . DIRECTORY_SEPARATOR . $componentType,
+                                            $componentObjects
+                                        );
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return $r;
+    }
+
+
+
+
+
+    /**
+     * Salva os dados passados para um arquivo no formato indicado.
+     *
+     * @param string $absolutePathToFile
+     * Caminho completo até o local onde o novo arquivo será criado.
+     *
+     * @param array $data
+     * Informações que serão salvas no arquivo.
+     *
+     * @return bool
+     * Retorna ``true`` se o arquivo for salvo corretamente.
+     */
+    protected function saveDocumentFile(
+        string $absolutePathToFile,
+        array $data,
+    ): bool {
+        $jsonData = \json_encode(
+            $data,
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
+        );
+        $r = \file_put_contents($absolutePathToFile, $jsonData);
+
+        return (($r === false) ? false : true);
+    }
+    /**
+     * Salva os dados passados para arquivos individualizados sendo 1 para cada
+     * componente listado. Os arquivos terão o mesmo nome indicado na chave ``shortName`` de
+     * suas respectivas descrições.
+     *
+     * @param string $componentsPath
+     * Caminho completo até o diretório onde os novos arquivos serão gerados.
+     *
+     * @param array $componentObjects
+     * Array contendo cada um dos componentes que deve ser individualizado em um arquivo a parte.
+     *
+     * @return bool
+     * Retorna ``true`` se todos os arquivos forem salvos corretamente.
+     */
+    protected function saveDocumentsOfComponentsFiles(
+        string $componentsPath,
+        array $componentObjects
+    ): bool {
+        $r = \mkdir($componentsPath);
+
+        if ($r === true) {
+            foreach ($componentObjects as $componentData) {
+                if ($r === true) {
+                    $r = $this->saveDocumentFile(
+                        $componentsPath . DIRECTORY_SEPARATOR . $componentData["shortName"] . ".json",
+                        $componentData
+                    );
+                }
+            }
+        }
+
+        return $r;
     }
 }
