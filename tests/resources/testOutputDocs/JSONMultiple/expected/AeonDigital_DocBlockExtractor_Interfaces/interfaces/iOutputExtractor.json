@@ -81,8 +81,8 @@
                                         "Se ``false``, cada namespace representará um diretório dentro de ``$outputDir`` e",
                                         "dentro de cada um serão alocados os seguintes arquivos/diretórios:",
                                         "",
-                                        "- constants.json     [ 1 arquivo para todas as constantes da namespace ]",
-                                        "- variables.json     [ 1 arquivo para todas as variáveis da namespace ]",
+                                        "- constants.xyz      [ 1 arquivo para todas as constantes da namespace ]",
+                                        "- variables.xyz      [ 1 arquivo para todas as variáveis da namespace ]",
                                         "- functions          [ 1 diretório contendo 1 arquivo para cada função da namespace ]",
                                         "- interfaces         [ 1 diretório contendo 1 arquivo para cada interface da namespace ]",
                                         "- enuns              [ 1 diretório contendo 1 arquivo para cada enumerador da namespace ]",
@@ -154,8 +154,8 @@
                                         "dentro de cada um serão alocados os seguintes arquivos/diretórios:"
                                     ],
                                     "description": [
-                                        "- constants.json     [ 1 arquivo para todas as constantes da namespace ]",
-                                        "- variables.json     [ 1 arquivo para todas as variáveis da namespace ]",
+                                        "- constants.xyz      [ 1 arquivo para todas as constantes da namespace ]",
+                                        "- variables.xyz      [ 1 arquivo para todas as variáveis da namespace ]",
                                         "- functions          [ 1 diretório contendo 1 arquivo para cada função da namespace ]",
                                         "- interfaces         [ 1 diretório contendo 1 arquivo para cada interface da namespace ]",
                                         "- enuns              [ 1 diretório contendo 1 arquivo para cada enumerador da namespace ]",
