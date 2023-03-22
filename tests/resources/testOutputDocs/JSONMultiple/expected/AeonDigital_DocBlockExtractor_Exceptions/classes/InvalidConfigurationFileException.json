@@ -1,0 +1,234 @@
+{
+    "fileName": "/var/www/html/src/Exceptions/InvalidConfigurationFile.php",
+    "namespaceName": "AeonDigital\\DocBlockExtractor\\Exceptions",
+    "fqsen": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException",
+    "shortName": "InvalidConfigurationFileException",
+    "type": "CLASSE",
+    "docBlock": {
+        "summary": [
+            "Exceção para arquivos não encontrados."
+        ],
+        "description": [],
+        "tags": []
+    },
+    "interfaces": [
+        "Throwable",
+        "Stringable"
+    ],
+    "extends": null,
+    "isAbstract": false,
+    "isFinal": false,
+    "constants": {
+        "public": []
+    },
+    "properties": {
+        "public": {
+            "static": [],
+            "nonstatic": []
+        }
+    },
+    "constructor": {
+        "fileName": "/var/www/html/src/Exceptions/InvalidConfigurationFile.php",
+        "namespaceName": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException",
+        "fqsen": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException\\__construct",
+        "shortName": "__construct",
+        "type": "METHOD",
+        "docBlock": {
+            "summary": [],
+            "description": [],
+            "tags": []
+        },
+        "parameters": {
+            "message": {
+                "type": "string",
+                "isOptional": true,
+                "isReference": false,
+                "isVariadic": false,
+                "isNullable": false,
+                "isDefaultValue": true,
+                "defaultValue": "",
+                "docBlock": []
+            },
+            "code": {
+                "type": "int",
+                "isOptional": true,
+                "isReference": false,
+                "isVariadic": false,
+                "isNullable": false,
+                "isDefaultValue": true,
+                "defaultValue": 0,
+                "docBlock": []
+            },
+            "previous": {
+                "type": "Throwable|null",
+                "isOptional": true,
+                "isReference": false,
+                "isVariadic": false,
+                "isNullable": true,
+                "isDefaultValue": true,
+                "defaultValue": null,
+                "docBlock": []
+            }
+        },
+        "return": "",
+        "isAbstract": false,
+        "isFinal": false
+    },
+    "methods": {
+        "public": {
+            "abstract": {
+                "static": [],
+                "nonstatic": []
+            },
+            "nonabstract": {
+                "static": [],
+                "nonstatic": [
+                    {
+                        "fileName": "/var/www/html/src/Exceptions/InvalidConfigurationFile.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException\\__wakeup",
+                        "shortName": "__wakeup",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "parameters": [],
+                        "return": "",
+                        "isAbstract": false,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Exceptions/InvalidConfigurationFile.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException\\getMessage",
+                        "shortName": "getMessage",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "parameters": [],
+                        "return": "string",
+                        "isAbstract": false,
+                        "isFinal": true
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Exceptions/InvalidConfigurationFile.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException\\getCode",
+                        "shortName": "getCode",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "parameters": [],
+                        "return": "",
+                        "isAbstract": false,
+                        "isFinal": true
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Exceptions/InvalidConfigurationFile.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException\\getFile",
+                        "shortName": "getFile",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "parameters": [],
+                        "return": "string",
+                        "isAbstract": false,
+                        "isFinal": true
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Exceptions/InvalidConfigurationFile.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException\\getLine",
+                        "shortName": "getLine",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "parameters": [],
+                        "return": "int",
+                        "isAbstract": false,
+                        "isFinal": true
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Exceptions/InvalidConfigurationFile.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException\\getTrace",
+                        "shortName": "getTrace",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "parameters": [],
+                        "return": "array",
+                        "isAbstract": false,
+                        "isFinal": true
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Exceptions/InvalidConfigurationFile.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException\\getPrevious",
+                        "shortName": "getPrevious",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "parameters": [],
+                        "return": "Throwable|null",
+                        "isAbstract": false,
+                        "isFinal": true
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Exceptions/InvalidConfigurationFile.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException\\getTraceAsString",
+                        "shortName": "getTraceAsString",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "parameters": [],
+                        "return": "string",
+                        "isAbstract": false,
+                        "isFinal": true
+                    },
+                    {
+                        "fileName": "/var/www/html/src/Exceptions/InvalidConfigurationFile.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\Exceptions\\InvalidConfigurationFileException\\__toString",
+                        "shortName": "__toString",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [],
+                            "description": [],
+                            "tags": []
+                        },
+                        "parameters": [],
+                        "return": "string",
+                        "isAbstract": false,
+                        "isFinal": false
+                    }
+                ]
+            }
+        }
+    }
+}

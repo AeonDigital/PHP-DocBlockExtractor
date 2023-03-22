@@ -39,8 +39,22 @@ interface iOutputExtractor
      *
      * @param bool $singleFile
      * Quando ``true`` o conteúdo será extraido para um único arquivo.
-     * Esta opção só deve ser aceita caso faça sentido para o formato implementado, caso contrário
-     * deve ser ignorado.
+     * Se ``false``, cada namespace representará um diretório dentro de ``$outputDir`` e
+     * dentro de cada um serão alocados os seguintes arquivos/diretórios:
+     *
+     * - constants.xyz      [ 1 arquivo para todas as constantes da namespace ]
+     * - variables.xyz      [ 1 arquivo para todas as variáveis da namespace ]
+     * - functions          [ 1 diretório contendo 1 arquivo para cada função da namespace ]
+     * - interfaces         [ 1 diretório contendo 1 arquivo para cada interface da namespace ]
+     * - enuns              [ 1 diretório contendo 1 arquivo para cada enumerador da namespace ]
+     * - traits             [ 1 diretório contendo 1 arquivo para cada trait da namespace ]
+     * - classes            [ 1 diretório contendo 1 arquivo para cada classe da namespace ]
+     *
+     * @throws DirectoryNotFoundException
+     * Caso o diretório ``outputDir`` indicado não exista.
+     *
+     * @return bool
+     * Retorna ``true`` caso todos os arquivos o processo tenha corrido até o fim.
      */
     public function extract(
         ProjectDocumentation $proDoc,

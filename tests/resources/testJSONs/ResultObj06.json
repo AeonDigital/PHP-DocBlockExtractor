@@ -8,6 +8,7 @@
     "/var/www/html/src/Interfaces/iOutputExtractor.php",
     "/var/www/html/src/ObjectDocumentation.php",
     "/var/www/html/src/OutputExtractor/JSON.php",
+    "/var/www/html/src/OutputExtractor/aOutputExtractor.php",
     "/var/www/html/src/Parser/DocBlock.php",
     "/var/www/html/src/ProjectDocumentation.php"
 ]
