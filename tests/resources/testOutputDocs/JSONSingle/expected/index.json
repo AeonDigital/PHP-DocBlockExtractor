@@ -3662,40 +3662,42 @@
     "\\": {
         "constants": [
             {
-                "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+                "fileName": "/var/www/html/src/Functions/00_constants_and_variables.php",
                 "namespaceName": "",
-                "fqsen": "teste01",
-                "shortName": "teste01",
+                "fqsen": "PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_01",
+                "shortName": "PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_01",
                 "type": "CONSTANT",
                 "docBlock": {
                     "summary": [
-                        "Teste de definição de constante pública na namespace base."
+                        "[1] Constante definida unicamente para permitir testar a obtenção",
+                        "de suas informações."
                     ],
                     "description": [],
                     "tags": {
                         "var": [
                             [
-                                "string teste01"
+                                "string PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_01"
                             ]
                         ]
                     }
                 }
             },
             {
-                "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+                "fileName": "/var/www/html/src/Functions/00_constants_and_variables.php",
                 "namespaceName": "",
-                "fqsen": "teste02",
-                "shortName": "teste02",
+                "fqsen": "PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_02",
+                "shortName": "PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_02",
                 "type": "CONSTANT",
                 "docBlock": {
                     "summary": [
-                        "Teste de definição de constante pública na namespace base."
+                        "[2] Constante definida unicamente para permitir testar a obtenção",
+                        "de suas informações."
                     ],
                     "description": [],
                     "tags": {
                         "var": [
                             [
-                                "string teste02"
+                                "string PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_02"
                             ]
                         ]
                     }
@@ -3704,40 +3706,42 @@
         ],
         "variables": [
             {
-                "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+                "fileName": "/var/www/html/src/Functions/00_constants_and_variables.php",
                 "namespaceName": "",
-                "fqsen": "varTest01",
-                "shortName": "varTest01",
+                "fqsen": "phpDocBlockExtractor_testVariable01",
+                "shortName": "phpDocBlockExtractor_testVariable01",
                 "type": "VARIABLE",
                 "docBlock": {
                     "summary": [
-                        "Agora um teste de uma variável."
+                        "[3] Variável definida unicamente para permitir testar a obtenção",
+                        "de suas informações."
                     ],
                     "description": [],
                     "tags": {
                         "var": [
                             [
-                                "array $varTest01"
+                                "int $phpDocBlockExtractor_testVariable01"
                             ]
                         ]
                     }
                 }
             },
             {
-                "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+                "fileName": "/var/www/html/src/Functions/00_constants_and_variables.php",
                 "namespaceName": "",
-                "fqsen": "varTest02",
-                "shortName": "varTest02",
+                "fqsen": "phpDocBlockExtractor_testVariable02",
+                "shortName": "phpDocBlockExtractor_testVariable02",
                 "type": "VARIABLE",
                 "docBlock": {
                     "summary": [
-                        "Agora um teste de uma variável."
+                        "[4] Variável definida unicamente para permitir testar a obtenção",
+                        "de suas informações."
                     ],
                     "description": [],
                     "tags": {
                         "var": [
                             [
-                                "int $varTest02"
+                                "int $phpDocBlockExtractor_testVariable02"
                             ]
                         ]
                     }
@@ -3750,63 +3754,6 @@
                 "namespaceName": "",
                 "fqsen": "convert_value_to_string",
                 "shortName": "convert_value_to_string",
-                "type": "FUNCTION",
-                "docBlock": {
-                    "summary": [
-                        "Tenta converter o tipo do valor passado para ``string``.",
-                        "Apenas valores realmente compatíveis serão convertidos."
-                    ],
-                    "description": [
-                        "Números de ponto flutuante serão convertidos e mantidos com no máximo 15 digitos",
-                        "ao todo (parte inteira + parte decimal).",
-                        "A parte decimal ficará com : (15 - (número de digitos da parte inteira)) casas."
-                    ],
-                    "tags": {
-                        "param": [
-                            [
-                                "mixed $o",
-                                "Objeto que será convertido."
-                            ]
-                        ],
-                        "codeCoverageIgnore": [
-                            [
-                                "Teste coberto no projeto ``PHP-Core`` na função ``Convert::toString``.",
-                                "Função foi portada para cá para tornar este projeto o mais independente possível."
-                            ]
-                        ],
-                        "return": [
-                            [
-                                "?string",
-                                "Retornará ``null`` caso não seja possível efetuar a conversão."
-                            ]
-                        ]
-                    }
-                },
-                "parameters": {
-                    "o": {
-                        "type": "mixed",
-                        "isOptional": false,
-                        "isReference": false,
-                        "isVariadic": false,
-                        "isNullable": true,
-                        "isDefaultValue": false,
-                        "defaultValue": null,
-                        "docBlock": {
-                            "summary": [
-                                "Objeto que será convertido."
-                            ],
-                            "description": [],
-                            "tags": []
-                        }
-                    }
-                },
-                "return": "string|null"
-            },
-            {
-                "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
-                "namespaceName": "",
-                "fqsen": "convert_value_to_string02",
-                "shortName": "convert_value_to_string02",
                 "type": "FUNCTION",
                 "docBlock": {
                     "summary": [

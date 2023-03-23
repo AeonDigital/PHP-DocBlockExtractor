@@ -7,40 +7,42 @@
     "AeonDigital\\DocBlockExtractor\\Parser": [],
     "\\": [
         {
-            "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+            "fileName": "/var/www/html/src/Functions/00_constants_and_variables.php",
             "namespaceName": "",
-            "fqsen": "teste01",
-            "shortName": "teste01",
+            "fqsen": "PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_01",
+            "shortName": "PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_01",
             "type": "CONSTANT",
             "docBlock": {
                 "summary": [
-                    "Teste de definição de constante pública na namespace base."
+                    "[1] Constante definida unicamente para permitir testar a obtenção",
+                    "de suas informações."
                 ],
                 "description": [],
                 "tags": {
                     "var": [
                         [
-                            "string teste01"
+                            "string PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_01"
                         ]
                     ]
                 }
             }
         },
         {
-            "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+            "fileName": "/var/www/html/src/Functions/00_constants_and_variables.php",
             "namespaceName": "",
-            "fqsen": "teste02",
-            "shortName": "teste02",
+            "fqsen": "PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_02",
+            "shortName": "PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_02",
             "type": "CONSTANT",
             "docBlock": {
                 "summary": [
-                    "Teste de definição de constante pública na namespace base."
+                    "[2] Constante definida unicamente para permitir testar a obtenção",
+                    "de suas informações."
                 ],
                 "description": [],
                 "tags": {
                     "var": [
                         [
-                            "string teste02"
+                            "string PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_02"
                         ]
                     ]
                 }

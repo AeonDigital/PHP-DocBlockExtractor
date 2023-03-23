@@ -1,39 +1,41 @@
 [
     {
-        "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+        "fileName": "/var/www/html/src/Functions/00_constants_and_variables.php",
         "namespaceName": "",
-        "fqsen": "varTest01",
-        "shortName": "varTest01",
+        "fqsen": "phpDocBlockExtractor_testVariable01",
+        "shortName": "phpDocBlockExtractor_testVariable01",
         "type": "VARIABLE",
         "docBlock": {
             "summary": [
-                "Agora um teste de uma variável."
+                "[3] Variável definida unicamente para permitir testar a obtenção",
+                "de suas informações."
             ],
             "description": [],
             "tags": {
                 "var": [
                     [
-                        "array $varTest01"
+                        "int $phpDocBlockExtractor_testVariable01"
                     ]
                 ]
             }
         }
     },
     {
-        "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+        "fileName": "/var/www/html/src/Functions/00_constants_and_variables.php",
         "namespaceName": "",
-        "fqsen": "varTest02",
-        "shortName": "varTest02",
+        "fqsen": "phpDocBlockExtractor_testVariable02",
+        "shortName": "phpDocBlockExtractor_testVariable02",
         "type": "VARIABLE",
         "docBlock": {
             "summary": [
-                "Agora um teste de uma variável."
+                "[4] Variável definida unicamente para permitir testar a obtenção",
+                "de suas informações."
             ],
             "description": [],
             "tags": {
                 "var": [
                     [
-                        "int $varTest02"
+                        "int $phpDocBlockExtractor_testVariable02"
                     ]
                 ]
             }

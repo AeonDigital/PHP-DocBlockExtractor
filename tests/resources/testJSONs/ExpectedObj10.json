@@ -64,63 +64,6 @@
             "return": "string|null"
         },
         {
-            "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
-            "namespaceName": "",
-            "fqsen": "convert_value_to_string02",
-            "shortName": "convert_value_to_string02",
-            "type": "FUNCTION",
-            "docBlock": {
-                "summary": [
-                    "Tenta converter o tipo do valor passado para ``string``.",
-                    "Apenas valores realmente compatíveis serão convertidos."
-                ],
-                "description": [
-                    "Números de ponto flutuante serão convertidos e mantidos com no máximo 15 digitos",
-                    "ao todo (parte inteira + parte decimal).",
-                    "A parte decimal ficará com : (15 - (número de digitos da parte inteira)) casas."
-                ],
-                "tags": {
-                    "param": [
-                        [
-                            "mixed $o",
-                            "Objeto que será convertido."
-                        ]
-                    ],
-                    "codeCoverageIgnore": [
-                        [
-                            "Teste coberto no projeto ``PHP-Core`` na função ``Convert::toString``.",
-                            "Função foi portada para cá para tornar este projeto o mais independente possível."
-                        ]
-                    ],
-                    "return": [
-                        [
-                            "?string",
-                            "Retornará ``null`` caso não seja possível efetuar a conversão."
-                        ]
-                    ]
-                }
-            },
-            "parameters": {
-                "o": {
-                    "type": "mixed",
-                    "isOptional": false,
-                    "isReference": false,
-                    "isVariadic": false,
-                    "isNullable": true,
-                    "isDefaultValue": false,
-                    "defaultValue": null,
-                    "docBlock": {
-                        "summary": [
-                            "Objeto que será convertido."
-                        ],
-                        "description": [],
-                        "tags": []
-                    }
-                }
-            },
-            "return": "string|null"
-        },
-        {
             "fileName": "/var/www/html/src/Functions/dir_deltree.php",
             "namespaceName": "",
             "fqsen": "dir_deltree",

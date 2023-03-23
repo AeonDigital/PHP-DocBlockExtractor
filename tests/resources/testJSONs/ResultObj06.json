@@ -11,6 +11,7 @@
     "/var/www/html/src/OutputExtractor/aOutputExtractor.php",
     "/var/www/html/src/Parser/DocBlock.php",
     "/var/www/html/src/ProjectDocumentation.php",
+    "/var/www/html/src/Functions/00_constants_and_variables.php",
     "/var/www/html/src/Functions/convert_value_to_string.php",
     "/var/www/html/src/Functions/dir_deltree.php",
     "/var/www/html/src/Functions/dir_scan_w.php",
