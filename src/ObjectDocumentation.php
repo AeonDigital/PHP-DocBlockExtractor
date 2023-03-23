@@ -123,6 +123,7 @@ class ObjectDocumentation
             );
         }
 
+
         $splitFQSEN = \explode("\\", $fqsen);
 
         $this->fileName = $fileName;
@@ -156,14 +157,18 @@ class ObjectDocumentation
                     } else {
                         // Senão, busca o objeto nas definições gerais de constantes.
                         $gConsts = get_defined_constants(true);
+                        $fqsenConst = $this->shortName;
+                        if ($this->namespaceName !== "") {
+                            $fqsenConst = $this->namespaceName . "\\" . $this->shortName;
+                        }
 
                         if (
                             \key_exists("user", $gConsts) === true &&
-                            \key_exists($this->namespaceName . "\\" .  $this->shortName, $gConsts["user"]) === true
+                            \key_exists($fqsenConst, $gConsts["user"]) === true
                         ) {
                             $this->type = ElementType::CONSTANT;
                             $this->isClassMember = false;
-                            $this->tmpObjectValue = $gConsts["user"][$this->namespaceName . "\\" .  $this->shortName];
+                            $this->tmpObjectValue = $gConsts["user"][$fqsenConst];
                         }
                     }
                 }
@@ -292,7 +297,7 @@ class ObjectDocumentation
 
             if ($this->type === ElementType::FUNCTION || $this->type === ElementType::METHOD) {
                 $r["parameters"] = [];
-                $r["return"] = $this->convert_parameter_type_to_string($objReflection->getReturnType());
+                $r["return"] = $this->convertParameterTypeToString($objReflection->getReturnType());
 
 
                 foreach ($objReflection->getParameters() as $param) {
@@ -474,6 +479,7 @@ class ObjectDocumentation
         ];
 
 
+        $namespaceNameFQSEN = "";
         if ($this->namespaceName !== "") {
             $namespaceNameFQSEN = $this->namespaceName . "\\";
         }
@@ -554,7 +560,7 @@ class ObjectDocumentation
      */
     protected function parameterToArray(\ReflectionParameter $param): array
     {
-        $t = $this->convert_parameter_type_to_string($param->getType());
+        $t = $this->convertParameterTypeToString($param->getType());
         $isNullable = \str_ends_with((string)$t, "|null");
         if ($t === "mixed|null") {
             $t = "mixed";
@@ -587,7 +593,7 @@ class ObjectDocumentation
      *
      * @return string
      */
-    private function convert_parameter_type_to_string(
+    private function convertParameterTypeToString(
         \ReflectionNamedType|\ReflectionUnionType|\ReflectionIntersectionType|null $objType
     ): string {
         $r = [];
@@ -598,7 +604,7 @@ class ObjectDocumentation
             } elseif ($objType instanceof \ReflectionUnionType) {
                 foreach ($objType->getTypes() as $type) {
                     if ($type instanceof \ReflectionIntersectionType) {
-                        $r[] = $this->convert_parameter_type_to_string($type);
+                        $r[] = $this->convertParameterTypeToString($type);
                     } else {
                         if ($type->getName() !== "null") {
                             $r[] = $type->getName();

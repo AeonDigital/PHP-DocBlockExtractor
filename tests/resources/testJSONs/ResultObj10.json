@@ -5,5 +5,484 @@
     "AeonDigital\\DocBlockExtractor\\Interfaces": [],
     "AeonDigital\\DocBlockExtractor\\OutputExtractor": [],
     "AeonDigital\\DocBlockExtractor\\Parser": [],
-    "": []
+    "\\": [
+        {
+            "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+            "namespaceName": "",
+            "fqsen": "convert_value_to_string",
+            "shortName": "convert_value_to_string",
+            "type": "FUNCTION",
+            "docBlock": {
+                "summary": [
+                    "Tenta converter o tipo do valor passado para ``string``.",
+                    "Apenas valores realmente compatíveis serão convertidos."
+                ],
+                "description": [
+                    "Números de ponto flutuante serão convertidos e mantidos com no máximo 15 digitos",
+                    "ao todo (parte inteira + parte decimal).",
+                    "A parte decimal ficará com : (15 - (número de digitos da parte inteira)) casas."
+                ],
+                "tags": {
+                    "param": [
+                        [
+                            "mixed $o",
+                            "Objeto que será convertido."
+                        ]
+                    ],
+                    "codeCoverageIgnore": [
+                        [
+                            "Teste coberto no projeto ``PHP-Core`` na função ``Convert::toString``.",
+                            "Função foi portada para cá para tornar este projeto o mais independente possível."
+                        ]
+                    ],
+                    "return": [
+                        [
+                            "?string",
+                            "Retornará ``null`` caso não seja possível efetuar a conversão."
+                        ]
+                    ]
+                }
+            },
+            "parameters": {
+                "o": {
+                    "type": "mixed",
+                    "isOptional": false,
+                    "isReference": false,
+                    "isVariadic": false,
+                    "isNullable": true,
+                    "isDefaultValue": false,
+                    "defaultValue": null,
+                    "docBlock": {
+                        "summary": [
+                            "Objeto que será convertido."
+                        ],
+                        "description": [],
+                        "tags": []
+                    }
+                }
+            },
+            "return": "string|null"
+        },
+        {
+            "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+            "namespaceName": "",
+            "fqsen": "convert_value_to_string02",
+            "shortName": "convert_value_to_string02",
+            "type": "FUNCTION",
+            "docBlock": {
+                "summary": [
+                    "Tenta converter o tipo do valor passado para ``string``.",
+                    "Apenas valores realmente compatíveis serão convertidos."
+                ],
+                "description": [
+                    "Números de ponto flutuante serão convertidos e mantidos com no máximo 15 digitos",
+                    "ao todo (parte inteira + parte decimal).",
+                    "A parte decimal ficará com : (15 - (número de digitos da parte inteira)) casas."
+                ],
+                "tags": {
+                    "param": [
+                        [
+                            "mixed $o",
+                            "Objeto que será convertido."
+                        ]
+                    ],
+                    "codeCoverageIgnore": [
+                        [
+                            "Teste coberto no projeto ``PHP-Core`` na função ``Convert::toString``.",
+                            "Função foi portada para cá para tornar este projeto o mais independente possível."
+                        ]
+                    ],
+                    "return": [
+                        [
+                            "?string",
+                            "Retornará ``null`` caso não seja possível efetuar a conversão."
+                        ]
+                    ]
+                }
+            },
+            "parameters": {
+                "o": {
+                    "type": "mixed",
+                    "isOptional": false,
+                    "isReference": false,
+                    "isVariadic": false,
+                    "isNullable": true,
+                    "isDefaultValue": false,
+                    "defaultValue": null,
+                    "docBlock": {
+                        "summary": [
+                            "Objeto que será convertido."
+                        ],
+                        "description": [],
+                        "tags": []
+                    }
+                }
+            },
+            "return": "string|null"
+        },
+        {
+            "fileName": "/var/www/html/src/Functions/dir_deltree.php",
+            "namespaceName": "",
+            "fqsen": "dir_deltree",
+            "shortName": "dir_deltree",
+            "type": "FUNCTION",
+            "docBlock": {
+                "summary": [
+                    "Remove um diretório e todo seu conteúdo."
+                ],
+                "description": [],
+                "tags": {
+                    "param": [
+                        [
+                            "string $absoluteSystemPathToDir",
+                            "Diretório que será excluido."
+                        ],
+                        [
+                            "bool $removeMain",
+                            "Quando ``true`` irá remover tudo, incluindo o próprio diretório indicado no",
+                            "argumento ``$absoluteSystemPathToDir``. Se ``false``, irá limpar totalmente conteúdo do",
+                            "diretório indicado e mantê-lo."
+                        ]
+                    ],
+                    "codeCoverageIgnore": [
+                        [
+                            "Teste coberto no projeto ``PHP-Core`` na função ``dir_deltree``.",
+                            "Função foi portada para cá para tornar este projeto o mais independente possível."
+                        ]
+                    ],
+                    "return": [
+                        [
+                            "bool",
+                            "Retornará ``true`` se o diretório alvo for excluído."
+                        ]
+                    ]
+                }
+            },
+            "parameters": {
+                "absoluteSystemPathToDir": {
+                    "type": "string",
+                    "isOptional": false,
+                    "isReference": false,
+                    "isVariadic": false,
+                    "isNullable": false,
+                    "isDefaultValue": false,
+                    "defaultValue": null,
+                    "docBlock": {
+                        "summary": [
+                            "Diretório que será excluido."
+                        ],
+                        "description": [],
+                        "tags": []
+                    }
+                },
+                "removeMain": {
+                    "type": "bool",
+                    "isOptional": true,
+                    "isReference": false,
+                    "isVariadic": false,
+                    "isNullable": false,
+                    "isDefaultValue": true,
+                    "defaultValue": true,
+                    "docBlock": {
+                        "summary": [
+                            "Quando ``true`` irá remover tudo, incluindo o próprio diretório indicado no",
+                            "argumento ``$absoluteSystemPathToDir``. Se ``false``, irá limpar totalmente conteúdo do",
+                            "diretório indicado e mantê-lo."
+                        ],
+                        "description": [],
+                        "tags": []
+                    }
+                }
+            },
+            "return": "bool"
+        },
+        {
+            "fileName": "/var/www/html/src/Functions/dir_scan_w.php",
+            "namespaceName": "",
+            "fqsen": "dir_scan_w",
+            "shortName": "dir_scan_w",
+            "type": "FUNCTION",
+            "docBlock": {
+                "summary": [
+                    "Retorna a listagem do conteúdo do diretório alvo já ordenado adequadamente conforme o",
+                    "padrão Windows."
+                ],
+                "description": [],
+                "tags": {
+                    "param": [
+                        [
+                            "string $absoluteSystemPathToDir",
+                            "Diretório que será listado."
+                        ]
+                    ],
+                    "codeCoverageIgnore": [
+                        [
+                            "Teste coberto no projeto ``PHP-Core`` na função ``dir_scan_w``.",
+                            "Função foi portada para cá para tornar este projeto o mais independente possível."
+                        ]
+                    ],
+                    "return": [
+                        [
+                            "array",
+                            "Lista de diretórios e arquivos encontrados no local indicado."
+                        ]
+                    ]
+                }
+            },
+            "parameters": {
+                "absoluteSystemPathToDir": {
+                    "type": "string",
+                    "isOptional": false,
+                    "isReference": false,
+                    "isVariadic": false,
+                    "isNullable": false,
+                    "isDefaultValue": false,
+                    "defaultValue": null,
+                    "docBlock": {
+                        "summary": [
+                            "Diretório que será listado."
+                        ],
+                        "description": [],
+                        "tags": []
+                    }
+                }
+            },
+            "return": "array"
+        },
+        {
+            "fileName": "/var/www/html/src/Functions/dir_scan_w_r.php",
+            "namespaceName": "",
+            "fqsen": "dir_scan_w_r",
+            "shortName": "dir_scan_w_r",
+            "type": "FUNCTION",
+            "docBlock": {
+                "summary": [
+                    "Retorna um array contendo o caminho completo para todos os arquivos dentro do diretório",
+                    "alvo. Esta ação é recursiva."
+                ],
+                "description": [],
+                "tags": {
+                    "param": [
+                        [
+                            "string $absoluteSystemPathToDir",
+                            "Diretório que será listado."
+                        ]
+                    ],
+                    "codeCoverageIgnore": [
+                        [
+                            "Teste coberto no projeto ``PHP-Core`` na função ``dir_scan_w_r``.",
+                            "Função foi portada para cá para tornar este projeto o mais independente possível."
+                        ]
+                    ],
+                    "return": [
+                        [
+                            "string[]",
+                            "Lista de arquivos encontrados no local indicado."
+                        ]
+                    ]
+                }
+            },
+            "parameters": {
+                "absoluteSystemPathToDir": {
+                    "type": "string",
+                    "isOptional": false,
+                    "isReference": false,
+                    "isVariadic": false,
+                    "isNullable": false,
+                    "isDefaultValue": false,
+                    "defaultValue": null,
+                    "docBlock": {
+                        "summary": [
+                            "Diretório que será listado."
+                        ],
+                        "description": [],
+                        "tags": []
+                    }
+                }
+            },
+            "return": "array"
+        },
+        {
+            "fileName": "/var/www/html/src/Functions/get_type.php",
+            "namespaceName": "",
+            "fqsen": "get_type",
+            "shortName": "get_type",
+            "type": "FUNCTION",
+            "docBlock": {
+                "summary": [
+                    "Retorna o tipo scalar do valor passado.",
+                    "Caso seja um objeto retornará o nome da classe que ele representa."
+                ],
+                "description": [],
+                "tags": {
+                    "param": [
+                        [
+                            "mixed $o",
+                            "Objeto que será verificado."
+                        ]
+                    ],
+                    "codeCoverageIgnore": [
+                        [
+                            "Teste coberto no projeto ``PHP-Core`` na função ``Scalar::getType``.",
+                            "Função foi portada para cá para tornar este projeto o mais independente possível."
+                        ]
+                    ],
+                    "return": [
+                        [
+                            "?string"
+                        ]
+                    ]
+                }
+            },
+            "parameters": {
+                "o": {
+                    "type": "mixed",
+                    "isOptional": false,
+                    "isReference": false,
+                    "isVariadic": false,
+                    "isNullable": true,
+                    "isDefaultValue": false,
+                    "defaultValue": null,
+                    "docBlock": {
+                        "summary": [
+                            "Objeto que será verificado."
+                        ],
+                        "description": [],
+                        "tags": []
+                    }
+                }
+            },
+            "return": "string|null"
+        },
+        {
+            "fileName": "/var/www/html/src/Functions/numeric_decimal_part.php",
+            "namespaceName": "",
+            "fqsen": "numeric_decimal_part",
+            "shortName": "numeric_decimal_part",
+            "type": "FUNCTION",
+            "docBlock": {
+                "summary": [
+                    "Retorna unicamente a parte decimal de um numeral."
+                ],
+                "description": [
+                    "Por questões internas referentes a forma como os numerais de ponto flutuantes funcionam, a",
+                    "maior precisão possível de ser encontrada é a de números de até 15 dígitos, independente do",
+                    "local onde está o ponto decimal."
+                ],
+                "tags": {
+                    "param": [
+                        [
+                            "int|float $n",
+                            "Valor numérico de entrada."
+                        ],
+                        [
+                            "int $l",
+                            "Tamanho da parte decimal a ser retornada.",
+                            "Se não for informado, será usado o valor **2**."
+                        ]
+                    ],
+                    "codeCoverageIgnore": [
+                        [
+                            "Teste coberto no projeto ``PHP-Core`` na função ``numeric_decimal_part``.",
+                            "Função foi portada para cá para tornar este projeto o mais independente possível."
+                        ]
+                    ],
+                    "return": [
+                        [
+                            "float",
+                            "Retornará um ``float`` como ``0.004321``."
+                        ]
+                    ]
+                }
+            },
+            "parameters": {
+                "n": {
+                    "type": "int|float",
+                    "isOptional": false,
+                    "isReference": false,
+                    "isVariadic": false,
+                    "isNullable": false,
+                    "isDefaultValue": false,
+                    "defaultValue": null,
+                    "docBlock": {
+                        "summary": [
+                            "Valor numérico de entrada."
+                        ],
+                        "description": [],
+                        "tags": []
+                    }
+                },
+                "l": {
+                    "type": "int",
+                    "isOptional": true,
+                    "isReference": false,
+                    "isVariadic": false,
+                    "isNullable": false,
+                    "isDefaultValue": true,
+                    "defaultValue": 2,
+                    "docBlock": {
+                        "summary": [
+                            "Tamanho da parte decimal a ser retornada.",
+                            "Se não for informado, será usado o valor **2**."
+                        ],
+                        "description": [],
+                        "tags": []
+                    }
+                }
+            },
+            "return": "float"
+        },
+        {
+            "fileName": "/var/www/html/src/Functions/numeric_integer_part.php",
+            "namespaceName": "",
+            "fqsen": "numeric_integer_part",
+            "shortName": "numeric_integer_part",
+            "type": "FUNCTION",
+            "docBlock": {
+                "summary": [
+                    "Retorna unicamente a parte inteira de um numeral."
+                ],
+                "description": [],
+                "tags": {
+                    "param": [
+                        [
+                            "int|float $n",
+                            "Valor numérico de entrada."
+                        ]
+                    ],
+                    "codeCoverageIgnore": [
+                        [
+                            "Teste coberto no projeto ``PHP-Core`` na função ``numeric_integer_part``.",
+                            "Função foi portada para cá para tornar este projeto o mais independente possível."
+                        ]
+                    ],
+                    "return": [
+                        [
+                            "int",
+                            "Retorna a parte inteira do numeral passado."
+                        ]
+                    ]
+                }
+            },
+            "parameters": {
+                "n": {
+                    "type": "int|float",
+                    "isOptional": false,
+                    "isReference": false,
+                    "isVariadic": false,
+                    "isNullable": false,
+                    "isDefaultValue": false,
+                    "defaultValue": null,
+                    "docBlock": {
+                        "summary": [
+                            "Valor numérico de entrada."
+                        ],
+                        "description": [],
+                        "tags": []
+                    }
+                }
+            },
+            "return": "int"
+        }
+    ]
 }

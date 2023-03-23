@@ -13,7 +13,7 @@ use AeonDigital\DocBlockExtractor\Enums\ElementType as ElementType;
 
 
 /**
- * Responsável por processar obter os objetos que compõe o projeto que está sendo analisado.
+ * Responsável por processar os objetos que compõe o projeto que está sendo analisado.
  *
  * @package     AeonDigital\DocBlockExtractor
  * @author      Rianna Cantarelli <rianna@aeondigital.com.br>
@@ -380,6 +380,9 @@ class ProjectDocumentation
             $ns = $objectDocumentation["namespaceName"];
             $tp = $objectDocumentation["type"];
 
+            if ($ns === "") {
+                $ns = "\\";
+            }
 
             if (\in_array($fn, $this->fileNames) === false) {
                 $this->fileNames[] = $fn;
@@ -401,32 +404,33 @@ class ProjectDocumentation
 
 
             switch ($tp) {
-                case "CONSTANT";
+                case "FILE":
+                    $this->classifyProjectObjects($objectDocumentation["constants"]);
+                    $this->classifyProjectObjects($objectDocumentation["variables"]);
+                    $this->classifyProjectObjects($objectDocumentation["functions"]);
+                    break;
+                case "CONSTANT":
                     $this->constants[$ns][] = $objectDocumentation;
                     break;
-                case "VARIABLE";
+                case "VARIABLE":
                     $this->variables[$ns][] = $objectDocumentation;
                     break;
-                case "FUNCTION";
+                case "FUNCTION":
                     $this->functions[$ns][] = $objectDocumentation;
                     break;
 
 
-                case "INTERFACE";
+                case "INTERFACE":
                     $this->interfaces[$ns][] = $objectDocumentation;
-                    //$this->classifyProjectObjects([$objectDocumentation]);
                     break;
-                case "ENUM";
+                case "ENUM":
                     $this->enums[$ns][] = $objectDocumentation;
-                    //$this->classifyProjectObjects($objectDocumentation);
                     break;
-                case "TRAIT";
+                case "TRAIT":
                     $this->traits[$ns][] = $objectDocumentation;
-                    //$this->classifyProjectObjects($objectDocumentation);
                     break;
-                case "CLASSE";
+                case "CLASSE":
                     $this->classes[$ns][] = $objectDocumentation;
-                    //$this->classifyProjectObjects([$objectDocumentation]);
                     break;
             }
         }

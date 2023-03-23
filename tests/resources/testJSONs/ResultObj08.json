@@ -5,5 +5,46 @@
     "AeonDigital\\DocBlockExtractor\\Interfaces": [],
     "AeonDigital\\DocBlockExtractor\\OutputExtractor": [],
     "AeonDigital\\DocBlockExtractor\\Parser": [],
-    "": []
+    "\\": [
+        {
+            "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+            "namespaceName": "",
+            "fqsen": "teste01",
+            "shortName": "teste01",
+            "type": "CONSTANT",
+            "docBlock": {
+                "summary": [
+                    "Teste de definição de constante pública na namespace base."
+                ],
+                "description": [],
+                "tags": {
+                    "var": [
+                        [
+                            "string teste01"
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+            "namespaceName": "",
+            "fqsen": "teste02",
+            "shortName": "teste02",
+            "type": "CONSTANT",
+            "docBlock": {
+                "summary": [
+                    "Teste de definição de constante pública na namespace base."
+                ],
+                "description": [],
+                "tags": {
+                    "var": [
+                        [
+                            "string teste02"
+                        ]
+                    ]
+                }
+            }
+        }
+    ]
 }

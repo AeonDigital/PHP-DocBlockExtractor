@@ -1,0 +1,53 @@
+{
+    "fileName": "/var/www/html/src/Functions/dir_scan_w_r.php",
+    "namespaceName": "",
+    "fqsen": "dir_scan_w_r",
+    "shortName": "dir_scan_w_r",
+    "type": "FUNCTION",
+    "docBlock": {
+        "summary": [
+            "Retorna um array contendo o caminho completo para todos os arquivos dentro do diretório",
+            "alvo. Esta ação é recursiva."
+        ],
+        "description": [],
+        "tags": {
+            "param": [
+                [
+                    "string $absoluteSystemPathToDir",
+                    "Diretório que será listado."
+                ]
+            ],
+            "codeCoverageIgnore": [
+                [
+                    "Teste coberto no projeto ``PHP-Core`` na função ``dir_scan_w_r``.",
+                    "Função foi portada para cá para tornar este projeto o mais independente possível."
+                ]
+            ],
+            "return": [
+                [
+                    "string[]",
+                    "Lista de arquivos encontrados no local indicado."
+                ]
+            ]
+        }
+    },
+    "parameters": {
+        "absoluteSystemPathToDir": {
+            "type": "string",
+            "isOptional": false,
+            "isReference": false,
+            "isVariadic": false,
+            "isNullable": false,
+            "isDefaultValue": false,
+            "defaultValue": null,
+            "docBlock": {
+                "summary": [
+                    "Diretório que será listado."
+                ],
+                "description": [],
+                "tags": []
+            }
+        }
+    },
+    "return": "array"
+}

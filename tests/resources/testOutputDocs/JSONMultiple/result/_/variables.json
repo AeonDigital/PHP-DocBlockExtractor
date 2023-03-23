@@ -1,0 +1,42 @@
+[
+    {
+        "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+        "namespaceName": "",
+        "fqsen": "varTest01",
+        "shortName": "varTest01",
+        "type": "VARIABLE",
+        "docBlock": {
+            "summary": [
+                "Agora um teste de uma variável."
+            ],
+            "description": [],
+            "tags": {
+                "var": [
+                    [
+                        "array $varTest01"
+                    ]
+                ]
+            }
+        }
+    },
+    {
+        "fileName": "/var/www/html/src/Functions/convert_value_to_string.php",
+        "namespaceName": "",
+        "fqsen": "varTest02",
+        "shortName": "varTest02",
+        "type": "VARIABLE",
+        "docBlock": {
+            "summary": [
+                "Agora um teste de uma variável."
+            ],
+            "description": [],
+            "tags": {
+                "var": [
+                    [
+                        "int $varTest02"
+                    ]
+                ]
+            }
+        }
+    }
+]

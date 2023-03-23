@@ -66,7 +66,15 @@ class JSONTests extends TestCase
     {
         $this->setTestDirs();
 
-        $proDoc = new ProjectDocumentation($this->vendorPath);
+        $proDoc = new ProjectDocumentation(
+            $this->vendorPath,
+            [
+                $this->rootPath . "/src/Functions"
+            ],
+            [
+                $this->rootPath . "/src/bootstrap.php"
+            ]
+        );
         $obj = new JSON();
 
         $expectedDir = $this->pathToOutputDocs . "/JSONSingle/expected";
@@ -103,7 +111,15 @@ class JSONTests extends TestCase
     {
         $this->setTestDirs();
 
-        $proDoc = new ProjectDocumentation($this->vendorPath);
+        $proDoc = new ProjectDocumentation(
+            $this->vendorPath,
+            [
+                $this->rootPath . "/src/Functions"
+            ],
+            [
+                $this->rootPath . "/src/bootstrap.php"
+            ]
+        );
         $obj = new JSON();
 
         $expectedDir = $this->pathToOutputDocs . "/JSONMultiple/expected";

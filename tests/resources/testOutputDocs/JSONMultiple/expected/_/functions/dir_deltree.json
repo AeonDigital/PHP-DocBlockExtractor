@@ -1,0 +1,76 @@
+{
+    "fileName": "/var/www/html/src/Functions/dir_deltree.php",
+    "namespaceName": "",
+    "fqsen": "dir_deltree",
+    "shortName": "dir_deltree",
+    "type": "FUNCTION",
+    "docBlock": {
+        "summary": [
+            "Remove um diretório e todo seu conteúdo."
+        ],
+        "description": [],
+        "tags": {
+            "param": [
+                [
+                    "string $absoluteSystemPathToDir",
+                    "Diretório que será excluido."
+                ],
+                [
+                    "bool $removeMain",
+                    "Quando ``true`` irá remover tudo, incluindo o próprio diretório indicado no",
+                    "argumento ``$absoluteSystemPathToDir``. Se ``false``, irá limpar totalmente conteúdo do",
+                    "diretório indicado e mantê-lo."
+                ]
+            ],
+            "codeCoverageIgnore": [
+                [
+                    "Teste coberto no projeto ``PHP-Core`` na função ``dir_deltree``.",
+                    "Função foi portada para cá para tornar este projeto o mais independente possível."
+                ]
+            ],
+            "return": [
+                [
+                    "bool",
+                    "Retornará ``true`` se o diretório alvo for excluído."
+                ]
+            ]
+        }
+    },
+    "parameters": {
+        "absoluteSystemPathToDir": {
+            "type": "string",
+            "isOptional": false,
+            "isReference": false,
+            "isVariadic": false,
+            "isNullable": false,
+            "isDefaultValue": false,
+            "defaultValue": null,
+            "docBlock": {
+                "summary": [
+                    "Diretório que será excluido."
+                ],
+                "description": [],
+                "tags": []
+            }
+        },
+        "removeMain": {
+            "type": "bool",
+            "isOptional": true,
+            "isReference": false,
+            "isVariadic": false,
+            "isNullable": false,
+            "isDefaultValue": true,
+            "defaultValue": true,
+            "docBlock": {
+                "summary": [
+                    "Quando ``true`` irá remover tudo, incluindo o próprio diretório indicado no",
+                    "argumento ``$absoluteSystemPathToDir``. Se ``false``, irá limpar totalmente conteúdo do",
+                    "diretório indicado e mantê-lo."
+                ],
+                "description": [],
+                "tags": []
+            }
+        }
+    },
+    "return": "bool"
+}

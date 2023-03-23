@@ -1,0 +1,52 @@
+{
+    "fileName": "/var/www/html/src/Functions/numeric_integer_part.php",
+    "namespaceName": "",
+    "fqsen": "numeric_integer_part",
+    "shortName": "numeric_integer_part",
+    "type": "FUNCTION",
+    "docBlock": {
+        "summary": [
+            "Retorna unicamente a parte inteira de um numeral."
+        ],
+        "description": [],
+        "tags": {
+            "param": [
+                [
+                    "int|float $n",
+                    "Valor numérico de entrada."
+                ]
+            ],
+            "codeCoverageIgnore": [
+                [
+                    "Teste coberto no projeto ``PHP-Core`` na função ``numeric_integer_part``.",
+                    "Função foi portada para cá para tornar este projeto o mais independente possível."
+                ]
+            ],
+            "return": [
+                [
+                    "int",
+                    "Retorna a parte inteira do numeral passado."
+                ]
+            ]
+        }
+    },
+    "parameters": {
+        "n": {
+            "type": "int|float",
+            "isOptional": false,
+            "isReference": false,
+            "isVariadic": false,
+            "isNullable": false,
+            "isDefaultValue": false,
+            "defaultValue": null,
+            "docBlock": {
+                "summary": [
+                    "Valor numérico de entrada."
+                ],
+                "description": [],
+                "tags": []
+            }
+        }
+    },
+    "return": "int"
+}

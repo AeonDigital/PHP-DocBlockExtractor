@@ -6,7 +6,7 @@
     "type": "CLASSE",
     "docBlock": {
         "summary": [
-            "Responsável por processar obter os objetos que compõe o projeto que está sendo analisado."
+            "Responsável por processar os objetos que compõe o projeto que está sendo analisado."
         ],
         "description": [],
         "tags": {
