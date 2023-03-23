@@ -82,7 +82,13 @@ class ProjectDocumentationTests extends TestCase
         $this->setTestDirs();
 
         $obj = new ProjectDocumentation(
-            $this->vendorPath
+            $this->vendorPath,
+            [
+                $this->rootPath . "/src/Functions"
+            ],
+            [
+                $this->rootPath . "/src/bootstrap.php"
+            ]
         );
 
 

@@ -10,5 +10,12 @@
     "/var/www/html/src/OutputExtractor/JSON.php",
     "/var/www/html/src/OutputExtractor/aOutputExtractor.php",
     "/var/www/html/src/Parser/DocBlock.php",
-    "/var/www/html/src/ProjectDocumentation.php"
+    "/var/www/html/src/ProjectDocumentation.php",
+    "/var/www/html/src/Functions/convert_value_to_string.php",
+    "/var/www/html/src/Functions/dir_deltree.php",
+    "/var/www/html/src/Functions/dir_scan_w.php",
+    "/var/www/html/src/Functions/dir_scan_w_r.php",
+    "/var/www/html/src/Functions/get_type.php",
+    "/var/www/html/src/Functions/numeric_decimal_part.php",
+    "/var/www/html/src/Functions/numeric_integer_part.php"
 ]

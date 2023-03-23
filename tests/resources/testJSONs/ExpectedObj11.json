@@ -186,5 +186,6 @@
         }
     ],
     "AeonDigital\\DocBlockExtractor\\OutputExtractor": [],
-    "AeonDigital\\DocBlockExtractor\\Parser": []
+    "AeonDigital\\DocBlockExtractor\\Parser": [],
+    "": []
 }
