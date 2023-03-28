@@ -1,0 +1,587 @@
+<?xml version="1.0"?>
+<documentation>
+    <namespace name="AeonDigital\DocBlockExtractor">
+        <classes>
+            <class fileName="/var/www/html/src/DocBlockExtractor.php"
+                namespaceName="AeonDigital\DocBlockExtractor"
+                fqsen="AeonDigital\DocBlockExtractor\DocBlockExtractor"
+                shortName="DocBlockExtractor" type="CLASSE" isAbstract="false" isFinal="false">
+                <docBlock>
+                    <summary>
+                        <l>Processa e extrai o projeto indicado conforme as configura&#xE7;&#xF5;es
+                            passadas.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="package">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="author">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="copyright">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="license">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+                <interfaces />
+                <extends />
+            </class>
+            <class fileName="/var/www/html/src/ObjectDocumentation.php"
+                namespaceName="AeonDigital\DocBlockExtractor"
+                fqsen="AeonDigital\DocBlockExtractor\ObjectDocumentation"
+                shortName="ObjectDocumentation" type="CLASSE" isAbstract="false" isFinal="false">
+                <docBlock>
+                    <summary>
+                        <l>Classe que agrupa informa&#xE7;&#xF5;es de documenta&#xE7;&#xE3;o de um
+                            objeto.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="package">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="author">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="copyright">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="license">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+                <interfaces />
+                <extends />
+            </class>
+            <class fileName="/var/www/html/src/ProjectDocumentation.php"
+                namespaceName="AeonDigital\DocBlockExtractor"
+                fqsen="AeonDigital\DocBlockExtractor\ProjectDocumentation"
+                shortName="ProjectDocumentation" type="CLASSE" isAbstract="false" isFinal="false">
+                <docBlock>
+                    <summary>
+                        <l>Respons&#xE1;vel por processar os objetos que comp&#xF5;e o projeto que
+                            est&#xE1; sendo analisado.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="package">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="author">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="copyright">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="license">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+                <interfaces />
+                <extends />
+            </class>
+        </classes>
+    </namespace>
+    <namespace name="AeonDigital\DocBlockExtractor\Enums">
+        <enuns>
+            <enun fileName="/var/www/html/src/Enums/ElementType.php"
+                namespaceName="AeonDigital\DocBlockExtractor\Enums"
+                fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType" shortName="ElementType"
+                type="ENUM" isAbstract="false" isFinal="true">
+                <docBlock>
+                    <summary>
+                        <l>Tipo de elemento</l>
+                    </summary>
+                    <description />
+                    <tags />
+                </docBlock>
+                <interfaces>
+                    <ns>UnitEnum</ns>
+                    <ns>BackedEnum</ns>
+                </interfaces>
+                <extends />
+            </enun>
+            <enun fileName="/var/www/html/src/Enums/OutputFormatType.php"
+                namespaceName="AeonDigital\DocBlockExtractor\Enums"
+                fqsen="AeonDigital\DocBlockExtractor\Enums\OutputFormatType"
+                shortName="OutputFormatType" type="ENUM" isAbstract="false" isFinal="true">
+                <docBlock>
+                    <summary>
+                        <l>Tipo de formato de sa&#xED;da de processamento de documenta&#xE7;&#xE3;o</l>
+                    </summary>
+                    <description />
+                    <tags />
+                </docBlock>
+                <interfaces>
+                    <ns>UnitEnum</ns>
+                    <ns>BackedEnum</ns>
+                </interfaces>
+                <extends />
+            </enun>
+        </enuns>
+    </namespace>
+    <namespace name="AeonDigital\DocBlockExtractor\Exceptions">
+        <classes>
+            <class fileName="/var/www/html/src/Exceptions/DirectoryNotFoundException.php"
+                namespaceName="AeonDigital\DocBlockExtractor\Exceptions"
+                fqsen="AeonDigital\DocBlockExtractor\Exceptions\DirectoryNotFoundException"
+                shortName="DirectoryNotFoundException" type="CLASSE" isAbstract="false"
+                isFinal="false">
+                <docBlock>
+                    <summary>
+                        <l>Exce&#xE7;&#xE3;o para diret&#xF3;rios n&#xE3;o encontrados.</l>
+                    </summary>
+                    <description />
+                    <tags />
+                </docBlock>
+                <interfaces>
+                    <ns>Throwable</ns>
+                    <ns>Stringable</ns>
+                </interfaces>
+                <extends />
+            </class>
+            <class fileName="/var/www/html/src/Exceptions/FileNotFoundException.php"
+                namespaceName="AeonDigital\DocBlockExtractor\Exceptions"
+                fqsen="AeonDigital\DocBlockExtractor\Exceptions\FileNotFoundException"
+                shortName="FileNotFoundException" type="CLASSE" isAbstract="false" isFinal="false">
+                <docBlock>
+                    <summary>
+                        <l>Exce&#xE7;&#xE3;o para arquivos n&#xE3;o encontrados.</l>
+                    </summary>
+                    <description />
+                    <tags />
+                </docBlock>
+                <interfaces>
+                    <ns>Throwable</ns>
+                    <ns>Stringable</ns>
+                </interfaces>
+                <extends />
+            </class>
+            <class fileName="/var/www/html/src/Exceptions/InvalidConfigurationFile.php"
+                namespaceName="AeonDigital\DocBlockExtractor\Exceptions"
+                fqsen="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException"
+                shortName="InvalidConfigurationFileException" type="CLASSE" isAbstract="false"
+                isFinal="false">
+                <docBlock>
+                    <summary>
+                        <l>Exce&#xE7;&#xE3;o para arquivos n&#xE3;o encontrados.</l>
+                    </summary>
+                    <description />
+                    <tags />
+                </docBlock>
+                <interfaces>
+                    <ns>Throwable</ns>
+                    <ns>Stringable</ns>
+                </interfaces>
+                <extends />
+            </class>
+        </classes>
+    </namespace>
+    <namespace name="AeonDigital\DocBlockExtractor\Interfaces">
+        <interfaces>
+            <interface fileName="/var/www/html/src/Interfaces/iOutputExtractor.php"
+                namespaceName="AeonDigital\DocBlockExtractor\Interfaces"
+                fqsen="AeonDigital\DocBlockExtractor\Interfaces\iOutputExtractor"
+                shortName="iOutputExtractor" type="INTERFACE" isAbstract="true" isFinal="false">
+                <docBlock>
+                    <summary>
+                        <l>Interface para classes concretas capazes de performar a
+                            extra&#xE7;&#xE3;o da documenta&#xE7;&#xE3;o para</l>
+                        <l>um determinado formato.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="package">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="author">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="copyright">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="license">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+                <interfaces />
+                <extends />
+            </interface>
+        </interfaces>
+    </namespace>
+    <namespace name="AeonDigital\DocBlockExtractor\OutputExtractor">
+        <classes>
+            <class fileName="/var/www/html/src/OutputExtractor/JSON.php"
+                namespaceName="AeonDigital\DocBlockExtractor\OutputExtractor"
+                fqsen="AeonDigital\DocBlockExtractor\OutputExtractor\JSON" shortName="JSON"
+                type="CLASSE" isAbstract="false" isFinal="false">
+                <docBlock>
+                    <summary>
+                        <l>Efetua a extra&#xE7;&#xE3;o dos dados de uma classe
+                            ``ProjectDocumentation`` em</l>
+                        <l>um ou mais arquivos JSON.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="package">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="author">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="copyright">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="license">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+                <interfaces>
+                    <ns>AeonDigital\DocBlockExtractor\Interfaces\iOutputExtractor</ns>
+                </interfaces>
+                <extends />
+            </class>
+            <class fileName="/var/www/html/src/OutputExtractor/XML.php"
+                namespaceName="AeonDigital\DocBlockExtractor\OutputExtractor"
+                fqsen="AeonDigital\DocBlockExtractor\OutputExtractor\XML" shortName="XML"
+                type="CLASSE" isAbstract="false" isFinal="false">
+                <docBlock>
+                    <summary>
+                        <l>Efetua a extra&#xE7;&#xE3;o dos dados de uma classe
+                            ``ProjectDocumentation`` em</l>
+                        <l>um ou mais arquivos XML.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="package">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="author">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="copyright">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="license">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+                <interfaces>
+                    <ns>AeonDigital\DocBlockExtractor\Interfaces\iOutputExtractor</ns>
+                </interfaces>
+                <extends />
+            </class>
+            <class fileName="/var/www/html/src/OutputExtractor/aOutputExtractor.php"
+                namespaceName="AeonDigital\DocBlockExtractor\OutputExtractor"
+                fqsen="AeonDigital\DocBlockExtractor\OutputExtractor\aOutputExtractor"
+                shortName="aOutputExtractor" type="CLASSE" isAbstract="true" isFinal="false">
+                <docBlock>
+                    <summary>
+                        <l>Classe abstrata usada pelas classes concretas que performam a
+                            extra&#xE7;&#xE3;o da documenta&#xE7;&#xE3;o</l>
+                        <l>para formatos espec&#xED;ficos.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="package">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="author">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="copyright">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="license">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+                <interfaces>
+                    <ns>AeonDigital\DocBlockExtractor\Interfaces\iOutputExtractor</ns>
+                </interfaces>
+                <extends />
+            </class>
+        </classes>
+    </namespace>
+    <namespace name="AeonDigital\DocBlockExtractor\Parser">
+        <classes>
+            <class fileName="/var/www/html/src/Parser/DocBlock.php"
+                namespaceName="AeonDigital\DocBlockExtractor\Parser"
+                fqsen="AeonDigital\DocBlockExtractor\Parser\DocBlock" shortName="DocBlock"
+                type="CLASSE" isAbstract="false" isFinal="false">
+                <docBlock>
+                    <summary>
+                        <l>Traz m&#xE9;todos para efetuar o tratamento dos DocBlock permitindo</l>
+                        <l>convert&#xEA;-los de strings em arrays associativos.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="package">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="author">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="copyright">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="license">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+                <interfaces />
+                <extends />
+            </class>
+        </classes>
+    </namespace>
+    <namespace name="\">
+        <constants>
+            <constant fileName="/var/www/html/src/Functions/00_constants_and_variables.php"
+                namespaceName="" fqsen="PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_01"
+                shortName="PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_01" type="CONSTANT">
+                <docBlock>
+                    <summary>
+                        <l>[1] Constante definida unicamente para permitir testar a
+                            obten&#xE7;&#xE3;o</l>
+                        <l>de suas informa&#xE7;&#xF5;es.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="var">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+            </constant>
+            <constant fileName="/var/www/html/src/Functions/00_constants_and_variables.php"
+                namespaceName="" fqsen="PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_02"
+                shortName="PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_02" type="CONSTANT">
+                <docBlock>
+                    <summary>
+                        <l>[2] Constante definida unicamente para permitir testar a
+                            obten&#xE7;&#xE3;o</l>
+                        <l>de suas informa&#xE7;&#xF5;es.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="var">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+            </constant>
+        </constants>
+        <variables>
+            <variable fileName="/var/www/html/src/Functions/00_constants_and_variables.php"
+                namespaceName="" fqsen="phpDocBlockExtractor_testVariable01"
+                shortName="phpDocBlockExtractor_testVariable01" type="VARIABLE">
+                <docBlock>
+                    <summary>
+                        <l>[3] Vari&#xE1;vel definida unicamente para permitir testar a
+                            obten&#xE7;&#xE3;o</l>
+                        <l>de suas informa&#xE7;&#xF5;es.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="var">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+            </variable>
+            <variable fileName="/var/www/html/src/Functions/00_constants_and_variables.php"
+                namespaceName="" fqsen="phpDocBlockExtractor_testVariable02"
+                shortName="phpDocBlockExtractor_testVariable02" type="VARIABLE">
+                <docBlock>
+                    <summary>
+                        <l>[4] Vari&#xE1;vel definida unicamente para permitir testar a
+                            obten&#xE7;&#xE3;o</l>
+                        <l>de suas informa&#xE7;&#xF5;es.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="var">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+            </variable>
+        </variables>
+        <functions>
+            <function fileName="/var/www/html/src/Functions/convert_value_to_string.php"
+                namespaceName="" fqsen="convert_value_to_string" shortName="convert_value_to_string"
+                type="FUNCTION">
+                <docBlock>
+                    <summary>
+                        <l>Tenta converter o tipo do valor passado para ``string``.</l>
+                        <l>Apenas valores realmente compat&#xED;veis ser&#xE3;o convertidos.</l>
+                    </summary>
+                    <description>
+                        <l>N&#xFA;meros de ponto flutuante ser&#xE3;o convertidos e mantidos com no
+                            m&#xE1;ximo 15 digitos</l>
+                        <l>ao todo (parte inteira + parte decimal).</l>
+                        <l>A parte decimal ficar&#xE1; com : (15 - (n&#xFA;mero de digitos da parte
+                            inteira)) casas.</l>
+                    </description>
+                    <tags>
+                        <tag name="param">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="codeCoverageIgnore">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="return">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+            </function>
+            <function fileName="/var/www/html/src/Functions/dir_deltree.php" namespaceName=""
+                fqsen="dir_deltree" shortName="dir_deltree" type="FUNCTION">
+                <docBlock>
+                    <summary>
+                        <l>Remove um diret&#xF3;rio e todo seu conte&#xFA;do.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="param">
+                            <l>Array</l>
+                            <l>Array</l>
+                        </tag>
+                        <tag name="codeCoverageIgnore">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="return">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+            </function>
+            <function fileName="/var/www/html/src/Functions/dir_scan_w.php" namespaceName=""
+                fqsen="dir_scan_w" shortName="dir_scan_w" type="FUNCTION">
+                <docBlock>
+                    <summary>
+                        <l>Retorna a listagem do conte&#xFA;do do diret&#xF3;rio alvo j&#xE1;
+                            ordenado adequadamente conforme o</l>
+                        <l>padr&#xE3;o Windows.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="param">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="codeCoverageIgnore">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="return">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+            </function>
+            <function fileName="/var/www/html/src/Functions/dir_scan_w_r.php" namespaceName=""
+                fqsen="dir_scan_w_r" shortName="dir_scan_w_r" type="FUNCTION">
+                <docBlock>
+                    <summary>
+                        <l>Retorna um array contendo o caminho completo para todos os arquivos
+                            dentro do diret&#xF3;rio</l>
+                        <l>alvo. Esta a&#xE7;&#xE3;o &#xE9; recursiva.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="param">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="codeCoverageIgnore">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="return">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+            </function>
+            <function fileName="/var/www/html/src/Functions/get_type.php" namespaceName=""
+                fqsen="get_type" shortName="get_type" type="FUNCTION">
+                <docBlock>
+                    <summary>
+                        <l>Retorna o tipo scalar do valor passado.</l>
+                        <l>Caso seja um objeto retornar&#xE1; o nome da classe que ele representa.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="param">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="codeCoverageIgnore">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="return">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+            </function>
+            <function fileName="/var/www/html/src/Functions/numeric_decimal_part.php"
+                namespaceName="" fqsen="numeric_decimal_part" shortName="numeric_decimal_part"
+                type="FUNCTION">
+                <docBlock>
+                    <summary>
+                        <l>Retorna unicamente a parte decimal de um numeral.</l>
+                    </summary>
+                    <description>
+                        <l>Por quest&#xF5;es internas referentes a forma como os numerais de ponto
+                            flutuantes funcionam, a</l>
+                        <l>maior precis&#xE3;o poss&#xED;vel de ser encontrada &#xE9; a de
+                            n&#xFA;meros de at&#xE9; 15 d&#xED;gitos, independente do</l>
+                        <l>local onde est&#xE1; o ponto decimal.</l>
+                    </description>
+                    <tags>
+                        <tag name="param">
+                            <l>Array</l>
+                            <l>Array</l>
+                        </tag>
+                        <tag name="codeCoverageIgnore">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="return">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+            </function>
+            <function fileName="/var/www/html/src/Functions/numeric_integer_part.php"
+                namespaceName="" fqsen="numeric_integer_part" shortName="numeric_integer_part"
+                type="FUNCTION">
+                <docBlock>
+                    <summary>
+                        <l>Retorna unicamente a parte inteira de um numeral.</l>
+                    </summary>
+                    <description />
+                    <tags>
+                        <tag name="param">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="codeCoverageIgnore">
+                            <l>Array</l>
+                        </tag>
+                        <tag name="return">
+                            <l>Array</l>
+                        </tag>
+                    </tags>
+                </docBlock>
+            </function>
+        </functions>
+    </namespace>
+</documentation>
