@@ -12,7 +12,7 @@ require_once __DIR__ . "/../../phpunit.php";
 
 
 
-class JSONTests extends TestCase
+class XMLTests extends TestCase
 {
 
 
@@ -88,7 +88,7 @@ class JSONTests extends TestCase
                 true
             )
         );
-        /*
+
         $expectedFiles = \dir_scan_w_r($expectedDir);
         $resultFiles = \dir_scan_w_r($resultDir);
 
@@ -104,11 +104,10 @@ class JSONTests extends TestCase
 
             $this->assertEquals($expectedContent, $resultContent);
         }
-        */
     }
 
 
-    /*
+
     public function test_method_extract_toMultipleFiles()
     {
         $this->setTestDirs();
@@ -126,6 +125,7 @@ class JSONTests extends TestCase
 
         $expectedDir = $this->pathToOutputDocs . "/XMLMultiple/expected";
         $resultDir = $this->pathToOutputDocs . "/XMLMultiple/result";
+
 
         $this->assertTrue(
             $obj->extract(
@@ -150,5 +150,5 @@ class JSONTests extends TestCase
 
             $this->assertEquals($expectedContent, $resultContent);
         }
-    }*/
+    }
 }

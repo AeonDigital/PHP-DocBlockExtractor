@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<variables>
+    <variable fileName="/var/www/html/src/Functions/00_constants_and_variables.php"
+              namespaceName=""
+              fqsen="phpDocBlockExtractor_testVariable01"
+              shortName="phpDocBlockExtractor_testVariable01"
+              type="VARIABLE">
+        <docBlock>
+            <summary>
+                <line>[3] Variável definida unicamente para permitir testar a obtenção</line>
+                <line>de suas informações.</line>
+            </summary>
+            <description />
+            <tags>
+                <tag name="var">
+                    <line>int $phpDocBlockExtractor_testVariable01</line>
+                </tag>
+            </tags>
+        </docBlock>
+    </variable>
+    <variable fileName="/var/www/html/src/Functions/00_constants_and_variables.php"
+              namespaceName=""
+              fqsen="phpDocBlockExtractor_testVariable02"
+              shortName="phpDocBlockExtractor_testVariable02"
+              type="VARIABLE">
+        <docBlock>
+            <summary>
+                <line>[4] Variável definida unicamente para permitir testar a obtenção</line>
+                <line>de suas informações.</line>
+            </summary>
+            <description />
+            <tags>
+                <tag name="var">
+                    <line>int $phpDocBlockExtractor_testVariable02</line>
+                </tag>
+            </tags>
+        </docBlock>
+    </variable>
+</variables>

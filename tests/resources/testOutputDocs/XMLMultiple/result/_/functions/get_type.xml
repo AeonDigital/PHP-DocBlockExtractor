@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<function fileName="/var/www/html/src/Functions/get_type.php"
+          namespaceName=""
+          fqsen="get_type"
+          shortName="get_type"
+          type="FUNCTION">
+    <docBlock>
+        <summary>
+            <line>Retorna o tipo scalar do valor passado.</line>
+            <line>Caso seja um objeto retornará o nome da classe que ele representa.</line>
+        </summary>
+        <description />
+        <tags>
+            <tag name="param">
+                <line>mixed $o</line>
+                <line>Objeto que será verificado.</line>
+            </tag>
+            <tag name="codeCoverageIgnore">
+                <line>Teste coberto no projeto ``PHP-Core`` na função ``Scalar::getType``.</line>
+                <line>Função foi portada para cá para tornar este projeto o mais independente possível.</line>
+            </tag>
+            <tag name="return">
+                <line>?string</line>
+            </tag>
+        </tags>
+    </docBlock>
+    <parameters>
+        <parameter name="o"
+                   type="mixed"
+                   isOptional="false"
+                   isReference="false"
+                   isVariadic="false"
+                   isNullable="true"
+                   isDefaultValue="false"
+                   defaultValue="``null``">
+            <docBlock>
+                <summary>
+                    <line>Objeto que será verificado.</line>
+                </summary>
+                <description />
+                <tags />
+            </docBlock>
+        </parameter>
+    </parameters>
+    <return>string|null</return>
+</function>

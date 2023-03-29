@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<function fileName="/var/www/html/src/Functions/dir_scan_w_r.php"
+          namespaceName=""
+          fqsen="dir_scan_w_r"
+          shortName="dir_scan_w_r"
+          type="FUNCTION">
+    <docBlock>
+        <summary>
+            <line>Retorna um array contendo o caminho completo para todos os arquivos dentro do diretório</line>
+            <line>alvo. Esta ação é recursiva.</line>
+        </summary>
+        <description />
+        <tags>
+            <tag name="param">
+                <line>string $absoluteSystemPathToDir</line>
+                <line>Diretório que será listado.</line>
+            </tag>
+            <tag name="codeCoverageIgnore">
+                <line>Teste coberto no projeto ``PHP-Core`` na função ``dir_scan_w_r``.</line>
+                <line>Função foi portada para cá para tornar este projeto o mais independente possível.</line>
+            </tag>
+            <tag name="return">
+                <line>string[]</line>
+                <line>Lista de arquivos encontrados no local indicado.</line>
+            </tag>
+        </tags>
+    </docBlock>
+    <parameters>
+        <parameter name="absoluteSystemPathToDir"
+                   type="string"
+                   isOptional="false"
+                   isReference="false"
+                   isVariadic="false"
+                   isNullable="false"
+                   isDefaultValue="false"
+                   defaultValue="``null``">
+            <docBlock>
+                <summary>
+                    <line>Diretório que será listado.</line>
+                </summary>
+                <description />
+                <tags />
+            </docBlock>
+        </parameter>
+    </parameters>
+    <return>array</return>
+</function>

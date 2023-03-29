@@ -148,10 +148,10 @@ class JSON extends aOutputExtractor
     }
     /**
      * Salva os dados passados para arquivos individualizados sendo 1 para cada
-     * componente listado. Os arquivos terão o mesmo nome indicado na chave ``shortName`` de
+     * componente listado. Os arquivos terão o mesmo nome indicado em seu ``shortName`` de
      * suas respectivas descrições.
      *
-     * @param string $componentsPath
+     * @param string $absolutePathToDir
      * Caminho completo até o diretório onde os novos arquivos serão gerados.
      *
      * @param array $componentObjects
@@ -161,16 +161,16 @@ class JSON extends aOutputExtractor
      * Retorna ``true`` se todos os arquivos forem salvos corretamente.
      */
     protected function saveDocumentsOfComponentsFiles(
-        string $componentsPath,
+        string $absolutePathToDir,
         array $componentObjects
     ): bool {
-        $r = \mkdir($componentsPath);
+        $r = \mkdir($absolutePathToDir);
 
         if ($r === true) {
             foreach ($componentObjects as $componentData) {
                 if ($r === true) {
                     $r = $this->saveDocumentFile(
-                        $componentsPath . DIRECTORY_SEPARATOR . $componentData["shortName"] . ".json",
+                        $absolutePathToDir . DIRECTORY_SEPARATOR . $componentData["shortName"] . ".json",
                         $componentData
                     );
                 }

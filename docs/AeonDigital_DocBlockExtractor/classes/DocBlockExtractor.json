@@ -1,0 +1,745 @@
+{
+    "fileName": "/var/www/html/src/DocBlockExtractor.php",
+    "namespaceName": "AeonDigital\\DocBlockExtractor",
+    "fqsen": "AeonDigital\\DocBlockExtractor\\DocBlockExtractor",
+    "shortName": "DocBlockExtractor",
+    "type": "CLASSE",
+    "docBlock": {
+        "summary": [
+            "Processa e extrai o projeto indicado conforme as configurações passadas."
+        ],
+        "description": [],
+        "tags": {
+            "package": [
+                [
+                    "AeonDigital\\DocBlockExtractor"
+                ]
+            ],
+            "author": [
+                [
+                    "Rianna Cantarelli <rianna@aeondigital.com.br>"
+                ]
+            ],
+            "copyright": [
+                [
+                    "2023, Rianna Cantarelli"
+                ]
+            ],
+            "license": [
+                [
+                    "MIT"
+                ]
+            ]
+        }
+    },
+    "interfaces": null,
+    "extends": null,
+    "isAbstract": false,
+    "isFinal": false,
+    "constants": {
+        "public": []
+    },
+    "properties": {
+        "public": {
+            "static": [],
+            "nonstatic": []
+        }
+    },
+    "constructor": null,
+    "methods": {
+        "public": {
+            "abstract": {
+                "static": [],
+                "nonstatic": []
+            },
+            "nonabstract": {
+                "static": [
+                    {
+                        "fileName": "/var/www/html/src/DocBlockExtractor.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\DocBlockExtractor",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\DocBlockExtractor\\createConfigurationFileTemplate",
+                        "shortName": "createConfigurationFileTemplate",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Cria um arquivo de configuração template no local indicado."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "string $configFilePath",
+                                        "Caminho completo até o arquivo de configuração.",
+                                        "Se um arquivo já existe ele será substituído."
+                                    ],
+                                    [
+                                        "string $rootPath",
+                                        "Valor usado na propriedade ``phpdocblockextractor[@rootPath]``."
+                                    ],
+                                    [
+                                        "string $vendorDir",
+                                        "Valor usado na propriedade ``phpdocblockextractor[@vendorDir]``."
+                                    ],
+                                    [
+                                        "string $outputDir",
+                                        "Valor usado na propriedade ``phpdocblockextractor[@outputDir]``."
+                                    ],
+                                    [
+                                        "string|OutputFormatType $outputFormatType",
+                                        "Valor usado na propriedade ``phpdocblockextractor[@outputFormatType]``."
+                                    ],
+                                    [
+                                        "bool $singleFile",
+                                        "Valor usado na propriedade ``phpdocblockextractor[@singleFile]``."
+                                    ],
+                                    [
+                                        "string $outputExtractorClassName",
+                                        "Valor usado na propriedade ``phpdocblockextractor[@outputExtractorClassName]``."
+                                    ],
+                                    [
+                                        "string[] $detachedFilesAndDirectories",
+                                        "Valores usados para popular o elemento ``phpdocblockextractor->detachedFilesAndDirectories``."
+                                    ],
+                                    [
+                                        "string[] $ignoreDetachedFilesAndDirectories",
+                                        "Valores usados para popular o elemento ``phpdocblockextractor->ignoreDetachedFilesAndDirectories``."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "bool",
+                                        "Retorna ``true`` caso a ação de criar o novo arquivo sucesso."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "configFilePath": {
+                                "type": "string",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Caminho completo até o arquivo de configuração.",
+                                        "Se um arquivo já existe ele será substituído."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "rootPath": {
+                                "type": "string",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": "",
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado na propriedade ``phpdocblockextractor[@rootPath]``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "vendorDir": {
+                                "type": "string",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": "",
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado na propriedade ``phpdocblockextractor[@vendorDir]``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "outputDir": {
+                                "type": "string",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": "",
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado na propriedade ``phpdocblockextractor[@outputDir]``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "outputFormatType": {
+                                "type": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType|string",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": "",
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado na propriedade ``phpdocblockextractor[@outputFormatType]``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "singleFile": {
+                                "type": "bool",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": true,
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado na propriedade ``phpdocblockextractor[@singleFile]``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "outputExtractorClassName": {
+                                "type": "string",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": "",
+                                "docBlock": {
+                                    "summary": [
+                                        "Valor usado na propriedade ``phpdocblockextractor[@outputExtractorClassName]``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "detachedFilesAndDirectories": {
+                                "type": "array",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": [],
+                                "docBlock": {
+                                    "summary": [
+                                        "Valores usados para popular o elemento ``phpdocblockextractor->detachedFilesAndDirectories``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "ignoreDetachedFilesAndDirectories": {
+                                "type": "array",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": [],
+                                "docBlock": {
+                                    "summary": [
+                                        "Valores usados para popular o elemento ``phpdocblockextractor->ignoreDetachedFilesAndDirectories``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "bool",
+                        "isAbstract": false,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/src/DocBlockExtractor.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\DocBlockExtractor",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\DocBlockExtractor\\validateConfigXML",
+                        "shortName": "validateConfigXML",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Efetua a validação do arquivo de configuração para extração de documentação."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "string $configFilePath",
+                                        "Caminho completo até o arquivo de configuração."
+                                    ],
+                                    [
+                                        "bool $returnError",
+                                        "Quando ``false`` retornará um booleano indicando o sucesso ou falha da validação.",
+                                        "Quando ``true`` retornará um array associativo contendo informações sobre a falha encontrada.",
+                                        "O array associativo usará a seguinte estrutura:",
+                                        "```php",
+                                        "$arr = [",
+                                        " \"exceptionType\" => \"\"       // Nome completo da exception que representa o tipo de erro encontrado.",
+                                        " \"exceptionMessage\" => \"\"    // Mensagem de erro a ser incorporada na exception.",
+                                        "];",
+                                        "```"
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "bool|array",
+                                        "Retorna ``true`` ou ``false`` conforme o resultado da validação ou um array conforme informado",
+                                        "no parametro ``$returnError``."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "configFilePath": {
+                                "type": "string",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Caminho completo até o arquivo de configuração."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "returnError": {
+                                "type": "bool",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": false,
+                                "docBlock": {
+                                    "summary": [
+                                        "Quando ``false`` retornará um booleano indicando o sucesso ou falha da validação.",
+                                        "Quando ``true`` retornará um array associativo contendo informações sobre a falha encontrada.",
+                                        "O array associativo usará a seguinte estrutura:",
+                                        "```php",
+                                        "$arr = [",
+                                        " \"exceptionType\" => \"\"       // Nome completo da exception que representa o tipo de erro encontrado.",
+                                        " \"exceptionMessage\" => \"\"    // Mensagem de erro a ser incorporada na exception.",
+                                        "];",
+                                        "```"
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "array|bool",
+                        "isAbstract": false,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/src/DocBlockExtractor.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\DocBlockExtractor",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\DocBlockExtractor\\retrieveDirectoriesAndFilesFromXMLElement",
+                        "shortName": "retrieveDirectoriesAndFilesFromXMLElement",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna os diretórios e arquivos configurados em chaves <directory> e <file> inseridas dentro do",
+                                "corpo do elemento passado em ``$xmlElement``."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "SimpleXMLElement $xmlElement",
+                                        "Elemento XML que será verificado em busca de chaves <directory> e <file>."
+                                    ],
+                                    [
+                                        "string $rootPath",
+                                        "Caminho completo até a raiz do projeto ou local indicado para ser a base a partir da qual os",
+                                        "endereços de arquivos e diretórios estão descritos."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "array",
+                                        "Array contendo todos os endereços válidos de diretórios e arquivos descritos no elemento verificado.",
+                                        "Itens inválidos não causam erros, apenas não são usados."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "xmlElement": {
+                                "type": "SimpleXMLElement",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Elemento XML que será verificado em busca de chaves <directory> e <file>."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "rootPath": {
+                                "type": "string",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Caminho completo até a raiz do projeto ou local indicado para ser a base a partir da qual os",
+                                        "endereços de arquivos e diretórios estão descritos."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "array",
+                        "isAbstract": false,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/src/DocBlockExtractor.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\DocBlockExtractor",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\DocBlockExtractor\\retrieveOutputExtractorInstance",
+                        "shortName": "retrieveOutputExtractorInstance",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Retorna uma instância ``iOutputExtractor`` referente ao extrator que será utilizado."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "string $outputExtractorClassName",
+                                        "Nome completo de uma classe concreta que implementa a interface",
+                                        "``AeonDigital\\DocBlockExtractor\\Interfaces\\iOutputExtractor``."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "outputExtractorClassName": {
+                                "type": "string",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Nome completo de uma classe concreta que implementa a interface",
+                                        "``AeonDigital\\DocBlockExtractor\\Interfaces\\iOutputExtractor``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "AeonDigital\\DocBlockExtractor\\Interfaces\\iOutputExtractor",
+                        "isAbstract": false,
+                        "isFinal": false
+                    },
+                    {
+                        "fileName": "/var/www/html/src/DocBlockExtractor.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\DocBlockExtractor",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\DocBlockExtractor\\main",
+                        "shortName": "main",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Processa e extrai o projeto indicado conforme as configurações passadas."
+                            ],
+                            "description": [
+                                "Para que a extração seja feita corretamente, primeiro você precisa rodar o",
+                                "php composer para que as classes do projeto estejam devidamente mapeadas."
+                            ],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "string $configPath",
+                                        "Caminho completo até o arquivo XML de configuração da extração de documentação.",
+                                        "Se usado, as configurações fornecidas por este arquivo serão as únicas usadas e",
+                                        "todos demais parametros passados serão ignorados."
+                                    ],
+                                    [
+                                        "string $rootPath",
+                                        "Quando definido será usado como prefixo de todos os demais parametros que apontam",
+                                        "para arquivos e diretórios."
+                                    ],
+                                    [
+                                        "string $vendorDir",
+                                        "Caminho completo até o diretório ``vendor`` do projeto (ou caminho relativo iniciando",
+                                        "em ``$rootPath`` caso este esteja definido)."
+                                    ],
+                                    [
+                                        "string $outputDir",
+                                        "Caminho completo até um diretório que será usado como repositório dos arquivos",
+                                        "criados (ou caminho relativo iniciando em ``$rootPath`` caso este esteja definido).",
+                                        "O conteúdo original deste diretório será eliminado antes de gerar a nova documentação."
+                                    ],
+                                    [
+                                        "string|OutputFormatType $outputFormatType",
+                                        "Tipo de formato de saída da documentação.",
+                                        "Se nenhum formato for informado, será usado ``JSON``."
+                                    ],
+                                    [
+                                        "bool $singleFile",
+                                        "Esta opção é ``true`` por padrão.",
+                                        "Alguns tipos de formato (como JSON e XML) permitem que todo o conteúdo seja extraído",
+                                        "para um único arquivo. Informe ``true`` quando desejar este tipo de resultado. Em formatos",
+                                        "onde esta opção não faça sentido (como RST) esta opção será ignorada."
+                                    ],
+                                    [
+                                        "string $outputExtractorClassName",
+                                        "Se usado deve indicar uma classe que implemente a interface ``iOutputExtractor`` que será",
+                                        "utilizada para obter o resultado final da extração.",
+                                        "O uso deste parametro fará ignorar a indicação informada em ``$outputFormatType``."
+                                    ],
+                                    [
+                                        "string[] $detachedFilesAndDirectories",
+                                        "Array que, se usado, deve conter apenas caminhos para diretórios e arquivos que",
+                                        "não fazem parte do mapeamento feito pelo composer.",
+                                        "",
+                                        "Use caminhos completos caso ``$rootPath`` não seja definido e caminhos relativos iniciando",
+                                        "em ``$rootPath`` caso este esteja definido."
+                                    ],
+                                    [
+                                        "string[] $ignoreDetachedFilesAndDirectories",
+                                        "Array que, se usado, deve conter apenas caminhos para diretórios e arquivos que",
+                                        "devem ser ignorados na extração da documentação.",
+                                        "Esta opção atinge apenas os itens ``detached``.",
+                                        "",
+                                        "Use caminhos completos caso ``$rootPath`` não seja definido e caminhos relativos iniciando",
+                                        "em ``$rootPath`` caso este esteja definido."
+                                    ]
+                                ],
+                                "throws": [
+                                    [
+                                        "DirectoryNotFoundException",
+                                        "Caso o diretório ``vendor``, ou o diretório indicado em ``$outputDir`` não exista."
+                                    ],
+                                    [
+                                        "FileNotFoundException",
+                                        "Caso algum dos arquivos mapeadores do composer sejam encontrados.",
+                                        "Caso o arquivo de configuração passado não seja encontrado."
+                                    ],
+                                    [
+                                        "InvalidConfigurationFile",
+                                        "Caso o arquivo de configuração não possa ser lido ou seja considerado inválido"
+                                    ],
+                                    [
+                                        "InvalidConfigurationFileException",
+                                        "Caso alguma configuração do arquivo indicado esteja incorreta."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "bool",
+                                        "Indicando o sucesso ou não da extração da documentação."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "configPath": {
+                                "type": "string",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": "",
+                                "docBlock": {
+                                    "summary": [
+                                        "Caminho completo até o arquivo XML de configuração da extração de documentação.",
+                                        "Se usado, as configurações fornecidas por este arquivo serão as únicas usadas e",
+                                        "todos demais parametros passados serão ignorados."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "rootPath": {
+                                "type": "string",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": "",
+                                "docBlock": {
+                                    "summary": [
+                                        "Quando definido será usado como prefixo de todos os demais parametros que apontam",
+                                        "para arquivos e diretórios."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "vendorDir": {
+                                "type": "string",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": "",
+                                "docBlock": {
+                                    "summary": [
+                                        "Caminho completo até o diretório ``vendor`` do projeto (ou caminho relativo iniciando",
+                                        "em ``$rootPath`` caso este esteja definido)."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "outputDir": {
+                                "type": "string",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": "",
+                                "docBlock": {
+                                    "summary": [
+                                        "Caminho completo até um diretório que será usado como repositório dos arquivos",
+                                        "criados (ou caminho relativo iniciando em ``$rootPath`` caso este esteja definido).",
+                                        "O conteúdo original deste diretório será eliminado antes de gerar a nova documentação."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "outputFormatType": {
+                                "type": "AeonDigital\\DocBlockExtractor\\Enums\\OutputFormatType|string",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": "",
+                                "docBlock": {
+                                    "summary": [
+                                        "Tipo de formato de saída da documentação.",
+                                        "Se nenhum formato for informado, será usado ``JSON``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "singleFile": {
+                                "type": "bool",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": true,
+                                "docBlock": {
+                                    "summary": [
+                                        "Esta opção é ``true`` por padrão.",
+                                        "Alguns tipos de formato (como JSON e XML) permitem que todo o conteúdo seja extraído",
+                                        "para um único arquivo. Informe ``true`` quando desejar este tipo de resultado. Em formatos",
+                                        "onde esta opção não faça sentido (como RST) esta opção será ignorada."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "outputExtractorClassName": {
+                                "type": "string",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": "",
+                                "docBlock": {
+                                    "summary": [
+                                        "Se usado deve indicar uma classe que implemente a interface ``iOutputExtractor`` que será",
+                                        "utilizada para obter o resultado final da extração.",
+                                        "O uso deste parametro fará ignorar a indicação informada em ``$outputFormatType``."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "detachedFilesAndDirectories": {
+                                "type": "array",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": [],
+                                "docBlock": {
+                                    "summary": [
+                                        "Array que, se usado, deve conter apenas caminhos para diretórios e arquivos que",
+                                        "não fazem parte do mapeamento feito pelo composer."
+                                    ],
+                                    "description": [
+                                        "Use caminhos completos caso ``$rootPath`` não seja definido e caminhos relativos iniciando",
+                                        "em ``$rootPath`` caso este esteja definido."
+                                    ],
+                                    "tags": []
+                                }
+                            },
+                            "ignoreDetachedFilesAndDirectories": {
+                                "type": "array",
+                                "isOptional": true,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": true,
+                                "defaultValue": [],
+                                "docBlock": {
+                                    "summary": [
+                                        "Array que, se usado, deve conter apenas caminhos para diretórios e arquivos que",
+                                        "devem ser ignorados na extração da documentação.",
+                                        "Esta opção atinge apenas os itens ``detached``."
+                                    ],
+                                    "description": [
+                                        "Use caminhos completos caso ``$rootPath`` não seja definido e caminhos relativos iniciando",
+                                        "em ``$rootPath`` caso este esteja definido."
+                                    ],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "bool",
+                        "isAbstract": false,
+                        "isFinal": false
+                    }
+                ],
+                "nonstatic": []
+            }
+        }
+    }
+}

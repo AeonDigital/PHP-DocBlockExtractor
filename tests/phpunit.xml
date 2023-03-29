@@ -15,11 +15,11 @@
 
     <testsuites>
         <testsuite name="default">
-            <!--file>src/Parser/DocBlockTests.php</file>
+            <file>src/Parser/DocBlockTests.php</file>
             <file>src/ObjectDocumentationTests.php</file>
             <file>src/ProjectDocumentationTests.php</file>
             <file>src/DocBlockExtractorTests.php</file>
-            <file>src/OutputExtractor/JSONTest.php</file-->
+            <file>src/OutputExtractor/JSONTest.php</file>
             <file>src/OutputExtractor/XMLTest.php</file>
         </testsuite>
     </testsuites>

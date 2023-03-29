@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<constants>
+    <constant fileName="/var/www/html/src/Functions/00_constants_and_variables.php"
+              namespaceName=""
+              fqsen="PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_01"
+              shortName="PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_01"
+              type="CONSTANT">
+        <docBlock>
+            <summary>
+                <line>[1] Constante definida unicamente para permitir testar a obtenção</line>
+                <line>de suas informações.</line>
+            </summary>
+            <description />
+            <tags>
+                <tag name="var">
+                    <line>string PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_01</line>
+                </tag>
+            </tags>
+        </docBlock>
+    </constant>
+    <constant fileName="/var/www/html/src/Functions/00_constants_and_variables.php"
+              namespaceName=""
+              fqsen="PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_02"
+              shortName="PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_02"
+              type="CONSTANT">
+        <docBlock>
+            <summary>
+                <line>[2] Constante definida unicamente para permitir testar a obtenção</line>
+                <line>de suas informações.</line>
+            </summary>
+            <description />
+            <tags>
+                <tag name="var">
+                    <line>string PHPDOCBLOCKEXTRACTOR_NON_USED_CONSTANT_02</line>
+                </tag>
+            </tags>
+        </docBlock>
+    </constant>
+</constants>

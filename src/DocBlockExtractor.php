@@ -132,7 +132,7 @@ class DocBlockExtractor
                 "indent"            => true,    // Indica se o código de saida deve estar identado
                 "indent-spaces"     => 4,       // Indica a quantidade de espaços usados para cada nível de identação.
                 "vertical-space"    => true,    // Irá adicionar algumas linhas em branco para facilitar a leitura.
-                "wrap"              => 200,     // Máximo de caracteres que uma linha deve ter.
+                "wrap"              => 512,     // Máximo de caracteres que uma linha deve ter.
 
                 "quote-ampersand"   => true,    // Converte todo & para &amp;
                 "hide-comments"     => true,    // Remove comentários

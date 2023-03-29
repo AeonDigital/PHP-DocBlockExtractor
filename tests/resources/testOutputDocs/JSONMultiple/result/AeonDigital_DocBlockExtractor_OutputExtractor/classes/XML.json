@@ -1,0 +1,187 @@
+{
+    "fileName": "/var/www/html/src/OutputExtractor/XML.php",
+    "namespaceName": "AeonDigital\\DocBlockExtractor\\OutputExtractor",
+    "fqsen": "AeonDigital\\DocBlockExtractor\\OutputExtractor\\XML",
+    "shortName": "XML",
+    "type": "CLASSE",
+    "docBlock": {
+        "summary": [
+            "Efetua a extração dos dados de uma classe ``ProjectDocumentation`` em",
+            "um ou mais arquivos XML."
+        ],
+        "description": [],
+        "tags": {
+            "package": [
+                [
+                    "AeonDigital\\DocBlockExtractor"
+                ]
+            ],
+            "author": [
+                [
+                    "Rianna Cantarelli <rianna@aeondigital.com.br>"
+                ]
+            ],
+            "copyright": [
+                [
+                    "2023, Rianna Cantarelli"
+                ]
+            ],
+            "license": [
+                [
+                    "MIT"
+                ]
+            ]
+        }
+    },
+    "interfaces": [
+        "AeonDigital\\DocBlockExtractor\\Interfaces\\iOutputExtractor"
+    ],
+    "extends": null,
+    "isAbstract": false,
+    "isFinal": false,
+    "constants": {
+        "public": []
+    },
+    "properties": {
+        "public": {
+            "static": [],
+            "nonstatic": []
+        }
+    },
+    "constructor": null,
+    "methods": {
+        "public": {
+            "abstract": {
+                "static": [],
+                "nonstatic": []
+            },
+            "nonabstract": {
+                "static": [],
+                "nonstatic": [
+                    {
+                        "fileName": "/var/www/html/src/OutputExtractor/XML.php",
+                        "namespaceName": "AeonDigital\\DocBlockExtractor\\OutputExtractor\\XML",
+                        "fqsen": "AeonDigital\\DocBlockExtractor\\OutputExtractor\\XML\\extract",
+                        "shortName": "extract",
+                        "type": "METHOD",
+                        "docBlock": {
+                            "summary": [
+                                "Extrai a documentação para o formato implementado."
+                            ],
+                            "description": [],
+                            "tags": {
+                                "param": [
+                                    [
+                                        "ProjectDocumentation $proDoc",
+                                        "Instância a partir da qual a documentação será obtida."
+                                    ],
+                                    [
+                                        "string $outputDir",
+                                        "Caminho completo até um diretório que será usado como repositório dos arquivos",
+                                        "criados. O conteúdo original deste diretório será eliminado antes de gerar a nova",
+                                        "documentação."
+                                    ],
+                                    [
+                                        "bool $singleFile",
+                                        "Quando ``true`` o conteúdo será extraido para um único arquivo chamado ``index.xml``.",
+                                        "Se ``false``, cada namespace representará um diretório dentro de ``$outputDir`` e",
+                                        "dentro de cada um serão alocados os seguintes arquivos/diretórios:",
+                                        "",
+                                        "- constants.xml      [ 1 arquivo para todas as constantes da namespace ]",
+                                        "- variables.xml      [ 1 arquivo para todas as variáveis da namespace ]",
+                                        "- functions          [ 1 diretório contendo 1 arquivo para cada função da namespace ]",
+                                        "- interfaces         [ 1 diretório contendo 1 arquivo para cada interface da namespace ]",
+                                        "- enuns              [ 1 diretório contendo 1 arquivo para cada enumerador da namespace ]",
+                                        "- traits             [ 1 diretório contendo 1 arquivo para cada trait da namespace ]",
+                                        "- classes            [ 1 diretório contendo 1 arquivo para cada classe da namespace ]"
+                                    ]
+                                ],
+                                "throws": [
+                                    [
+                                        "DirectoryNotFoundException",
+                                        "Caso o diretório ``outputDir`` indicado não exista."
+                                    ],
+                                    [
+                                        "RuntimeException",
+                                        "Caso não seja possível excluir totalmente o conteúdo do diretório ``$outputDir``."
+                                    ]
+                                ],
+                                "return": [
+                                    [
+                                        "bool",
+                                        "Retorna ``true`` caso todos os arquivos o processo tenha corrido até o fim."
+                                    ]
+                                ]
+                            }
+                        },
+                        "parameters": {
+                            "proDoc": {
+                                "type": "AeonDigital\\DocBlockExtractor\\ProjectDocumentation",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Instância a partir da qual a documentação será obtida."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "outputDir": {
+                                "type": "string",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Caminho completo até um diretório que será usado como repositório dos arquivos",
+                                        "criados. O conteúdo original deste diretório será eliminado antes de gerar a nova",
+                                        "documentação."
+                                    ],
+                                    "description": [],
+                                    "tags": []
+                                }
+                            },
+                            "singleFile": {
+                                "type": "bool",
+                                "isOptional": false,
+                                "isReference": false,
+                                "isVariadic": false,
+                                "isNullable": false,
+                                "isDefaultValue": false,
+                                "defaultValue": null,
+                                "docBlock": {
+                                    "summary": [
+                                        "Quando ``true`` o conteúdo será extraido para um único arquivo chamado ``index.xml``.",
+                                        "Se ``false``, cada namespace representará um diretório dentro de ``$outputDir`` e",
+                                        "dentro de cada um serão alocados os seguintes arquivos/diretórios:"
+                                    ],
+                                    "description": [
+                                        "- constants.xml      [ 1 arquivo para todas as constantes da namespace ]",
+                                        "- variables.xml      [ 1 arquivo para todas as variáveis da namespace ]",
+                                        "- functions          [ 1 diretório contendo 1 arquivo para cada função da namespace ]",
+                                        "- interfaces         [ 1 diretório contendo 1 arquivo para cada interface da namespace ]",
+                                        "- enuns              [ 1 diretório contendo 1 arquivo para cada enumerador da namespace ]",
+                                        "- traits             [ 1 diretório contendo 1 arquivo para cada trait da namespace ]",
+                                        "- classes            [ 1 diretório contendo 1 arquivo para cada classe da namespace ]"
+                                    ],
+                                    "tags": []
+                                }
+                            }
+                        },
+                        "return": "bool",
+                        "isAbstract": false,
+                        "isFinal": false
+                    }
+                ]
+            }
+        }
+    }
+}

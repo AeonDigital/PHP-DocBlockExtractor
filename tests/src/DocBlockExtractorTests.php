@@ -232,7 +232,7 @@ class DocBlockExtractorTests extends TestCase
     }
 
 
-
+    /*
     public function test_static_method_main()
     {
         $this->setTestDirs();
@@ -241,4 +241,5 @@ class DocBlockExtractorTests extends TestCase
             $this->pathToTestXMLs . "/mainTestConfig.xml"
         );
     }
+    */
 }

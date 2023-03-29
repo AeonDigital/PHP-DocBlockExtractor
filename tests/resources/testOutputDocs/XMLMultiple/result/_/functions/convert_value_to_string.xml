@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<function fileName="/var/www/html/src/Functions/convert_value_to_string.php"
+          namespaceName=""
+          fqsen="convert_value_to_string"
+          shortName="convert_value_to_string"
+          type="FUNCTION">
+    <docBlock>
+        <summary>
+            <line>Tenta converter o tipo do valor passado para ``string``.</line>
+            <line>Apenas valores realmente compatíveis serão convertidos.</line>
+        </summary>
+        <description>
+            <line>Números de ponto flutuante serão convertidos e mantidos com no máximo 15 digitos</line>
+            <line>ao todo (parte inteira + parte decimal).</line>
+            <line>A parte decimal ficará com : (15 - (número de digitos da parte inteira)) casas.</line>
+        </description>
+        <tags>
+            <tag name="param">
+                <line>mixed $o</line>
+                <line>Objeto que será convertido.</line>
+            </tag>
+            <tag name="codeCoverageIgnore">
+                <line>Teste coberto no projeto ``PHP-Core`` na função ``Convert::toString``.</line>
+                <line>Função foi portada para cá para tornar este projeto o mais independente possível.</line>
+            </tag>
+            <tag name="return">
+                <line>?string</line>
+                <line>Retornará ``null`` caso não seja possível efetuar a conversão.</line>
+            </tag>
+        </tags>
+    </docBlock>
+    <parameters>
+        <parameter name="o"
+                   type="mixed"
+                   isOptional="false"
+                   isReference="false"
+                   isVariadic="false"
+                   isNullable="true"
+                   isDefaultValue="false"
+                   defaultValue="``null``">
+            <docBlock>
+                <summary>
+                    <line>Objeto que será convertido.</line>
+                </summary>
+                <description />
+                <tags />
+            </docBlock>
+        </parameter>
+    </parameters>
+    <return>string|null</return>
+</function>

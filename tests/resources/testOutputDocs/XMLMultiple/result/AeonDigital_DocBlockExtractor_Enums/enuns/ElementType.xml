@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<enun fileName="/var/www/html/src/Enums/ElementType.php"
+      namespaceName="AeonDigital\DocBlockExtractor\Enums"
+      fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType"
+      shortName="ElementType"
+      type="ENUM"
+      isAbstract="false"
+      isFinal="true">
+    <docBlock>
+        <summary>
+            <line>Tipo de elemento</line>
+        </summary>
+        <description />
+        <tags />
+    </docBlock>
+    <interfaces>
+        <ns>UnitEnum</ns>
+        <ns>BackedEnum</ns>
+    </interfaces>
+    <extends />
+    <constants>
+        <public>
+            <constant fileName="/var/www/html/src/Enums/ElementType.php"
+                      namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                      fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\UNKNOW"
+                      shortName="UNKNOW"
+                      type="CONSTANT">
+                <docBlock>
+                    <summary />
+                    <description />
+                    <tags />
+                </docBlock>
+                <value type="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       originalValue="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       stringValue="``null``" />
+            </constant>
+            <constant fileName="/var/www/html/src/Enums/ElementType.php"
+                      namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                      fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\CONSTANT"
+                      shortName="CONSTANT"
+                      type="CONSTANT">
+                <docBlock>
+                    <summary />
+                    <description />
+                    <tags />
+                </docBlock>
+                <value type="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       originalValue="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       stringValue="``null``" />
+            </constant>
+            <constant fileName="/var/www/html/src/Enums/ElementType.php"
+                      namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                      fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\VARIABLE"
+                      shortName="VARIABLE"
+                      type="CONSTANT">
+                <docBlock>
+                    <summary />
+                    <description />
+                    <tags />
+                </docBlock>
+                <value type="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       originalValue="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       stringValue="``null``" />
+            </constant>
+            <constant fileName="/var/www/html/src/Enums/ElementType.php"
+                      namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                      fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\PROPERTIE"
+                      shortName="PROPERTIE"
+                      type="CONSTANT">
+                <docBlock>
+                    <summary />
+                    <description />
+                    <tags />
+                </docBlock>
+                <value type="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       originalValue="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       stringValue="``null``" />
+            </constant>
+            <constant fileName="/var/www/html/src/Enums/ElementType.php"
+                      namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                      fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\FUNCTION"
+                      shortName="FUNCTION"
+                      type="CONSTANT">
+                <docBlock>
+                    <summary />
+                    <description />
+                    <tags />
+                </docBlock>
+                <value type="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       originalValue="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       stringValue="``null``" />
+            </constant>
+            <constant fileName="/var/www/html/src/Enums/ElementType.php"
+                      namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                      fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\METHOD"
+                      shortName="METHOD"
+                      type="CONSTANT">
+                <docBlock>
+                    <summary />
+                    <description />
+                    <tags />
+                </docBlock>
+                <value type="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       originalValue="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       stringValue="``null``" />
+            </constant>
+            <constant fileName="/var/www/html/src/Enums/ElementType.php"
+                      namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                      fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\INTERFACE"
+                      shortName="INTERFACE"
+                      type="CONSTANT">
+                <docBlock>
+                    <summary />
+                    <description />
+                    <tags />
+                </docBlock>
+                <value type="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       originalValue="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       stringValue="``null``" />
+            </constant>
+            <constant fileName="/var/www/html/src/Enums/ElementType.php"
+                      namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                      fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\ENUM"
+                      shortName="ENUM"
+                      type="CONSTANT">
+                <docBlock>
+                    <summary />
+                    <description />
+                    <tags />
+                </docBlock>
+                <value type="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       originalValue="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       stringValue="``null``" />
+            </constant>
+            <constant fileName="/var/www/html/src/Enums/ElementType.php"
+                      namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                      fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\TRAIT"
+                      shortName="TRAIT"
+                      type="CONSTANT">
+                <docBlock>
+                    <summary />
+                    <description />
+                    <tags />
+                </docBlock>
+                <value type="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       originalValue="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       stringValue="``null``" />
+            </constant>
+            <constant fileName="/var/www/html/src/Enums/ElementType.php"
+                      namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                      fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\CLASSE"
+                      shortName="CLASSE"
+                      type="CONSTANT">
+                <docBlock>
+                    <summary />
+                    <description />
+                    <tags />
+                </docBlock>
+                <value type="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       originalValue="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       stringValue="``null``" />
+            </constant>
+        </public>
+    </constants>
+    <properties>
+        <public>
+            <static />
+            <nonstatic>
+                <property fileName="/var/www/html/src/Enums/ElementType.php"
+                          namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                          fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\name"
+                          shortName="name"
+                          type="PROPERTIE">
+                    <docBlock>
+                        <summary />
+                        <description />
+                        <tags />
+                    </docBlock>
+                    <defaultValue type="null"
+                                  originalValue="``null``"
+                                  stringValue="" />
+                </property>
+                <property fileName="/var/www/html/src/Enums/ElementType.php"
+                          namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                          fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\value"
+                          shortName="value"
+                          type="PROPERTIE">
+                    <docBlock>
+                        <summary />
+                        <description />
+                        <tags />
+                    </docBlock>
+                    <defaultValue type="null"
+                                  originalValue="``null``"
+                                  stringValue="" />
+                </property>
+            </nonstatic>
+        </public>
+    </properties>
+    <constructor />
+    <methods>
+        <public>
+            <abstract>
+                <static />
+                <nonstatic />
+            </abstract>
+            <nonabstract>
+                <static>
+                    <method fileName="/var/www/html/src/Enums/ElementType.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                            fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\cases"
+                            shortName="cases"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary />
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Enums/ElementType.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                            fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\from"
+                            shortName="from"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary />
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters>
+                            <parameter name="value"
+                                       type="string|int"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary />
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>static</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Enums/ElementType.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                            fqsen="AeonDigital\DocBlockExtractor\Enums\ElementType\tryFrom"
+                            shortName="tryFrom"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary />
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters>
+                            <parameter name="value"
+                                       type="string|int"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary />
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>static|null</return>
+                    </method>
+                </static>
+                <nonstatic />
+            </nonabstract>
+        </public>
+    </methods>
+</enun>

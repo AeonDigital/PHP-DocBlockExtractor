@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<class fileName="/var/www/html/src/ObjectDocumentation.php"
+       namespaceName="AeonDigital\DocBlockExtractor"
+       fqsen="AeonDigital\DocBlockExtractor\ObjectDocumentation"
+       shortName="ObjectDocumentation"
+       type="CLASSE"
+       isAbstract="false"
+       isFinal="false">
+    <docBlock>
+        <summary>
+            <line>Classe que agrupa informações de documentação de um objeto.</line>
+        </summary>
+        <description />
+        <tags>
+            <tag name="package">
+                <line>AeonDigital\DocBlockExtractor</line>
+            </tag>
+            <tag name="author">
+                <line>Rianna Cantarelli &lt;rianna@aeondigital.com.br&gt;</line>
+            </tag>
+            <tag name="copyright">
+                <line>2023, Rianna Cantarelli</line>
+            </tag>
+            <tag name="license">
+                <line>MIT</line>
+            </tag>
+        </tags>
+    </docBlock>
+    <interfaces />
+    <extends />
+    <constants>
+        <public />
+    </constants>
+    <properties>
+        <public>
+            <static />
+            <nonstatic />
+        </public>
+    </properties>
+    <constructor fileName="/var/www/html/src/ObjectDocumentation.php"
+                 namespaceName="AeonDigital\DocBlockExtractor\ObjectDocumentation"
+                 fqsen="AeonDigital\DocBlockExtractor\ObjectDocumentation\__construct"
+                 shortName="__construct"
+                 type="METHOD"
+                 isAbstract="false"
+                 isFinal="false">
+        <docBlock>
+            <summary>
+                <line>Inicia um novo objeto ``ObjectDocumentation``</line>
+            </summary>
+            <description />
+            <tags>
+                <tag name="param">
+                    <line>string $fileName</line>
+                    <line>Caminho completo até o arquivo que descreve este objeto.</line>
+                </tag>
+                <tag name="param">
+                    <line>string $fqsen</line>
+                    <line>Nome completo do objeto.</line>
+                    <line>``Fully Qualified Structural Element Name``.</line>
+                    <line>Se não for definido será considerado que trata-se de um arquivo de objetos avulsos.</line>
+                </tag>
+                <tag name="param">
+                    <line>ElementType $type</line>
+                    <line>Tipo do objeto.</line>
+                </tag>
+                <tag name="throws">
+                    <line>FileNotFoundException</line>
+                    <line>Caso o arquivo indicado não exista.</line>
+                </tag>
+                <tag name="throws">
+                    <line>InvalidArgumentException</line>
+                    <line>Caso seja informado um arquivo que não tenha extensão .php</line>
+                </tag>
+            </tags>
+        </docBlock>
+        <parameters>
+            <parameter name="fileName"
+                       type="string"
+                       isOptional="false"
+                       isReference="false"
+                       isVariadic="false"
+                       isNullable="false"
+                       isDefaultValue="false"
+                       defaultValue="``null``">
+                <docBlock>
+                    <summary>
+                        <line>Caminho completo até o arquivo que descreve este objeto.</line>
+                    </summary>
+                    <description />
+                    <tags />
+                </docBlock>
+            </parameter>
+            <parameter name="fqsen"
+                       type="string"
+                       isOptional="false"
+                       isReference="false"
+                       isVariadic="false"
+                       isNullable="false"
+                       isDefaultValue="false"
+                       defaultValue="``null``">
+                <docBlock>
+                    <summary>
+                        <line>Nome completo do objeto.</line>
+                        <line>``Fully Qualified Structural Element Name``.</line>
+                        <line>Se não for definido será considerado que trata-se de um arquivo de objetos avulsos.</line>
+                    </summary>
+                    <description />
+                    <tags />
+                </docBlock>
+            </parameter>
+            <parameter name="type"
+                       type="AeonDigital\DocBlockExtractor\Enums\ElementType"
+                       isOptional="false"
+                       isReference="false"
+                       isVariadic="false"
+                       isNullable="false"
+                       isDefaultValue="false"
+                       defaultValue="``null``">
+                <docBlock>
+                    <summary>
+                        <line>Tipo do objeto.</line>
+                    </summary>
+                    <description />
+                    <tags />
+                </docBlock>
+            </parameter>
+        </parameters>
+        <return />
+    </constructor>
+    <methods>
+        <public>
+            <abstract>
+                <static />
+                <nonstatic />
+            </abstract>
+            <nonabstract>
+                <static />
+                <nonstatic>
+                    <method fileName="/var/www/html/src/ObjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ObjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ObjectDocumentation\getFileName"
+                            shortName="getFileName"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna o caminho completo até o arquivo onde este objeto.</line>
+                                <line>está declarado.</line>
+                            </summary>
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return>string</return>
+                    </method>
+                    <method fileName="/var/www/html/src/ObjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ObjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ObjectDocumentation\getNamespaceName"
+                            shortName="getNamespaceName"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna o nome da namespace do objeto.</line>
+                            </summary>
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return>string</return>
+                    </method>
+                    <method fileName="/var/www/html/src/ObjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ObjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ObjectDocumentation\getFQSEN"
+                            shortName="getFQSEN"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna o ``Fully Qualified Structural Element Name`` do objeto.</line>
+                            </summary>
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return>string</return>
+                    </method>
+                    <method fileName="/var/www/html/src/ObjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ObjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ObjectDocumentation\getShortName"
+                            shortName="getShortName"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna o nome curto do objeto.</line>
+                            </summary>
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return>string</return>
+                    </method>
+                    <method fileName="/var/www/html/src/ObjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ObjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ObjectDocumentation\getType"
+                            shortName="getType"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna o tipo do objeto.</line>
+                            </summary>
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return>AeonDigital\DocBlockExtractor\Enums\ElementType</return>
+                    </method>
+                    <method fileName="/var/www/html/src/ObjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ObjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ObjectDocumentation\toArray"
+                            shortName="toArray"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna um array associativo representando o objeto e todos</line>
+                                <line>seus membros que serão usados para criação da view de documentação.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="return">
+                                    <line>array</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters />
+                        <return>array</return>
+                    </method>
+                </nonstatic>
+            </nonabstract>
+        </public>
+    </methods>
+</class>

@@ -1,0 +1,412 @@
+<?xml version="1.0"?>
+<class fileName="/var/www/html/src/Parser/DocBlock.php"
+       namespaceName="AeonDigital\DocBlockExtractor\Parser"
+       fqsen="AeonDigital\DocBlockExtractor\Parser\DocBlock"
+       shortName="DocBlock"
+       type="CLASSE"
+       isAbstract="false"
+       isFinal="false">
+    <docBlock>
+        <summary>
+            <line>Traz métodos para efetuar o tratamento dos DocBlock permitindo</line>
+            <line>convertê-los de strings em arrays associativos.</line>
+        </summary>
+        <description />
+        <tags>
+            <tag name="package">
+                <line>AeonDigital\DocBlockExtractor</line>
+            </tag>
+            <tag name="author">
+                <line>Rianna Cantarelli &lt;rianna@aeondigital.com.br&gt;</line>
+            </tag>
+            <tag name="copyright">
+                <line>2023, Rianna Cantarelli</line>
+            </tag>
+            <tag name="license">
+                <line>MIT</line>
+            </tag>
+        </tags>
+    </docBlock>
+    <interfaces />
+    <extends />
+    <constants>
+        <public />
+    </constants>
+    <properties>
+        <public>
+            <static />
+            <nonstatic />
+        </public>
+    </properties>
+    <constructor />
+    <methods>
+        <public>
+            <abstract>
+                <static />
+                <nonstatic />
+            </abstract>
+            <nonabstract>
+                <static>
+                    <method fileName="/var/www/html/src/Parser/DocBlock.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Parser\DocBlock"
+                            fqsen="AeonDigital\DocBlockExtractor\Parser\DocBlock\trimArray"
+                            shortName="trimArray"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Remove todas as entradas vazias de um array até encontrar a o primeiro item</line>
+                                <line>não vazio. Faz o mesmo de traz para frente para obter um array que contenha</line>
+                                <line>apenas dados aproveitáveis.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="param">
+                                    <line>string[] $stringArray</line>
+                                    <line>Array de strings que será analisado.</line>
+                                </tag>
+                                <tag name="return">
+                                    <line>string[]</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters>
+                            <parameter name="stringArray"
+                                       type="array"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Array de strings que será analisado.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Parser/DocBlock.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Parser\DocBlock"
+                            fqsen="AeonDigital\DocBlockExtractor\Parser\DocBlock\parseRawDocBlockToRawLineArray"
+                            shortName="parseRawDocBlockToRawLineArray"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Trata ums string que representa um DocBlock para remover os caracteres que</line>
+                                <line>servem unicamente para sua marcação e retorna um array onde cada entrada</line>
+                                <line>representa uma das linhas de dados encontrado.</line>
+                            </summary>
+                            <description>
+                                <line>Todas as linhas passarão por um processo ``trim`` eliminando espaços em branco</line>
+                                <line>no início e no fim. Se quiser alterar este comportamento para algum conteúdo use</line>
+                                <line>uma linha para demarcar o início de uma área em que tal conteúdo deva ser tratado</line>
+                                <line>tal qual foi digitado.</line>
+                                <line>Há 2 formas pelas quais você pode iniciar uma área assim:</line>
+                                <line>Na primeira, basta iniciar uma linha de documentação com 3 caracteres de traço (---)</line>
+                                <line>que, a partir da próxima, e até encontrar outra linha com outros 3 caracteres de traço</line>
+                                <line>todo o conteúdo será incirporado tal qual.</line>
+                                <line>Na segunda, inicie um bloco de códigos usando a mesma marcação Markdown. De seu início</line>
+                                <line>até seu fim toda informação será incorporada respeitando a identação feita.</line>
+                            </description>
+                            <tags>
+                                <tag name="param">
+                                    <line>string $rawDocBlock</line>
+                                    <line>String original do DocBlock que será analisado.</line>
+                                </tag>
+                                <tag name="return">
+                                    <line>string[]</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters>
+                            <parameter name="rawDocBlock"
+                                       type="string"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary>
+                                        <line>String original do DocBlock que será analisado.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Parser/DocBlock.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Parser\DocBlock"
+                            fqsen="AeonDigital\DocBlockExtractor\Parser\DocBlock\parseRawLineArrayToAssocArray"
+                            shortName="parseRawLineArrayToAssocArray"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>A partir de um array de linhas de dados brutos de um DocBlock efetua o processamento</line>
+                                <line>que permite identificar seu ``summary``, ``description`` e suas demais tags.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="param">
+                                    <line>array $rawLineArray</line>
+                                    <line>Array de linhas de dados brutos de um DocBlock.</line>
+                                </tag>
+                                <tag name="return">
+                                    <line>array</line>
+                                    <line>O array associativo terá a seguinte estrutura:</line>
+                                    <line>```php</line>
+                                    <line>$arr = [</line>
+                                    <line>"summary" =&gt; [],</line>
+                                    <line>"description" =&gt; [],</line>
+                                    <line>"tags" =&gt; [</line>
+                                    <line>"tagName01" =&gt; [</line>
+                                    <line>[], [], []</line>
+                                    <line>]</line>
+                                    <line>"tagName02" =&gt; [</line>
+                                    <line>[], []</line>
+                                    <line>]</line>
+                                    <line>],</line>
+                                    <line>];</line>
+                                    <line>```</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters>
+                            <parameter name="rawLineArray"
+                                       type="array"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Array de linhas de dados brutos de um DocBlock.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Parser/DocBlock.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Parser\DocBlock"
+                            fqsen="AeonDigital\DocBlockExtractor\Parser\DocBlock\parseRawDocBlockParamLines"
+                            shortName="parseRawDocBlockParamLines"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>A partir da coleção de linhas existentes para a descrição de um parametro de um método ou</line>
+                                <line>função, retorna um array contendo 2 posições onde a primeira trará o nome do parametro</line>
+                                <line>e o segundo trará uma nova coleção de linhas usando o mesmo tipo de array fornecido</line>
+                                <line>pela função ``self::parseRawLineArrayToAssocArray()``.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="param">
+                                    <line>array $rawDocBlockParamLines</line>
+                                    <line>Array das linhas descritivas de um parametro de um método ou função.</line>
+                                </tag>
+                                <tag name="return">
+                                    <line>array</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters>
+                            <parameter name="rawDocBlockParamLines"
+                                       type="array"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Array das linhas descritivas de um parametro de um método ou função.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Parser/DocBlock.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Parser\DocBlock"
+                            fqsen="AeonDigital\DocBlockExtractor\Parser\DocBlock\fullParseDocBlock"
+                            shortName="fullParseDocBlock"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Processa completamente o bloco de documentação e retorna um array associativo</line>
+                                <line>contendo todos os dados obtidos.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="param">
+                                    <line>string $rawDocBlock</line>
+                                    <line>String original do DocBlock que será analisado.</line>
+                                </tag>
+                                <tag name="return">
+                                    <line>string[]</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters>
+                            <parameter name="rawDocBlock"
+                                       type="string"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary>
+                                        <line>String original do DocBlock que será analisado.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Parser/DocBlock.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Parser\DocBlock"
+                            fqsen="AeonDigital\DocBlockExtractor\Parser\DocBlock\parseObjectDeclaration"
+                            shortName="parseObjectDeclaration"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Efetua o processamento de uma linha que deve conter a declaração de uma</line>
+                                <line>variável, constante ou função.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="param">
+                                    <line>string $declarationLine</line>
+                                    <line>Linha que será verificada.</line>
+                                </tag>
+                                <tag name="return">
+                                    <line>?array</line>
+                                    <line>Retornará ``null`` se não for possível identificar o objeto ou um array</line>
+                                    <line>associativo conforme o modelo abaixo:</line>
+                                    <line />
+                                    <line>```php</line>
+                                    <line>$arr = [</line>
+                                    <line>"type" =&gt; "", // (string)ElementType::{CONSTANT|VARIABLE|FUNCTION}</line>
+                                    <line>"shortName" =&gt; "", // string</line>
+                                    <line>];</line>
+                                    <line>```</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters>
+                            <parameter name="declarationLine"
+                                       type="string"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Linha que será verificada.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>array|null</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Parser/DocBlock.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Parser\DocBlock"
+                            fqsen="AeonDigital\DocBlockExtractor\Parser\DocBlock\parseStandaloneFileToMetaObjects"
+                            shortName="parseStandaloneFileToMetaObjects"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Processa um arquivo avulso em busca de meta informações dos objetos que estão</line>
+                                <line>documentados usando DocBlocks.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="param">
+                                    <line>string $fileName</line>
+                                    <line>Caminho completo até o arquivo que será verificado.</line>
+                                </tag>
+                                <tag name="return">
+                                    <line>array</line>
+                                    <line>Retorna um array associativo conforme o modelo abaixo:</line>
+                                    <line />
+                                    <line>```php</line>
+                                    <line>$arr = [</line>
+                                    <line>"fileName" =&gt; "", // string</line>
+                                    <line>"namespaceName" =&gt; "", // string</line>
+                                    <line>"objects" =&gt; [], //</line>
+                                    <line>];</line>
+                                    <line>```</line>
+                                    <line />
+                                    <line>A chave ``objects`` traz em cada entrada um array correspondente ao retorno</line>
+                                    <line>do método ``self::parseObjectDeclaration()`` com adição de uma nova chave</line>
+                                    <line>``docBlock`` que traz um array que representa o bloco encontrado em conjunto</line>
+                                    <line>com cada um dos objetos.</line>
+                                </tag>
+                                <tag name="throws">
+                                    <line>FileNotFoundException</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters>
+                            <parameter name="fileName"
+                                       type="string"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Caminho completo até o arquivo que será verificado.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>array</return>
+                    </method>
+                </static>
+                <nonstatic />
+            </nonabstract>
+        </public>
+    </methods>
+</class>

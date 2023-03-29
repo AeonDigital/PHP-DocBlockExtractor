@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<function fileName="/var/www/html/src/Functions/dir_deltree.php"
+          namespaceName=""
+          fqsen="dir_deltree"
+          shortName="dir_deltree"
+          type="FUNCTION">
+    <docBlock>
+        <summary>
+            <line>Remove um diretório e todo seu conteúdo.</line>
+        </summary>
+        <description />
+        <tags>
+            <tag name="param">
+                <line>string $absoluteSystemPathToDir</line>
+                <line>Diretório que será excluido.</line>
+            </tag>
+            <tag name="param">
+                <line>bool $removeMain</line>
+                <line>Quando ``true`` irá remover tudo, incluindo o próprio diretório indicado no</line>
+                <line>argumento ``$absoluteSystemPathToDir``. Se ``false``, irá limpar totalmente conteúdo do</line>
+                <line>diretório indicado e mantê-lo.</line>
+            </tag>
+            <tag name="codeCoverageIgnore">
+                <line>Teste coberto no projeto ``PHP-Core`` na função ``dir_deltree``.</line>
+                <line>Função foi portada para cá para tornar este projeto o mais independente possível.</line>
+            </tag>
+            <tag name="return">
+                <line>bool</line>
+                <line>Retornará ``true`` se o diretório alvo for excluído.</line>
+            </tag>
+        </tags>
+    </docBlock>
+    <parameters>
+        <parameter name="absoluteSystemPathToDir"
+                   type="string"
+                   isOptional="false"
+                   isReference="false"
+                   isVariadic="false"
+                   isNullable="false"
+                   isDefaultValue="false"
+                   defaultValue="``null``">
+            <docBlock>
+                <summary>
+                    <line>Diretório que será excluido.</line>
+                </summary>
+                <description />
+                <tags />
+            </docBlock>
+        </parameter>
+        <parameter name="removeMain"
+                   type="bool"
+                   isOptional="true"
+                   isReference="false"
+                   isVariadic="false"
+                   isNullable="false"
+                   isDefaultValue="true"
+                   defaultValue="true">
+            <docBlock>
+                <summary>
+                    <line>Quando ``true`` irá remover tudo, incluindo o próprio diretório indicado no</line>
+                    <line>argumento ``$absoluteSystemPathToDir``. Se ``false``, irá limpar totalmente conteúdo do</line>
+                    <line>diretório indicado e mantê-lo.</line>
+                </summary>
+                <description />
+                <tags />
+            </docBlock>
+        </parameter>
+    </parameters>
+    <return>bool</return>
+</function>

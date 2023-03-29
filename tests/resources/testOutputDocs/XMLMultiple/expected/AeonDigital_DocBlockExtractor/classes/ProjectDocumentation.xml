@@ -1,0 +1,347 @@
+<?xml version="1.0"?>
+<class fileName="/var/www/html/src/ProjectDocumentation.php"
+       namespaceName="AeonDigital\DocBlockExtractor"
+       fqsen="AeonDigital\DocBlockExtractor\ProjectDocumentation"
+       shortName="ProjectDocumentation"
+       type="CLASSE"
+       isAbstract="false"
+       isFinal="false">
+    <docBlock>
+        <summary>
+            <line>Responsável por processar os objetos que compõe o projeto que está sendo analisado.</line>
+        </summary>
+        <description />
+        <tags>
+            <tag name="package">
+                <line>AeonDigital\DocBlockExtractor</line>
+            </tag>
+            <tag name="author">
+                <line>Rianna Cantarelli &lt;rianna@aeondigital.com.br&gt;</line>
+            </tag>
+            <tag name="copyright">
+                <line>2023, Rianna Cantarelli</line>
+            </tag>
+            <tag name="license">
+                <line>MIT</line>
+            </tag>
+        </tags>
+    </docBlock>
+    <interfaces />
+    <extends />
+    <constants>
+        <public />
+    </constants>
+    <properties>
+        <public>
+            <static />
+            <nonstatic />
+        </public>
+    </properties>
+    <constructor fileName="/var/www/html/src/ProjectDocumentation.php"
+                 namespaceName="AeonDigital\DocBlockExtractor\ProjectDocumentation"
+                 fqsen="AeonDigital\DocBlockExtractor\ProjectDocumentation\__construct"
+                 shortName="__construct"
+                 type="METHOD"
+                 isAbstract="false"
+                 isFinal="false">
+        <docBlock>
+            <summary>
+                <line>Efetua a extração da documentação do projeto.</line>
+            </summary>
+            <description>
+                <line>Para que a extração seja feita corretamente, primeiro você precisa rodar o</line>
+                <line>php composer para que as classes do projeto estejam devidamente mapeadas.</line>
+            </description>
+            <tags>
+                <tag name="param">
+                    <line>string $vendorDir</line>
+                    <line>Caminho completo até o diretório ``vendor`` do projeto.</line>
+                </tag>
+                <tag name="param">
+                    <line>string[] $detachedFilesAndDirectories</line>
+                    <line>Array que, se usado, deve conter apenas caminhos para diretórios e arquivos que</line>
+                    <line>não fazem parte do mapeamento feito pelo composer.</line>
+                </tag>
+                <tag name="param">
+                    <line>string[] $ignoreDetachedFilesAndDirectories</line>
+                    <line>Array que, se usado, deve conter apenas caminhos para diretórios e arquivos que</line>
+                    <line>devem ser ignorados na extração da documentação.</line>
+                    <line>Esta opção atinge apenas os itens ``detached``.</line>
+                </tag>
+                <tag name="throws">
+                    <line>DirectoryNotFoundException</line>
+                    <line>Caso o diretório ``vendor`` indicado não exista.</line>
+                </tag>
+                <tag name="throws">
+                    <line>FileNotFoundException</line>
+                    <line>Caso algum dos arquivos mapeadores do composer sejam encontrados.</line>
+                </tag>
+            </tags>
+        </docBlock>
+        <parameters>
+            <parameter name="vendorDir"
+                       type="string"
+                       isOptional="false"
+                       isReference="false"
+                       isVariadic="false"
+                       isNullable="false"
+                       isDefaultValue="false"
+                       defaultValue="``null``">
+                <docBlock>
+                    <summary>
+                        <line>Caminho completo até o diretório ``vendor`` do projeto.</line>
+                    </summary>
+                    <description />
+                    <tags />
+                </docBlock>
+            </parameter>
+            <parameter name="detachedFilesAndDirectories"
+                       type="array"
+                       isOptional="true"
+                       isReference="false"
+                       isVariadic="false"
+                       isNullable="false"
+                       isDefaultValue="true"
+                       defaultValue="```array``">
+                <docBlock>
+                    <summary>
+                        <line>Array que, se usado, deve conter apenas caminhos para diretórios e arquivos que</line>
+                        <line>não fazem parte do mapeamento feito pelo composer.</line>
+                    </summary>
+                    <description />
+                    <tags />
+                </docBlock>
+            </parameter>
+            <parameter name="ignoreDetachedFilesAndDirectories"
+                       type="array"
+                       isOptional="true"
+                       isReference="false"
+                       isVariadic="false"
+                       isNullable="false"
+                       isDefaultValue="true"
+                       defaultValue="```array``">
+                <docBlock>
+                    <summary>
+                        <line>Array que, se usado, deve conter apenas caminhos para diretórios e arquivos que</line>
+                        <line>devem ser ignorados na extração da documentação.</line>
+                        <line>Esta opção atinge apenas os itens ``detached``.</line>
+                    </summary>
+                    <description />
+                    <tags />
+                </docBlock>
+            </parameter>
+        </parameters>
+        <return />
+    </constructor>
+    <methods>
+        <public>
+            <abstract>
+                <static />
+                <nonstatic />
+            </abstract>
+            <nonabstract>
+                <static />
+                <nonstatic>
+                    <method fileName="/var/www/html/src/ProjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ProjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ProjectDocumentation\getFileNames"
+                            shortName="getFileNames"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna um array unidimensional contendo todos arquivos usados para</line>
+                                <line>extrair a informação da documentação do projeto.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="return">
+                                    <line>string[]</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters />
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/ProjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ProjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ProjectDocumentation\getNamespaces"
+                            shortName="getNamespaces"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna um array unidimensional contendo todas as namespaces</line>
+                                <line>declaradas no projeto.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="return">
+                                    <line>string[]</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters />
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/ProjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ProjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ProjectDocumentation\getConstants"
+                            shortName="getConstants"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna um array associativo fazendo o vínculo entre as namespaces do projeto</line>
+                                <line>e as constantes.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="return">
+                                    <line>array[string]ObjectDocumentation[]</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters />
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/ProjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ProjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ProjectDocumentation\getVariables"
+                            shortName="getVariables"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna um array associativo fazendo o vínculo entre as namespaces do projeto</line>
+                                <line>e as variáveis.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="return">
+                                    <line>array[string]ObjectDocumentation[]</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters />
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/ProjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ProjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ProjectDocumentation\getFunctions"
+                            shortName="getFunctions"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna um array associativo fazendo o vínculo entre as namespaces do projeto</line>
+                                <line>e as funções.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="return">
+                                    <line>array[string]ObjectDocumentation[]</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters />
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/ProjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ProjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ProjectDocumentation\getInterfaces"
+                            shortName="getInterfaces"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna um array associativo fazendo o vínculo entre as namespaces do projeto</line>
+                                <line>e suas interfaces.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="return">
+                                    <line>array[string]ObjectDocumentation[]</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters />
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/ProjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ProjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ProjectDocumentation\getEnuns"
+                            shortName="getEnuns"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna um array associativo fazendo o vínculo entre as namespaces do projeto</line>
+                                <line>e seus enuns.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="return">
+                                    <line>array[string]ObjectDocumentation[]</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters />
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/ProjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ProjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ProjectDocumentation\getTraits"
+                            shortName="getTraits"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna um array associativo fazendo o vínculo entre as namespaces do projeto</line>
+                                <line>e suas traits.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="return">
+                                    <line>array[string]ObjectDocumentation[]</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters />
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/ProjectDocumentation.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\ProjectDocumentation"
+                            fqsen="AeonDigital\DocBlockExtractor\ProjectDocumentation\getClasses"
+                            shortName="getClasses"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna um array associativo fazendo o vínculo entre as namespaces do projeto</line>
+                                <line>e suas classes.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="return">
+                                    <line>array[string]ObjectDocumentation[]</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters />
+                        <return>array</return>
+                    </method>
+                </nonstatic>
+            </nonabstract>
+        </public>
+    </methods>
+</class>

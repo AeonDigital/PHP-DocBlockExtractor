@@ -27,38 +27,15 @@ class XML extends aOutputExtractor
 
     protected \SimpleXMLElement $objXml;
     protected array $mapComponentCollectionTypeToObjectName = [
-        "constants" => "constant",
-        "variables" => "variable",
-        "functions" => "function",
+        "constants"     => "constant",
+        "variables"     => "variable",
+        "functions"     => "function",
 
-        "interfaces" => "interface",
-        "enuns" => "enun",
-        "traits" => "trait",
-        "classes" => "class",
+        "interfaces"    => "interface",
+        "enuns"         => "enun",
+        "traits"        => "trait",
+        "classes"       => "class",
     ];
-    /*protected array $mapComponentChildCollectionTypeToObjectName = [
-        "constants" => [
-            "public" => "constant",
-        ],
-        "properties" => [
-            "public" => [
-                "static" => "property",
-                "nonstatic" => "property",
-            ],
-        ],
-        "methods" => [
-            "public" => [
-                "abstract" => [
-                    "static" => "method",
-                    "nonstatic" => "method",
-                ],
-                "nonabstract" => [
-                    "static" => "method",
-                    "nonstatic" => "method",
-                ]
-            ],
-        ],
-    ];*/
 
 
 
@@ -117,7 +94,50 @@ class XML extends aOutputExtractor
         }
 
         if ($singleFile === true) {
-            $r = $this->objXml->saveXML($outputDir . DIRECTORY_SEPARATOR . "index.xml");
+            $r = $this->saveDocumentFile(
+                $outputDir . DIRECTORY_SEPARATOR . "index.xml",
+                $this->objXml->asXml()
+            );
+        } else {
+            $r = true;
+
+            foreach ($this->objXml->namespace as $objXMLNamespace) {
+                if ($r === true) {
+                    $objXMLAttributes = $objXMLNamespace->attributes();
+                    $namespaceNamePath = $outputDir . DIRECTORY_SEPARATOR . \str_replace("\\", "_", (string)$objXMLAttributes->{"name"});
+
+                    $r = \mkdir($namespaceNamePath);
+                    if ($r === true) {
+
+                        foreach ($objXMLNamespace as $objNamespaceComponent) {
+                            if ($r === true && $objNamespaceComponent->count() > 0) {
+                                $componentType = $objNamespaceComponent->getName();
+
+                                switch ($componentType) {
+                                    case "constants":
+                                    case "variables":
+                                        $r = $this->saveDocumentFile(
+                                            $namespaceNamePath . DIRECTORY_SEPARATOR . $componentType . ".xml",
+                                            $objNamespaceComponent->asXML()
+                                        );
+                                        break;
+
+                                    case "functions":
+                                    case "interfaces":
+                                    case "enuns":
+                                    case "traits":
+                                    case "classes":
+                                        $r = $this->saveDocumentsOfComponentsFiles(
+                                            $namespaceNamePath . DIRECTORY_SEPARATOR . $componentType,
+                                            $objNamespaceComponent
+                                        );
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         return $r;
@@ -127,6 +147,17 @@ class XML extends aOutputExtractor
 
 
 
+    /**
+     * Adiciona um novo node ``namespace`` no objeto ``$this->objXml``.
+     *
+     * @param string $namespaceName
+     * Nome completo do namespace.
+     *
+     * @param array $namespaceComponentsCollections
+     * Coleção de componentes que devem ser adicionados na namespace.
+     *
+     * @return void
+     */
     protected function appendNamespace(
         string $namespaceName,
         array $namespaceComponentsCollections
@@ -152,8 +183,19 @@ class XML extends aOutputExtractor
 
 
 
+    /**
+     * Adiciona um novo componente no nó pai indicado.
+     *
+     * @param \SimpleXMLElement $objXMLParentNode
+     * Elemento XML alvo das alterações.
+     *
+     * @param array $objCollectionDataObject
+     * Coleção de objetos que devem ser adicionados no elemento XML.
+     *
+     * @return void
+     */
     protected function appendComponent(
-        \SimpleXMLElement $objXMLComponent,
+        \SimpleXMLElement $objXMLParentNode,
         array $objCollectionDataObject
     ): void {
 
@@ -164,17 +206,23 @@ class XML extends aOutputExtractor
                 case "fqsen":
                 case "shortName":
                 case "type":
-                    $objXMLComponent->addAttribute($paramAttributeName, $paramAttributeValue);
+
+                case "isAbstract":
+                case "isFinal":
+                    $objXMLParentNode->addAttribute(
+                        $paramAttributeName,
+                        $this->convertJSONValueToXMLValue($paramAttributeValue)
+                    );
                     break;
 
                 case "docBlock":
-                    $objXMLElem = $objXMLComponent->addChild("docBlock");
+                    $objXMLElem = $objXMLParentNode->addChild("docBlock");
                     $this->appendDocBlock($objXMLElem, $paramAttributeValue);
                     break;
 
                 case "interfaces":
                 case "extends":
-                    $objXMLElem = $objXMLComponent->addChild($paramAttributeName);
+                    $objXMLElem = $objXMLParentNode->addChild($paramAttributeName);
                     if (\is_array($paramAttributeValue) && \count($paramAttributeValue) > 0) {
                         foreach ($paramAttributeValue as $value) {
                             $objXMLElem->addChild("ns", $value);
@@ -182,115 +230,210 @@ class XML extends aOutputExtractor
                     }
                     break;
 
-                case "isAbstract":
-                case "isFinal":
-                    if (\is_bool($paramAttributeValue) === true) {
-                        $paramAttributeValue = (($paramAttributeValue === true) ? "true" : "false");
-                    }
-                    $objXMLComponent->addAttribute($paramAttributeName, $paramAttributeValue);
-                    break;
-
                 case "constants":
-                    $objXMLElem = $objXMLComponent->addChild($paramAttributeName);
-                    // Seguir daqui!!!!
+                    $objXMLElem = $objXMLParentNode->addChild($paramAttributeName);
                     $objXMLPublicElem = $objXMLElem->addChild("public");
 
+                    $this->appendChildCollection(
+                        $objXMLPublicElem,
+                        "constant",
+                        $paramAttributeValue["public"]
+                    );
+                    break;
+
+                case "properties":
+                    $objXMLElem = $objXMLParentNode->addChild($paramAttributeName);
+                    $objXMLPublicElem = $objXMLElem->addChild("public");
+
+                    $this->appendChildCollection(
+                        $objXMLPublicElem->addChild("static"),
+                        "property",
+                        $paramAttributeValue["public"]["static"]
+                    );
+
+                    $this->appendChildCollection(
+                        $objXMLPublicElem->addChild("nonstatic"),
+                        "property",
+                        $paramAttributeValue["public"]["nonstatic"]
+                    );
+                    break;
+
+                case "value":
+                case "defaultValue":
+                    $objXMLElem = $objXMLParentNode->addChild($paramAttributeName);
+
+                    $objXMLElem->addAttribute("type", $this->convertJSONValueToXMLValue($paramAttributeValue["type"]));
+                    $objXMLElem->addAttribute("originalValue", $this->convertJSONValueToXMLValue($paramAttributeValue["originalValue"]));
+                    $objXMLElem->addAttribute("stringValue", $this->convertJSONValueToXMLValue($paramAttributeValue["stringValue"]));
+                    break;
+
+                case "constructor":
+                    $objXMLElem = $objXMLParentNode->addChild($paramAttributeName);
+
+                    if ($paramAttributeValue !== null) {
+                        $this->appendComponent(
+                            $objXMLElem,
+                            $paramAttributeValue
+                        );
+                    }
+                    break;
+
+                case "methods":
+                    $objXMLElem = $objXMLParentNode->addChild($paramAttributeName);
+                    $objXMLPublicElem = $objXMLElem->addChild("public");
+
+
+                    $objXMLPublicAbstractElem = $objXMLPublicElem->addChild("abstract");
+                    $this->appendChildCollection(
+                        $objXMLPublicAbstractElem->addChild("static"),
+                        "method",
+                        $paramAttributeValue["public"]["abstract"]["static"]
+                    );
+                    $this->appendChildCollection(
+                        $objXMLPublicAbstractElem->addChild("nonstatic"),
+                        "method",
+                        $paramAttributeValue["public"]["abstract"]["nonstatic"]
+                    );
+
+
+                    $objXMLPublicNonAbstractElem = $objXMLPublicElem->addChild("nonabstract");
+                    $this->appendChildCollection(
+                        $objXMLPublicNonAbstractElem->addChild("static"),
+                        "method",
+                        $paramAttributeValue["public"]["nonabstract"]["static"]
+                    );
+                    $this->appendChildCollection(
+                        $objXMLPublicNonAbstractElem->addChild("nonstatic"),
+                        "method",
+                        $paramAttributeValue["public"]["nonabstract"]["nonstatic"]
+                    );
+
+                    break;
+
+                case "parameters":
+                    $objXMLElem = $objXMLParentNode->addChild($paramAttributeName);
+                    $this->appendParameters($objXMLElem, $paramAttributeValue);
+
+                    break;
+
+                case "return":
+                    $objXMLElem = $objXMLParentNode->addChild(
+                        $paramAttributeName,
+                        $this->convertJSONValueToXMLValue($paramAttributeValue)
+                    );
                     break;
             }
-            /*
-            if (\key_exists($paramAttributeName, $this->mapComponentCollectionTypeToObjectName) === true) {
-                $objXMLChildCollection = $objXMLComponent->addChild(
-                    $this->mapComponentCollectionTypeToObjectName[$paramAttributeName]
-                );
-
-                if (\is_array($paramAttributeValue) === true && \count($paramAttributeValue) > 0) {
-                    $this->appendComponent(
-                        $objXMLChildCollection,
-                        $objCollectionDataObject
-                    );
-                }
-            } else {
-                if ($paramAttributeName === "docBlock") {
-                    $objXMLDocBlock = $objXMLComponent->addChild("docBlock");
-                    $this->appendDocBlock($objXMLDocBlock, $paramAttributeValue);
-                } else {
-                    if (\is_bool($paramAttributeValue) === true) {
-                        $paramAttributeValue = (($paramAttributeValue === true) ? "true" : "false");
-                    } elseif ($paramAttributeValue === null) {
-                        $paramAttributeValue = "null";
-                    }
-
-                    $objXMLComponent->addAttribute($paramAttributeName, $paramAttributeValue);
-                }
-            }*/
         }
-
-        /*
-        $objXMLDocBlock = $objXMLComponent->addChild("docBlock");
-        $this->appendDocBlock($objXMLDocBlock, $objCollectionDataObject["docBlock"]);
-
-
-        switch ($objCollectionDataObject["type"]) {
-            case "CONSTANT":
-            case "VARIABLE":
-            case "PROPERTIE":
-                // resgatar valores!
-                break;
-
-            case "FUNCTION":
-            case "METHOD":
-                $objXMLParameters = $objXMLComponent->addChild("parameters");
-                $this->appendParameters(
-                    $objXMLParameters,
-                    $objCollectionDataObject["parameters"]
-                );
-                $objXMLComponent->addChild("return", $objCollectionDataObject["return"]);
-                break;
-
-            case "INTERFACE":
-            case "ENUM":
-            case "TRAIT":
-            case "CLASSE":
-
-                break;
-        }
-        */
     }
 
 
 
+    /**
+     * Preenche um nó ``DocBlock`` com os dados passados.
+     *
+     * @param \SimpleXMLElement $objXMLParentNode
+     * Elemento XML alvo das alterações.
+     *
+     * @param array $objDocBlock
+     * Dados do elemento ``DocBlock``.
+     *
+     * @return void
+     */
     protected function appendDocBlock(
-        \SimpleXMLElement $objXMLDocBlock,
+        \SimpleXMLElement $objXMLParentNode,
         array $objDocBlock
     ): void {
-        $objSummary = $objXMLDocBlock->addChild("summary");
+        $objSummary = $objXMLParentNode->addChild("summary");
         foreach ($objDocBlock["summary"] as $line) {
-            $objSummary->addChild("l", (string)$line);
+            $objSummary->addChild("line", (string)$line);
         }
 
-        $objDescription = $objXMLDocBlock->addChild("description");
+        $objDescription = $objXMLParentNode->addChild("description");
         foreach ($objDocBlock["description"] as $line) {
-            $objDescription->addChild("l", (string)$line);
+            $objDescription->addChild("line", (string)$line);
         }
 
-        $objTags = $objXMLDocBlock->addChild("tags");
-        foreach ($objDocBlock["tags"] as $tagName => $tagDescription) {
-            $objTag = $objTags->addChild("tag");
-            $objTag->addAttribute("name", $tagName);
+        $objTags = $objXMLParentNode->addChild("tags");
+        foreach ($objDocBlock["tags"] as $tagName => $objTagData) {
 
-            foreach ($tagDescription as $line) {
-                $objTag->addChild("l", (string)$line);
+            if (\is_array($objTagData) === false || \count($objTagData) === 0) {
+                $objTag = $objTags->addChild("tag");
+                $objTag->addAttribute("name", $tagName);
+            } else {
+                if (\is_string($objTagData[0]) === true) {
+                    $objTag = $objTags->addChild("tag");
+                    $objTag->addAttribute("name", $tagName);
+
+                    foreach ($objTagData as $line) {
+                        $objTag->addChild("line", (string)$line);
+                    }
+                } elseif (\is_array($objTagData[0]) === true) {
+                    foreach ($objTagData as $oTag) {
+                        $objTag = $objTags->addChild("tag");
+                        $objTag->addAttribute("name", $tagName);
+
+                        foreach ($oTag as $line) {
+                            $objTag->addChild("line", (string)$line);
+                        }
+                    }
+                }
             }
         }
     }
 
 
+
+    /**
+     * Preenche o nó pai com uma série de elementos filhos.
+     *
+     * @param \SimpleXMLElement $objXMLParentNode
+     * Elemento XML alvo das alterações.
+     *
+     * @param string $tagNameElement
+     * TagName para os filhos que serão criados.
+     *
+     * @param array $objChildElements
+     * Array de arrays contendo a coleção de dados de objetos filhos a
+     * serem adicionados.
+     *
+     * @return void
+     */
+    protected function appendChildCollection(
+        \SimpleXMLElement $objXMLParentNode,
+        string $tagNameElement,
+        array $objChildElements
+    ): void {
+        if (\is_array($objChildElements) && \count($objChildElements) > 0) {
+            foreach ($objChildElements as $objChileElem) {
+                $this->appendComponent(
+                    $objXMLParentNode->addChild($tagNameElement),
+                    $objChileElem
+                );
+            }
+        }
+    }
+
+
+
+    /**
+     * Preenche um nó ``parameters`` com os parametros que fazem parte de sua
+     * especificação.
+     *
+     * @param \SimpleXMLElement $objXMLParentNode
+     * Elemento XML alvo das alterações.
+     *
+     * @param array $objDataParameters
+     * Array associativo de arrays contendo a coleção de dados de objetos filhos a
+     * serem adicionados.
+     *
+     * @return void
+     */
     protected function appendParameters(
-        \SimpleXMLElement $objXMLParameters,
+        \SimpleXMLElement $objXMLParentNode,
         array $objDataParameters
     ): void {
         foreach ($objDataParameters as $parameterName => $objParameterAttributess) {
-            $objXMLParameter = $objXMLParameters->addChild("parameter");
+            $objXMLParameter = $objXMLParentNode->addChild("parameter");
             $objXMLParameter->addAttribute("name", $parameterName);
 
             foreach ($objParameterAttributess as $paramAttributeName => $paramAttributeValue) {
@@ -298,10 +441,37 @@ class XML extends aOutputExtractor
                     $objXMLDocBlock = $objXMLParameter->addChild("docBlock");
                     $this->appendDocBlock($objXMLDocBlock, $paramAttributeValue);
                 } else {
-                    $objXMLParameter->addAttribute($paramAttributeName, (string)$paramAttributeValue);
+                    $paramAttributeValue = $this->convertJSONValueToXMLValue($paramAttributeValue);
+                    $objXMLParameter->addAttribute($paramAttributeName, $paramAttributeValue);
                 }
             }
         }
+    }
+
+
+
+    /**
+     * Converte o valor JSON a ser usado em uma tag XML para um valor em ``string``
+     * que lhe represente neste formato.
+     *
+     * @param mixed $o
+     * Valor que será convertido.
+     *
+     * @return string
+     */
+    protected function convertJSONValueToXMLValue(mixed $o): string
+    {
+        if ($o === null) {
+            $o = "``null``";
+        } elseif (\is_bool($o) === true) {
+            $o = (($o === true) ? "true" : "false");
+        } elseif (\is_array($o) === true) {
+            $o = "```array``";
+        } else {
+            $o = (string)$o;
+        }
+
+        return $o;
     }
 
 
@@ -314,7 +484,7 @@ class XML extends aOutputExtractor
      * @param string $absolutePathToFile
      * Caminho completo até o local onde o novo arquivo será criado.
      *
-     * @param array $data
+     * @param string $strXML
      * Informações que serão salvas no arquivo.
      *
      * @return bool
@@ -322,11 +492,69 @@ class XML extends aOutputExtractor
      */
     protected function saveDocumentFile(
         string $absolutePathToFile,
-        array $data,
+        string $strXML,
     ): bool {
+        // Lista completa de configurações possíveis
+        // http://tidy.sourceforge.net/docs/quickref.html
+        $configOutput = [
+            "input-xml"         => true,    // Indica que o código de entrada é um XML
+            "output-xml"        => true,    // Tenta converter a string em um documento XML
 
-        foreach ($data as $namespaceName => $namespaceComponents) {
+            "add-xml-decl"      => true,    // Adiciona a declaração de documento XML no início do arquivo.
+
+            "indent"            => true,    // Indica se o código de saida deve estar indentado
+            "indent-spaces"     => 4,       // Indica a quantidade de espaços usados para cada nível de indentação.
+            "indent-attributes" => true,    // Indenta os atributos
+            "vertical-space"    => true,    // Irá adicionar algumas linhas em branco para facilitar a leitura.
+            "wrap"              => 512,     // Máximo de caracteres que uma linha deve ter.
+
+            "quote-ampersand"   => true,    // Converte todo & para &amp;
+            "hide-comments"     => true,    // Remove comentários
+            "indent-cdata"      => true,    // Indenta sessões CDATA
+
+            "char-encoding"     => "utf8"   // Encoding do código de saida.
+        ];
+
+        $tidy = \tidy_parse_string($strXML, $configOutput, "UTF8");
+        $tidy->cleanRepair();
+        $strXML = (string)$tidy;
+        $r = \file_put_contents($absolutePathToFile, $strXML);
+
+        return ($r !== false);
+    }
+    /**
+     * Salva os dados passados para arquivos individualizados sendo 1 para cada
+     * componente listado. Os arquivos terão o mesmo nome indicado em seu ``shortName`` de
+     * suas respectivas descrições.
+     *
+     * @param string $absolutePathToDir
+     * Caminho completo até o diretório onde os novos arquivos serão gerados.
+     *
+     * @param \SimpleXMLElement $componentObjects
+     * Array contendo cada um dos componentes que deve ser individualizado em um arquivo a parte.
+     *
+     * @return bool
+     * Retorna ``true`` se todos os arquivos forem salvos corretamente.
+     */
+    protected function saveDocumentsOfComponentsFiles(
+        string $absolutePathToDir,
+        \SimpleXMLElement $componentObjects
+    ): bool {
+        $r = \mkdir($absolutePathToDir);
+
+        if ($r === true) {
+            foreach ($componentObjects as $componentData) {
+                if ($r === true) {
+                    $objXMLAttributes = $componentData->attributes();
+
+                    $r = $this->saveDocumentFile(
+                        $absolutePathToDir . DIRECTORY_SEPARATOR . $objXMLAttributes->{"shortName"} . ".xml",
+                        $componentData->asXML()
+                    );
+                }
+            }
         }
-        return (($r === false) ? false : true);
+
+        return $r;
     }
 }

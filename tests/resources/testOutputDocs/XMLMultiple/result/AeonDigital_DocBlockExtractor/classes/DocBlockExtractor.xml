@@ -1,0 +1,712 @@
+<?xml version="1.0"?>
+<class fileName="/var/www/html/src/DocBlockExtractor.php"
+       namespaceName="AeonDigital\DocBlockExtractor"
+       fqsen="AeonDigital\DocBlockExtractor\DocBlockExtractor"
+       shortName="DocBlockExtractor"
+       type="CLASSE"
+       isAbstract="false"
+       isFinal="false">
+    <docBlock>
+        <summary>
+            <line>Processa e extrai o projeto indicado conforme as configurações passadas.</line>
+        </summary>
+        <description />
+        <tags>
+            <tag name="package">
+                <line>AeonDigital\DocBlockExtractor</line>
+            </tag>
+            <tag name="author">
+                <line>Rianna Cantarelli &lt;rianna@aeondigital.com.br&gt;</line>
+            </tag>
+            <tag name="copyright">
+                <line>2023, Rianna Cantarelli</line>
+            </tag>
+            <tag name="license">
+                <line>MIT</line>
+            </tag>
+        </tags>
+    </docBlock>
+    <interfaces />
+    <extends />
+    <constants>
+        <public />
+    </constants>
+    <properties>
+        <public>
+            <static />
+            <nonstatic />
+        </public>
+    </properties>
+    <constructor />
+    <methods>
+        <public>
+            <abstract>
+                <static />
+                <nonstatic />
+            </abstract>
+            <nonabstract>
+                <static>
+                    <method fileName="/var/www/html/src/DocBlockExtractor.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\DocBlockExtractor"
+                            fqsen="AeonDigital\DocBlockExtractor\DocBlockExtractor\createConfigurationFileTemplate"
+                            shortName="createConfigurationFileTemplate"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Cria um arquivo de configuração template no local indicado.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="param">
+                                    <line>string $configFilePath</line>
+                                    <line>Caminho completo até o arquivo de configuração.</line>
+                                    <line>Se um arquivo já existe ele será substituído.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string $rootPath</line>
+                                    <line>Valor usado na propriedade ``phpdocblockextractor[@rootPath]``.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string $vendorDir</line>
+                                    <line>Valor usado na propriedade ``phpdocblockextractor[@vendorDir]``.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string $outputDir</line>
+                                    <line>Valor usado na propriedade ``phpdocblockextractor[@outputDir]``.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string|OutputFormatType $outputFormatType</line>
+                                    <line>Valor usado na propriedade ``phpdocblockextractor[@outputFormatType]``.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>bool $singleFile</line>
+                                    <line>Valor usado na propriedade ``phpdocblockextractor[@singleFile]``.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string $outputExtractorClassName</line>
+                                    <line>Valor usado na propriedade ``phpdocblockextractor[@outputExtractorClassName]``.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string[] $detachedFilesAndDirectories</line>
+                                    <line>Valores usados para popular o elemento ``phpdocblockextractor-&gt;detachedFilesAndDirectories``.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string[] $ignoreDetachedFilesAndDirectories</line>
+                                    <line>Valores usados para popular o elemento ``phpdocblockextractor-&gt;ignoreDetachedFilesAndDirectories``.</line>
+                                </tag>
+                                <tag name="return">
+                                    <line>bool</line>
+                                    <line>Retorna ``true`` caso a ação de criar o novo arquivo sucesso.</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters>
+                            <parameter name="configFilePath"
+                                       type="string"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Caminho completo até o arquivo de configuração.</line>
+                                        <line>Se um arquivo já existe ele será substituído.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="rootPath"
+                                       type="string"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="">
+                                <docBlock>
+                                    <summary>
+                                        <line>Valor usado na propriedade ``phpdocblockextractor[@rootPath]``.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="vendorDir"
+                                       type="string"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="">
+                                <docBlock>
+                                    <summary>
+                                        <line>Valor usado na propriedade ``phpdocblockextractor[@vendorDir]``.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="outputDir"
+                                       type="string"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="">
+                                <docBlock>
+                                    <summary>
+                                        <line>Valor usado na propriedade ``phpdocblockextractor[@outputDir]``.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="outputFormatType"
+                                       type="AeonDigital\DocBlockExtractor\Enums\OutputFormatType|string"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="">
+                                <docBlock>
+                                    <summary>
+                                        <line>Valor usado na propriedade ``phpdocblockextractor[@outputFormatType]``.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="singleFile"
+                                       type="bool"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="true">
+                                <docBlock>
+                                    <summary>
+                                        <line>Valor usado na propriedade ``phpdocblockextractor[@singleFile]``.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="outputExtractorClassName"
+                                       type="string"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="">
+                                <docBlock>
+                                    <summary>
+                                        <line>Valor usado na propriedade ``phpdocblockextractor[@outputExtractorClassName]``.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="detachedFilesAndDirectories"
+                                       type="array"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="```array``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Valores usados para popular o elemento ``phpdocblockextractor-&gt;detachedFilesAndDirectories``.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="ignoreDetachedFilesAndDirectories"
+                                       type="array"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="```array``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Valores usados para popular o elemento ``phpdocblockextractor-&gt;ignoreDetachedFilesAndDirectories``.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>bool</return>
+                    </method>
+                    <method fileName="/var/www/html/src/DocBlockExtractor.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\DocBlockExtractor"
+                            fqsen="AeonDigital\DocBlockExtractor\DocBlockExtractor\validateConfigXML"
+                            shortName="validateConfigXML"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Efetua a validação do arquivo de configuração para extração de documentação.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="param">
+                                    <line>string $configFilePath</line>
+                                    <line>Caminho completo até o arquivo de configuração.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>bool $returnError</line>
+                                    <line>Quando ``false`` retornará um booleano indicando o sucesso ou falha da validação.</line>
+                                    <line>Quando ``true`` retornará um array associativo contendo informações sobre a falha encontrada.</line>
+                                    <line>O array associativo usará a seguinte estrutura:</line>
+                                    <line>```php</line>
+                                    <line>$arr = [</line>
+                                    <line>"exceptionType" =&gt; "" // Nome completo da exception que representa o tipo de erro encontrado.</line>
+                                    <line>"exceptionMessage" =&gt; "" // Mensagem de erro a ser incorporada na exception.</line>
+                                    <line>];</line>
+                                    <line>```</line>
+                                </tag>
+                                <tag name="return">
+                                    <line>bool|array</line>
+                                    <line>Retorna ``true`` ou ``false`` conforme o resultado da validação ou um array conforme informado</line>
+                                    <line>no parametro ``$returnError``.</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters>
+                            <parameter name="configFilePath"
+                                       type="string"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Caminho completo até o arquivo de configuração.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="returnError"
+                                       type="bool"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="false">
+                                <docBlock>
+                                    <summary>
+                                        <line>Quando ``false`` retornará um booleano indicando o sucesso ou falha da validação.</line>
+                                        <line>Quando ``true`` retornará um array associativo contendo informações sobre a falha encontrada.</line>
+                                        <line>O array associativo usará a seguinte estrutura:</line>
+                                        <line>```php</line>
+                                        <line>$arr = [</line>
+                                        <line>"exceptionType" =&gt; "" // Nome completo da exception que representa o tipo de erro encontrado.</line>
+                                        <line>"exceptionMessage" =&gt; "" // Mensagem de erro a ser incorporada na exception.</line>
+                                        <line>];</line>
+                                        <line>```</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>array|bool</return>
+                    </method>
+                    <method fileName="/var/www/html/src/DocBlockExtractor.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\DocBlockExtractor"
+                            fqsen="AeonDigital\DocBlockExtractor\DocBlockExtractor\retrieveDirectoriesAndFilesFromXMLElement"
+                            shortName="retrieveDirectoriesAndFilesFromXMLElement"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna os diretórios e arquivos configurados em chaves &lt;directory&gt; e &lt;file&gt; inseridas dentro do</line>
+                                <line>corpo do elemento passado em ``$xmlElement``.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="param">
+                                    <line>SimpleXMLElement $xmlElement</line>
+                                    <line>Elemento XML que será verificado em busca de chaves &lt;directory&gt; e &lt;file&gt;.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string $rootPath</line>
+                                    <line>Caminho completo até a raiz do projeto ou local indicado para ser a base a partir da qual os</line>
+                                    <line>endereços de arquivos e diretórios estão descritos.</line>
+                                </tag>
+                                <tag name="return">
+                                    <line>array</line>
+                                    <line>Array contendo todos os endereços válidos de diretórios e arquivos descritos no elemento verificado.</line>
+                                    <line>Itens inválidos não causam erros, apenas não são usados.</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters>
+                            <parameter name="xmlElement"
+                                       type="SimpleXMLElement"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Elemento XML que será verificado em busca de chaves &lt;directory&gt; e &lt;file&gt;.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="rootPath"
+                                       type="string"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Caminho completo até a raiz do projeto ou local indicado para ser a base a partir da qual os</line>
+                                        <line>endereços de arquivos e diretórios estão descritos.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/DocBlockExtractor.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\DocBlockExtractor"
+                            fqsen="AeonDigital\DocBlockExtractor\DocBlockExtractor\retrieveOutputExtractorInstance"
+                            shortName="retrieveOutputExtractorInstance"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Retorna uma instância ``iOutputExtractor`` referente ao extrator que será utilizado.</line>
+                            </summary>
+                            <description />
+                            <tags>
+                                <tag name="param">
+                                    <line>string $outputExtractorClassName</line>
+                                    <line>Nome completo de uma classe concreta que implementa a interface</line>
+                                    <line>``AeonDigital\DocBlockExtractor\Interfaces\iOutputExtractor``.</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters>
+                            <parameter name="outputExtractorClassName"
+                                       type="string"
+                                       isOptional="false"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="false"
+                                       defaultValue="``null``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Nome completo de uma classe concreta que implementa a interface</line>
+                                        <line>``AeonDigital\DocBlockExtractor\Interfaces\iOutputExtractor``.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>AeonDigital\DocBlockExtractor\Interfaces\iOutputExtractor</return>
+                    </method>
+                    <method fileName="/var/www/html/src/DocBlockExtractor.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\DocBlockExtractor"
+                            fqsen="AeonDigital\DocBlockExtractor\DocBlockExtractor\main"
+                            shortName="main"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary>
+                                <line>Processa e extrai o projeto indicado conforme as configurações passadas.</line>
+                            </summary>
+                            <description>
+                                <line>Para que a extração seja feita corretamente, primeiro você precisa rodar o</line>
+                                <line>php composer para que as classes do projeto estejam devidamente mapeadas.</line>
+                            </description>
+                            <tags>
+                                <tag name="param">
+                                    <line>string $configPath</line>
+                                    <line>Caminho completo até o arquivo XML de configuração da extração de documentação.</line>
+                                    <line>Se usado, as configurações fornecidas por este arquivo serão as únicas usadas e</line>
+                                    <line>todos demais parametros passados serão ignorados.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string $rootPath</line>
+                                    <line>Quando definido será usado como prefixo de todos os demais parametros que apontam</line>
+                                    <line>para arquivos e diretórios.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string $vendorDir</line>
+                                    <line>Caminho completo até o diretório ``vendor`` do projeto (ou caminho relativo iniciando</line>
+                                    <line>em ``$rootPath`` caso este esteja definido).</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string $outputDir</line>
+                                    <line>Caminho completo até um diretório que será usado como repositório dos arquivos</line>
+                                    <line>criados (ou caminho relativo iniciando em ``$rootPath`` caso este esteja definido).</line>
+                                    <line>O conteúdo original deste diretório será eliminado antes de gerar a nova documentação.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string|OutputFormatType $outputFormatType</line>
+                                    <line>Tipo de formato de saída da documentação.</line>
+                                    <line>Se nenhum formato for informado, será usado ``JSON``.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>bool $singleFile</line>
+                                    <line>Esta opção é ``true`` por padrão.</line>
+                                    <line>Alguns tipos de formato (como JSON e XML) permitem que todo o conteúdo seja extraído</line>
+                                    <line>para um único arquivo. Informe ``true`` quando desejar este tipo de resultado. Em formatos</line>
+                                    <line>onde esta opção não faça sentido (como RST) esta opção será ignorada.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string $outputExtractorClassName</line>
+                                    <line>Se usado deve indicar uma classe que implemente a interface ``iOutputExtractor`` que será</line>
+                                    <line>utilizada para obter o resultado final da extração.</line>
+                                    <line>O uso deste parametro fará ignorar a indicação informada em ``$outputFormatType``.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string[] $detachedFilesAndDirectories</line>
+                                    <line>Array que, se usado, deve conter apenas caminhos para diretórios e arquivos que</line>
+                                    <line>não fazem parte do mapeamento feito pelo composer.</line>
+                                    <line />
+                                    <line>Use caminhos completos caso ``$rootPath`` não seja definido e caminhos relativos iniciando</line>
+                                    <line>em ``$rootPath`` caso este esteja definido.</line>
+                                </tag>
+                                <tag name="param">
+                                    <line>string[] $ignoreDetachedFilesAndDirectories</line>
+                                    <line>Array que, se usado, deve conter apenas caminhos para diretórios e arquivos que</line>
+                                    <line>devem ser ignorados na extração da documentação.</line>
+                                    <line>Esta opção atinge apenas os itens ``detached``.</line>
+                                    <line />
+                                    <line>Use caminhos completos caso ``$rootPath`` não seja definido e caminhos relativos iniciando</line>
+                                    <line>em ``$rootPath`` caso este esteja definido.</line>
+                                </tag>
+                                <tag name="throws">
+                                    <line>DirectoryNotFoundException</line>
+                                    <line>Caso o diretório ``vendor``, ou o diretório indicado em ``$outputDir`` não exista.</line>
+                                </tag>
+                                <tag name="throws">
+                                    <line>FileNotFoundException</line>
+                                    <line>Caso algum dos arquivos mapeadores do composer sejam encontrados.</line>
+                                    <line>Caso o arquivo de configuração passado não seja encontrado.</line>
+                                </tag>
+                                <tag name="throws">
+                                    <line>InvalidConfigurationFile</line>
+                                    <line>Caso o arquivo de configuração não possa ser lido ou seja considerado inválido</line>
+                                </tag>
+                                <tag name="throws">
+                                    <line>InvalidConfigurationFileException</line>
+                                    <line>Caso alguma configuração do arquivo indicado esteja incorreta.</line>
+                                </tag>
+                                <tag name="return">
+                                    <line>bool</line>
+                                    <line>Indicando o sucesso ou não da extração da documentação.</line>
+                                </tag>
+                            </tags>
+                        </docBlock>
+                        <parameters>
+                            <parameter name="configPath"
+                                       type="string"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="">
+                                <docBlock>
+                                    <summary>
+                                        <line>Caminho completo até o arquivo XML de configuração da extração de documentação.</line>
+                                        <line>Se usado, as configurações fornecidas por este arquivo serão as únicas usadas e</line>
+                                        <line>todos demais parametros passados serão ignorados.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="rootPath"
+                                       type="string"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="">
+                                <docBlock>
+                                    <summary>
+                                        <line>Quando definido será usado como prefixo de todos os demais parametros que apontam</line>
+                                        <line>para arquivos e diretórios.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="vendorDir"
+                                       type="string"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="">
+                                <docBlock>
+                                    <summary>
+                                        <line>Caminho completo até o diretório ``vendor`` do projeto (ou caminho relativo iniciando</line>
+                                        <line>em ``$rootPath`` caso este esteja definido).</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="outputDir"
+                                       type="string"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="">
+                                <docBlock>
+                                    <summary>
+                                        <line>Caminho completo até um diretório que será usado como repositório dos arquivos</line>
+                                        <line>criados (ou caminho relativo iniciando em ``$rootPath`` caso este esteja definido).</line>
+                                        <line>O conteúdo original deste diretório será eliminado antes de gerar a nova documentação.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="outputFormatType"
+                                       type="AeonDigital\DocBlockExtractor\Enums\OutputFormatType|string"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="">
+                                <docBlock>
+                                    <summary>
+                                        <line>Tipo de formato de saída da documentação.</line>
+                                        <line>Se nenhum formato for informado, será usado ``JSON``.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="singleFile"
+                                       type="bool"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="true">
+                                <docBlock>
+                                    <summary>
+                                        <line>Esta opção é ``true`` por padrão.</line>
+                                        <line>Alguns tipos de formato (como JSON e XML) permitem que todo o conteúdo seja extraído</line>
+                                        <line>para um único arquivo. Informe ``true`` quando desejar este tipo de resultado. Em formatos</line>
+                                        <line>onde esta opção não faça sentido (como RST) esta opção será ignorada.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="outputExtractorClassName"
+                                       type="string"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="">
+                                <docBlock>
+                                    <summary>
+                                        <line>Se usado deve indicar uma classe que implemente a interface ``iOutputExtractor`` que será</line>
+                                        <line>utilizada para obter o resultado final da extração.</line>
+                                        <line>O uso deste parametro fará ignorar a indicação informada em ``$outputFormatType``.</line>
+                                    </summary>
+                                    <description />
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="detachedFilesAndDirectories"
+                                       type="array"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="```array``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Array que, se usado, deve conter apenas caminhos para diretórios e arquivos que</line>
+                                        <line>não fazem parte do mapeamento feito pelo composer.</line>
+                                    </summary>
+                                    <description>
+                                        <line>Use caminhos completos caso ``$rootPath`` não seja definido e caminhos relativos iniciando</line>
+                                        <line>em ``$rootPath`` caso este esteja definido.</line>
+                                    </description>
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                            <parameter name="ignoreDetachedFilesAndDirectories"
+                                       type="array"
+                                       isOptional="true"
+                                       isReference="false"
+                                       isVariadic="false"
+                                       isNullable="false"
+                                       isDefaultValue="true"
+                                       defaultValue="```array``">
+                                <docBlock>
+                                    <summary>
+                                        <line>Array que, se usado, deve conter apenas caminhos para diretórios e arquivos que</line>
+                                        <line>devem ser ignorados na extração da documentação.</line>
+                                        <line>Esta opção atinge apenas os itens ``detached``.</line>
+                                    </summary>
+                                    <description>
+                                        <line>Use caminhos completos caso ``$rootPath`` não seja definido e caminhos relativos iniciando</line>
+                                        <line>em ``$rootPath`` caso este esteja definido.</line>
+                                    </description>
+                                    <tags />
+                                </docBlock>
+                            </parameter>
+                        </parameters>
+                        <return>bool</return>
+                    </method>
+                </static>
+                <nonstatic />
+            </nonabstract>
+        </public>
+    </methods>
+</class>

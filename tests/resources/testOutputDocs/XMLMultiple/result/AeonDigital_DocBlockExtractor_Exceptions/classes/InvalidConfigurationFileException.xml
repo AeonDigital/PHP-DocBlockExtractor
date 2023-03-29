@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<class fileName="/var/www/html/src/Exceptions/InvalidConfigurationFile.php"
+       namespaceName="AeonDigital\DocBlockExtractor\Exceptions"
+       fqsen="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException"
+       shortName="InvalidConfigurationFileException"
+       type="CLASSE"
+       isAbstract="false"
+       isFinal="false">
+    <docBlock>
+        <summary>
+            <line>Exceção para arquivos não encontrados.</line>
+        </summary>
+        <description />
+        <tags />
+    </docBlock>
+    <interfaces>
+        <ns>Throwable</ns>
+        <ns>Stringable</ns>
+    </interfaces>
+    <extends />
+    <constants>
+        <public />
+    </constants>
+    <properties>
+        <public>
+            <static />
+            <nonstatic />
+        </public>
+    </properties>
+    <constructor fileName="/var/www/html/src/Exceptions/InvalidConfigurationFile.php"
+                 namespaceName="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException"
+                 fqsen="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException\__construct"
+                 shortName="__construct"
+                 type="METHOD"
+                 isAbstract="false"
+                 isFinal="false">
+        <docBlock>
+            <summary />
+            <description />
+            <tags />
+        </docBlock>
+        <parameters>
+            <parameter name="message"
+                       type="string"
+                       isOptional="true"
+                       isReference="false"
+                       isVariadic="false"
+                       isNullable="false"
+                       isDefaultValue="true"
+                       defaultValue="">
+                <docBlock>
+                    <summary />
+                    <description />
+                    <tags />
+                </docBlock>
+            </parameter>
+            <parameter name="code"
+                       type="int"
+                       isOptional="true"
+                       isReference="false"
+                       isVariadic="false"
+                       isNullable="false"
+                       isDefaultValue="true"
+                       defaultValue="0">
+                <docBlock>
+                    <summary />
+                    <description />
+                    <tags />
+                </docBlock>
+            </parameter>
+            <parameter name="previous"
+                       type="Throwable|null"
+                       isOptional="true"
+                       isReference="false"
+                       isVariadic="false"
+                       isNullable="true"
+                       isDefaultValue="true"
+                       defaultValue="``null``">
+                <docBlock>
+                    <summary />
+                    <description />
+                    <tags />
+                </docBlock>
+            </parameter>
+        </parameters>
+        <return />
+    </constructor>
+    <methods>
+        <public>
+            <abstract>
+                <static />
+                <nonstatic />
+            </abstract>
+            <nonabstract>
+                <static />
+                <nonstatic>
+                    <method fileName="/var/www/html/src/Exceptions/InvalidConfigurationFile.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException"
+                            fqsen="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException\__wakeup"
+                            shortName="__wakeup"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary />
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return />
+                    </method>
+                    <method fileName="/var/www/html/src/Exceptions/InvalidConfigurationFile.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException"
+                            fqsen="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException\getMessage"
+                            shortName="getMessage"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="true">
+                        <docBlock>
+                            <summary />
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return>string</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Exceptions/InvalidConfigurationFile.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException"
+                            fqsen="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException\getCode"
+                            shortName="getCode"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="true">
+                        <docBlock>
+                            <summary />
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return />
+                    </method>
+                    <method fileName="/var/www/html/src/Exceptions/InvalidConfigurationFile.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException"
+                            fqsen="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException\getFile"
+                            shortName="getFile"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="true">
+                        <docBlock>
+                            <summary />
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return>string</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Exceptions/InvalidConfigurationFile.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException"
+                            fqsen="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException\getLine"
+                            shortName="getLine"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="true">
+                        <docBlock>
+                            <summary />
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return>int</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Exceptions/InvalidConfigurationFile.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException"
+                            fqsen="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException\getTrace"
+                            shortName="getTrace"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="true">
+                        <docBlock>
+                            <summary />
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return>array</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Exceptions/InvalidConfigurationFile.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException"
+                            fqsen="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException\getPrevious"
+                            shortName="getPrevious"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="true">
+                        <docBlock>
+                            <summary />
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return>Throwable|null</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Exceptions/InvalidConfigurationFile.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException"
+                            fqsen="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException\getTraceAsString"
+                            shortName="getTraceAsString"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="true">
+                        <docBlock>
+                            <summary />
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return>string</return>
+                    </method>
+                    <method fileName="/var/www/html/src/Exceptions/InvalidConfigurationFile.php"
+                            namespaceName="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException"
+                            fqsen="AeonDigital\DocBlockExtractor\Exceptions\InvalidConfigurationFileException\__toString"
+                            shortName="__toString"
+                            type="METHOD"
+                            isAbstract="false"
+                            isFinal="false">
+                        <docBlock>
+                            <summary />
+                            <description />
+                            <tags />
+                        </docBlock>
+                        <parameters />
+                        <return>string</return>
+                    </method>
+                </nonstatic>
+            </nonabstract>
+        </public>
+    </methods>
+</class>

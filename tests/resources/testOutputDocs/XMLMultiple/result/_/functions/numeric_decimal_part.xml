@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<function fileName="/var/www/html/src/Functions/numeric_decimal_part.php"
+          namespaceName=""
+          fqsen="numeric_decimal_part"
+          shortName="numeric_decimal_part"
+          type="FUNCTION">
+    <docBlock>
+        <summary>
+            <line>Retorna unicamente a parte decimal de um numeral.</line>
+        </summary>
+        <description>
+            <line>Por questões internas referentes a forma como os numerais de ponto flutuantes funcionam, a</line>
+            <line>maior precisão possível de ser encontrada é a de números de até 15 dígitos, independente do</line>
+            <line>local onde está o ponto decimal.</line>
+        </description>
+        <tags>
+            <tag name="param">
+                <line>int|float $n</line>
+                <line>Valor numérico de entrada.</line>
+            </tag>
+            <tag name="param">
+                <line>int $l</line>
+                <line>Tamanho da parte decimal a ser retornada.</line>
+                <line>Se não for informado, será usado o valor **2**.</line>
+            </tag>
+            <tag name="codeCoverageIgnore">
+                <line>Teste coberto no projeto ``PHP-Core`` na função ``numeric_decimal_part``.</line>
+                <line>Função foi portada para cá para tornar este projeto o mais independente possível.</line>
+            </tag>
+            <tag name="return">
+                <line>float</line>
+                <line>Retornará um ``float`` como ``0.004321``.</line>
+            </tag>
+        </tags>
+    </docBlock>
+    <parameters>
+        <parameter name="n"
+                   type="int|float"
+                   isOptional="false"
+                   isReference="false"
+                   isVariadic="false"
+                   isNullable="false"
+                   isDefaultValue="false"
+                   defaultValue="``null``">
+            <docBlock>
+                <summary>
+                    <line>Valor numérico de entrada.</line>
+                </summary>
+                <description />
+                <tags />
+            </docBlock>
+        </parameter>
+        <parameter name="l"
+                   type="int"
+                   isOptional="true"
+                   isReference="false"
+                   isVariadic="false"
+                   isNullable="false"
+                   isDefaultValue="true"
+                   defaultValue="2">
+            <docBlock>
+                <summary>
+                    <line>Tamanho da parte decimal a ser retornada.</line>
+                    <line>Se não for informado, será usado o valor **2**.</line>
+                </summary>
+                <description />
+                <tags />
+            </docBlock>
+        </parameter>
+    </parameters>
+    <return>float</return>
+</function>
